@@ -1,0 +1,7 @@
+.redBackgroundColor {
+  background-color: red;
+}
+
+.blueText p:hover {
+  background-color: yellow;
+}
