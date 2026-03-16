@@ -1,4 +1,4 @@
-import Image from "../assets/Whycruise/SPECIALOFFER.png";
+import Image from "../../assets/Whycruise/SPECIALOFFER.png";
 
 const Abouthero = () => {
   return (
