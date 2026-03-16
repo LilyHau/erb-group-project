@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Joti+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
 
-*,*::before,*::after{
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --white: #fff;
   --black: #000;
   --background-blue: #4271b7;
@@ -17,18 +19,19 @@
   --footer-blue: #d1eff9;
   --body-blue: #eef8ff;
   --body-green: #e1fff8;
-  --oe-main:#175490;
-  --sg-main:#c0dfb1;
-  --sd-main:#f7d77e;
-  --text-gray:#737373;
-  --text-green:#118da8;
-  --text-blue:#0035d3;
-  --text-dark-blue:#1f2b70;
+  --oe-main: #175490;
+  --sg-main: #c0dfb1;
+  --sd-main: #f7d77e;
+  --text-gray: #737373;
+  --text-green: #118da8;
+  --text-blue: #0035d3;
+  --text-dark-blue: #1f2b70;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
   --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --card-radius: 15px;
 }
 
-body{
+body {
   font-family: "Inter", "Segoe UI", sans-serif, "Joti One", "Irish Grover";
   line-height: 1.6;
   font-size: 16px;
@@ -38,18 +41,18 @@ body{
   overflow-x: hidden;
 }
 
-a{
+a {
   text-decoration: none;
 }
-a:visited{
+a:visited {
   color: inherit;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-main{
+main {
   position: relative;
   margin: 0 auto;
   width: 100%;
