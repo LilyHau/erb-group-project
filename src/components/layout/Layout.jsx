@@ -1,25 +1,29 @@
 import { Outlet } from "react-router-dom";
 import styles from "./Layout.module.scss";
+import Navbar from "../navbar/Navbar";
+import RunningText from "../footer/RunningText";
 
 const Layout = () => {
   return (
-    <div className={styles.layout}>
-      <header className={styles.header}>
+    <>
+      <header>
         <nav className={styles.nav}>
-          <a href="/">Home</a>
+          <Navbar />
+          {/* <a href="/">Home</a>
           <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <a href="/cruises">Our Cruises</a> */}
         </nav>
       </header>
 
-      <main className={styles.main}>
+      <main>
         <Outlet />
       </main>
 
-      <footer className={styles.footer}>
+      <footer>
+        <RunningText />
         <p>© 2024 Your App</p>
       </footer>
-    </div>
+    </>
   );
 };
 

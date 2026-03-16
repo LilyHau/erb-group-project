@@ -1,0 +1,93 @@
+.blueBlock{
+  display: block;
+  width: 100%;
+  height: 1rem;
+  background-color: var(--background-blue);
+}
+.logIn{
+  height: 3rem;
+  background-color: var(--background-gray);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2rem;
+}
+.logInList{
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+  color: black;
+}
+.logInListFirst{
+  color: var(--text-gray);
+}
+.logInListFirst:hover{
+  scale: 1.03;
+}
+.navbar {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+  img{
+    width: 20rem;
+  }
+}
+.NavbarListItems{
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  color: var(--text-gray);
+  font-size: 1.5rem;
+  a span:hover{
+    scale: 1.04;
+  }
+}
+.NavbarBuyItems{
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-blue);
+    font-size: 1.3rem;
+    color: var(--white);
+    border-radius: 8px;
+    padding: 0.2rem 1rem;
+  }
+  span:hover{
+    opacity: 0.7;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-hover);
+  }
+}
+
+.hoverUnderlineAnimation,.logInListFirst {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hoverUnderlineAnimation::after,.logInListFirst::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-gray);
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out;
+}
+
+.hoverUnderlineAnimation:hover::after,.logInListFirst:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
