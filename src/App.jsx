@@ -8,6 +8,7 @@ import ExclusiveMerchPage from "./pages/exclusiveMerchPage/ExclusiveMerchPage";
 import OCEANEXPLORER from "./pages/ourCruisesPage/Cruises/OCEANEXPLORER";
 import SEAGUARDIAN from "./pages/ourCruisesPage/Cruises/SEAGUARDIAN";
 import SERENITYDREAM from "./pages/ourCruisesPage/Cruises/SERENITYDREAM";
+import FAQSection from "./pages/homePage/FAQ/FAQSection";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="OCEANEXPLORER" element={<OCEANEXPLORER />} />
           <Route path="SEAGUARDIAN" element={<SEAGUARDIAN />} />
           <Route path="SERENITYDREAM" element={<SERENITYDREAM />} />
+          <Route path="FAQSection" element={<FAQSection />} />
         </Route>
       </Routes>
     </BrowserRouter>

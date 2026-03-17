@@ -14,6 +14,7 @@ const Layout = () => {
           <a href="/cruises">Our Cruises</a>
           <a href="/onboard">OnboardThrills</a>
           <a href="/exclusive">ExclusiveMerch</a>
+          <a href="/FAQSection">FAQSection</a>
         </nav>
       </header>
 
