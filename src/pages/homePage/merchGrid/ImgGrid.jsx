@@ -1,4 +1,4 @@
-// import styles from "./ImgGrid.css";
+// import styles from "./ImgGrid.module.css";
 
 const ImgGrid = () => {
   return <div className={styles.test}>ImgGrid</div>;

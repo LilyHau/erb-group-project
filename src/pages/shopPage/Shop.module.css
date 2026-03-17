@@ -1,0 +1,200 @@
+.hero {
+  font-family: "Joti One";
+  text-align: center;
+  background: url(../../assets/shopPage/shop\ head.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 28rem;
+  padding: 3rem 0;
+}
+.heroArrival {
+  display: inline-block;
+  padding: 0.5rem;
+  transform: translateX(-20rem);
+  background-color: var(--sg-main);
+  border-radius: 25px;
+  font-size: 1.5rem;
+}
+.heroHeader {
+  font-size: 6rem;
+}
+.heroSubheader {
+  transform: translateX(2rem);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+/* clothes section */
+.clothContainer {
+  width: 100%;
+  background-color: #fff2e580;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6rem;
+  margin: 1.5rem auto;
+  width: 90%;
+  flex-wrap: wrap;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  flex: 0 0 250px;
+}
+.limited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    to top right,
+    var(--footer-blue) 10%,
+    var(--text-dark-blue) 50%
+  );
+  color: var(--white);
+  height: 1.5rem;
+  width: 100%;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.empty {
+  height: 2rem;
+  width: 100%;
+}
+.product img {
+  width: 100%;
+  height: 15rem;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.stock {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.name {
+  text-align: center;
+  color: var(--text-black);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.price {
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.btn {
+  background: var(--oe-main);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  outline: none;
+  padding: 12px 0;
+  text-align: center;
+  width: 14rem;
+  color: var(--white);
+}
+.btn:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+/* merch section */
+.merchContainer {
+  background-color: var(--footer-blue);
+  height: auto;
+  padding-bottom: 3rem;
+}
+.merchHeader {
+  width: 100%;
+  text-align: center;
+  background-image: url(../../assets/shopPage/shop-sub-header-1.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 15rem;
+  margin-bottom: 3rem;
+  font-family: "Irish Grover";
+  color: var(--white);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trinketContainer {
+  background-color: #deccbe;
+  height: auto;
+  padding-bottom: 3rem;
+}
+.trinketHeader {
+  width: 100%;
+  text-align: center;
+  background-image: url(../../assets/shopPage/shop-sub-header-2.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 15rem;
+  margin-bottom: 3rem;
+  font-family: "Irish Grover";
+  color: var(--white);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .heroArrival {
+    font-size: 1.2rem;
+  }
+  .heroHeader {
+    font-size: 5.5rem;
+  }
+  .heroSubheader {
+    font-size: 1.8rem;
+  }
+  .merchHeader,
+  .trinketHeader {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    background-position: right;
+  }
+  .heroArrival {
+    font-size: 1rem;
+    transform: translateX(-10rem);
+  }
+  .heroHeader {
+    font-size: 5rem;
+  }
+  .heroSubheader {
+    font-size: 1.5rem;
+  }
+  .merchHeader,
+  .trinketHeader {
+    font-size: 2.5rem;
+  }
+}
