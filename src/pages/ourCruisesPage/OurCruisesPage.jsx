@@ -59,7 +59,7 @@ const OurCruisesPage = () => {
         >
           {/* Item 1 */}
           <div style={{ textAlign: "center", color: "white" }}>
-            <Link to="/Cruises/OCEANEXPLORER">
+            <Link to="/OCEANEXPLORER">
               <img src={Image1} style={thumbStyle} alt="Ocean Explorer" />
               <p
                 style={{
@@ -75,7 +75,7 @@ const OurCruisesPage = () => {
 
           {/* Item 2 */}
           <div style={{ textAlign: "center", color: "white" }}>
-            <Link to="/Cruises/SEAGUARDIAN">
+            <Link to="/SEAGUARDIAN">
               <img src={Image3} style={thumbStyle} alt="Sea Guardian" />
               <p
                 style={{
@@ -91,7 +91,7 @@ const OurCruisesPage = () => {
 
           {/* Item 3 */}
           <div style={{ textAlign: "center", color: "white" }}>
-            <Link to="/Cruises/SERENITYDREAM">
+            <Link to="/SERENITYDREAM">
               <img src={Image2} style={thumbStyle} alt="Serenity Dream" />
               <p
                 style={{

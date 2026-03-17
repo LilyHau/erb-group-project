@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// Assets
 import SEAGUARDIAN from "../../assets/homePage/SEA-GUARDIAN.jpg";
 import OCEANEXPLORER from "../../assets/homePage/OCEAN-EXPLORER.jpg";
 import SERENITYDREAM from "../../assets/homePage/SERENITY-DREAM.jpg";
@@ -10,22 +11,25 @@ const CruiseSection = () => {
 
   const cruises = [
     {
-      img: SEAGUARDIAN, // Use the variable, not a string "SEAGUARDIAN"
+      img: OCEANEXPLORER, // Swapped to match title logic
       title: "OCEAN EXPLORER",
       cn: "海洋探索號",
       desc: "A hardcore diving adventure ship offering expert-led dives, sea labs, and scientific exploration routes.",
+      Link: "/OCEANEXPLORER",
     },
     {
-      img: OCEANEXPLORER,
+      img: SEAGUARDIAN, // Swapped to match title logic
       title: "SEA GUARDIAN",
       cn: "海洋保育號",
       desc: "A volunteer-focused cruise ship where passengers participate in coral planting, turtle rescue, and ocean cleanup.",
+      Link: "/SEAGUARDIAN",
     },
     {
       img: SERENITYDREAM,
       title: "SERENITY DREAM",
       cn: "海洋悠享號",
       desc: "A relaxing family-friendly cruise featuring underwater dining, star-gazing decks, and peaceful beach getaways.",
+      Link: "/SERENITYDREAM",
     },
   ];
 
@@ -84,87 +88,96 @@ const CruiseSection = () => {
         }}
       >
         {cruises.map((item, index) => (
-          <div
+          <Link
             key={index}
+            to={item.Link}
+            style={{ textDecoration: "none", color: "inherit" }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            style={{
-              width: "350px",
-              backgroundColor: "#ffffff",
-              borderRadius: "20px",
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
-              textAlign: "left",
-              cursor: "pointer",
-              transition:
-                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-              transform: hoveredIndex === index ? "scale(1.06)" : "scale(1)",
-              boxShadow:
-                hoveredIndex === index
-                  ? "0 25px 50px rgba(0,0,0,0.2)"
-                  : "0 10px 30px rgba(0,0,0,0.1)",
-              zIndex: hoveredIndex === index ? 10 : 1,
-            }}
           >
-            <div style={{ overflow: "hidden", height: "240px" }}>
-              <img
-                src={item.img}
-                alt={item.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
+            <div
+              style={{
+                width: "350px",
+                backgroundColor: "#ffffff",
+                borderRadius: "20px",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                textAlign: "left",
+                cursor: "pointer",
+                transition:
+                  "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                transform: hoveredIndex === index ? "scale(1.06)" : "scale(1)",
+                boxShadow:
+                  hoveredIndex === index
+                    ? "0 25px 50px rgba(0,0,0,0.2)"
+                    : "0 10px 30px rgba(0,0,0,0.1)",
+                zIndex: hoveredIndex === index ? 10 : 1,
+              }}
+            >
+              {/* Image Container with subtle zoom effect */}
+              <div style={{ overflow: "hidden", height: "240px" }}>
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.5s ease",
+                    transform:
+                      hoveredIndex === index ? "scale(1.1)" : "scale(1)",
+                  }}
+                />
+              </div>
 
-            <div style={{ padding: "25px" }}>
-              <h3
-                style={{
-                  margin: "0 0 5px 0",
-                  fontSize: "20px",
-                  fontWeight: "800",
-                }}
-              >
-                {item.title}
-              </h3>
-              <h4
-                style={{
-                  margin: "0 0 15px 0",
-                  fontSize: "18px",
-                  color: "#333",
-                }}
-              >
-                {item.cn}
-              </h4>
-              <p
-                style={{
-                  fontSize: "14px",
-                  color: "#666",
-                  lineHeight: "1.6",
-                  marginBottom: "25px",
-                  minHeight: "80px",
-                }}
-              >
-                {item.desc}
-              </p>
-              <Link
-                to="/"
-                style={{
-                  textDecoration: "none",
-                  color: hoveredIndex === index ? "#4272B6" : "#000",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  transition: "color 0.2s",
-                }}
-              >
-                View Now →
-              </Link>
+              {/* Text Content */}
+              <div style={{ padding: "25px" }}>
+                <h3
+                  style={{
+                    margin: "0 0 5px 0",
+                    fontSize: "20px",
+                    fontWeight: "800",
+                    color: "#000",
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <h4
+                  style={{
+                    margin: "0 0 15px 0",
+                    fontSize: "18px",
+                    color: "#333",
+                  }}
+                >
+                  {item.cn}
+                </h4>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    color: "#666",
+                    lineHeight: "1.6",
+                    marginBottom: "25px",
+                    minHeight: "80px",
+                  }}
+                >
+                  {item.desc}
+                </p>
+                <div
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    color: hoveredIndex === index ? "#4272B6" : "#000",
+                    transition: "color 0.2s",
+                  }}
+                >
+                  View Now →
+                </div>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
