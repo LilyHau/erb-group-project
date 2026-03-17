@@ -1,10 +1,23 @@
 .btn {
-  padding: 10px;
-  max-width: 11rem;
+  padding: 15px;
   border: none;
   border-radius: var(--card-radius);
   font-size: 1.5rem;
   background-color: black;
   color: white;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    scale: 0.98;
+
+    &:hover span {
+      translate: 0 -2px;
+    }
+  }
+}
+
+.btn span {
+  display: inline-block;
+  transition: all 0.3s ease;
 }

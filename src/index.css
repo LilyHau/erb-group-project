@@ -29,6 +29,7 @@
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
   --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
   --card-radius: 15px;
+  --card-green: hsl(71, 77%, 90%, 38%);
 }
 
 body {

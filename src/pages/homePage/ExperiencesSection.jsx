@@ -1,8 +1,10 @@
-import Card from "./Card";
+import Card1 from "./Card1";
+import Card2 from "./Card2";
+import Card3 from "./Card3";
 
 const ExperiencesSection = () => {
   return (
-    <section style={{ padding: "80px 0", background: "blue" }}>
+    <section style={{ padding: "80px 0", background: "var(--body-blue)" }}>
       <div
         className="container"
         style={{
@@ -12,7 +14,9 @@ const ExperiencesSection = () => {
           margin: "0 auto",
         }}
       >
-        <Card />
+        <Card1 />
+        <Card2 />
+        <Card3 />
       </div>
     </section>
   );
