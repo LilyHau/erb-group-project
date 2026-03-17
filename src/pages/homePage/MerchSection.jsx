@@ -1,24 +1,12 @@
-// import styles from "./MerchSection.mudule.css";
-// import ImgGrid from "./merchGrid/ImgGrid";
-
-// const MerchSection = () => {
-//   return (
-//     <section className={styles.section}>
-//       <div className={styles.title}>
-//         <h2>Exclusive Merch</h2>
-//         <p>ONLY HERE ! OPHK CRUISE EDITION</p>
-//       </div>
-//       {/* <ImgGrid /> */}
-//     </section>
-//   );
-// };
-
-// export default MerchSection;
-
-import React from "react";
+import styles from "./MerchSection.module.css";
 
 const MerchSection = () => {
-  return <div>MerchSection</div>;
+  return (
+    <section className={styles.section1}>
+      <h2>Exclusive Merch</h2>
+      <p>ONLY HERE ! OPHK CRUISE EDITION</p>
+    </section>
+  );
 };
 
 export default MerchSection;
