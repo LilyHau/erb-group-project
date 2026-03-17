@@ -9,7 +9,7 @@ const Cart = ({cartItems,handleDecrease,handleIncrease,handleRemoveItem}) => {
       {cartItems.length === 0 && (
         <div className={styles.emptyCart}>
           <h1>Cart is Empty</h1>
-          <Link to={"/"}><button className={styles.emptyBtn}>Continue Shopping</button></Link>
+          <Link to={"/shop"}><button className={styles.emptyBtn}>Continue Shopping</button></Link>
         </div>
       )}
       <div>

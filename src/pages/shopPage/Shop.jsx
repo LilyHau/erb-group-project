@@ -33,7 +33,7 @@ const Shop = ({ handleAddToCart }) => {
                   <img src={image} alt="" />
                   <p
                     className={styles.stock}
-                    style={{ color: stock === "Low" ? "red" : "green" }}
+                    style={{ color : stock === "Low" ? "red" : stock === "New" ? "blue" : "green" }}
                   >
                     {stock} In Stock
                   </p>
@@ -72,7 +72,7 @@ const Shop = ({ handleAddToCart }) => {
                   <img src={image} alt="" />
                   <p
                     className={styles.stock}
-                    style={{ color: stock === "Low" ? "red" : "green" }}
+                    style={{ color : stock === "Low" ? "red" : stock === "New" ? "blue" : "green" }}
                   >
                     {stock} In Stock
                   </p>
@@ -111,7 +111,7 @@ const Shop = ({ handleAddToCart }) => {
                   <img src={image} alt="" />
                   <p
                     className={styles.stock}
-                    style={{ color: stock === "Low" ? "red" : "green" }}
+                    style={{ color : stock === "Low" ? "red" : stock === "New" ? "blue" : "green" }}
                   >
                     {stock} In Stock
                   </p>

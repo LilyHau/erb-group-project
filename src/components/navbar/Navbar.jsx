@@ -15,7 +15,7 @@ const Navbar = ({cartItems}) => {
       <span className={styles.blueBlock}></span>
           <nav className={styles.logIn}>
             <div className={styles.logInList}>
-              <a className={styles.faq}><Link to="/">FAQ</Link></a>
+              <a className={styles.faq}><Link to="/FAQSection">FAQ</Link></a>
               <a><Link to="/about">My Account</Link></a>
             </div>
           </nav>
@@ -26,21 +26,21 @@ const Navbar = ({cartItems}) => {
           <li className={styles.dropdown}>
             <a className={styles.hoverUnderlineAnimation}>Our Cruises</a>
             <ul className={styles.dropdownContent}>
-              <li><Link to="/about">Ships Overview</Link></li>
-              <li><Link to="/about">Ocean Explorer</Link></li>
-              <li><Link to="/about">Sea Guardian</Link></li>
-              <li><Link to="/about">Serenity Dream</Link></li>
+              <li><Link to="/cruises">Ships Overview</Link></li>
+              <li><Link to="/OCEANEXPLORER">Ocean Explorer</Link></li>
+              <li><Link to="/SEAGUARDIAN">Sea Guardian</Link></li>
+              <li><Link to="/SERENITYDREAM">Serenity Dream</Link></li>
             </ul>
           </li><li className={styles.dropdown}>
             <a className={styles.hoverUnderlineAnimation}>Onboard Thrills</a>
             <ul className={styles.dropdownContent}>
-              <li><Link to="/about">Activities Overview</Link></li>
+              <li><Link to="/onboard">Activities Overview</Link></li>
               <li><Link to="/about">Entertainment</Link></li>
               <li><Link to="/about">Dining</Link></li>
               <li><Link to="/about">Recreation</Link></li>
             </ul>
           </li>
-          <Link to="/"><li className={styles.hoverUnderlineAnimation}>Exclusive Merch</li></Link>
+          <Link to="/shop"><li className={styles.hoverUnderlineAnimation}>Exclusive Merch</li></Link>
         </ul>
         <div className={styles.navbarBuyItems}>
           <span className={styles.cartIcon}>
@@ -55,10 +55,10 @@ const Navbar = ({cartItems}) => {
             </div>
             <div className={`${styles.mobileNavLinks} ${isActive ? styles.active : ''}`}>
               <ul>
-              <Link to="/"><li>About</li></Link>
-              <Link to="/about"><li>Our Cruises</li></Link>
-              <Link to="/"><li>Onboard Thrills</li></Link>
-              <Link to="/about"><li>Exclusive Merch</li></Link></ul>
+              <Link to="/about" onClick={toggleHandler}><li>About</li></Link>
+              <Link to="/cruises" onClick={toggleHandler}><li>Our Cruises</li></Link>
+              <Link to="/onboard" onClick={toggleHandler}><li>Onboard Thrills</li></Link>
+              <Link to="/shop" onClick={toggleHandler}><li>Exclusive Merch</li></Link></ul>
             </div>
           </nav>
         </div>
