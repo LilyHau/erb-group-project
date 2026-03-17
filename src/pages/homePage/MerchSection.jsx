@@ -1,5 +1,5 @@
-import styles from "./MerchSection.css";
-import ImgGrid from "./merchGrid/ImgGrid";
+// import styles from "./MerchSection.css";
+// import ImgGrid from "./merchGrid/ImgGrid";
 
 const MerchSection = () => {
   return (
@@ -8,7 +8,7 @@ const MerchSection = () => {
         <h2>Exclusive Merch</h2>
         <p>ONLY HERE ! OPHK CRUISE EDITION</p>
       </div>
-      <ImgGrid />
+      {/* <ImgGrid /> */}
     </section>
   );
 };
