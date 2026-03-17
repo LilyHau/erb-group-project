@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import Faqbg from "../../../assets/FAQ/FAQBG.png";
 
 const FAQSection = () => {
   const [activeTab, setActiveTab] = useState("General");
   const [openIndex, setOpenIndex] = useState(0);
-
-  const tabs = ["General", "Features", "Resources"];
 
   const faqData = [
     {
@@ -42,6 +41,93 @@ const FAQSection = () => {
     },
   ];
 
+  const feaData = [
+    {
+      icon: "ⓘ",
+      question: "Are the onboard thrill rides and water parks free of charge?",
+      answer:
+        "Most core attractions are free and included in the cruise fare, such as most water slides, swimming pools, and regular performances. However, some VIP experiences (e.g., private pool rentals, VIP fast-track access), specialty dining (e.g., a la carte orders at the underwater restaurant), and select paid courses require additional fees, with details marked as Free/Paid on the Rides & Water Parks page.",
+    },
+    {
+      icon: "♡",
+      question:
+        "How can I redeem the co-branded benefits with Ocean Park (e.g., ticket discounts, fast-track access)?",
+      answer:
+        "Booking our cruise packages automatically entitles you to a 10% discount on Ocean Park tickets and fast-track access to the Panda Pavilion. Simply note your needs during booking or contact customer service, and we will provide you with an exclusive redemption code and admission guidelines.",
+    },
+    {
+      icon: "🌐",
+      question:
+        "Are there any physical requirements or prerequisites for participating in special activities (e.g., diving, coral planting)?",
+      answer:
+        "Clear entry criteria apply.◦ Diving activities: A health certificate is required, and height/weight must meet equipment restrictions(see Travel Tips for details). Beginner courses are available with one-on-one instructor guidance, suitable for zero-experience participants. ◦ Conservation activities: Suitable for all age groups. Children can join simplified planting sessions, while adults can apply for official volunteer certificates. Specific restrictions and reservation methods for all activities are listed on the Special Activities & Itineraries page of each ship.",
+    },
+    {
+      icon: "👤",
+      question: "Are activity times fixed, and what if I miss an activity?",
+      answer:
+        "Core performances and activities have fixed schedules (see the daily itinerary), but some outdoor activities may be adjusted due to weather conditions. We recommend checking the daily schedule on the Service & Support page or the onboard APP before departure. If an activity is missed due to force majeure, rescheduling within the same voyage may be arranged upon consultation with onboard staff.",
+    },
+    {
+      icon: "📋",
+      question:
+        "Besides the activities listed on the official website, are there other paid entertainment options onboard?",
+      answer:
+        "In addition to core free attractions, the ship offers a variety of paid upgrade experiences, such as ocean-view SPA, exclusive photography packages, specialty dinner reservations, and private cabin services. You can select these during the add-on service step on the booking page or book via the in-cabin service hotline after boarding, with all prices clearly stated.",
+    },
+  ];
+
+  const resData = [
+    {
+      icon: "ⓘ",
+      question:
+        "What payment methods are supported, and is installment payment available?",
+      answer:
+        "Alipay, WeChat Pay, UnionPay credit cards, and international Visa/Mastercard payments are accepted. Installment options are provided on the booking page, with real-time interest rates displayed by the payment provider for you to choose from as needed.",
+    },
+    {
+      icon: "♡",
+      question:
+        "How much deposit is required for booking, and when is the balance due?",
+      answer:
+        "30% deposit of the total fare is required for regular routes, and the balance must be paid 15 days prior to departure. Special deposit requirements may apply to early-bird special routes, subject to the booking terms of the specific voyage.",
+    },
+    {
+      icon: "🌐",
+      question:
+        "What is the cancellation policy if I cannot travel due to unforeseen circumstances?",
+      answer:
+        "The cancellation policy is strictly implemented based on the following timeframes:◦ 90+ days before departure: Full deposit refunded after deducting administrative fees.◦ 30–89 days before departure: 50% of the deposit refunded.◦ Within 30 days before departure: Deposit non-refundable and non-transferable.◦ Note: If travel insurance is purchased, claims can be filed in accordance with the insurance terms.",
+    },
+    {
+      icon: "👤",
+      question:
+        "Can I reschedule or upgrade my cabin after paying the deposit?",
+      answer:
+        "Yes. Rescheduling must be requested 7 days before departure, and you may need to pay the price difference between the original and new cabins plus any rescheduling fees (if applicable). Cabin upgrades must be requested 30 days before departure, with the price difference to be paid. Specific fees for rescheduling/upgrades will be calculated and displayed in real time during the modify information step.",
+    },
+    {
+      icon: "📋",
+      question:
+        "Will I receive an electronic contract or invoice after successful booking?",
+      answer:
+        "Upon successful order submission and payment, the system will automatically generate an electronic contract and send it to your registered email address. If an invoice is required, please submit an application on the Service & Support page, and we will issue an electronic VAT invoice for you.",
+    },
+  ];
+
+  const faqContent = {
+    General: faqData,
+    Features: feaData,
+    Resources: resData,
+  };
+
+  const tabs = Object.keys(faqContent);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setOpenIndex(null);
+  };
+
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -52,90 +138,39 @@ const FAQSection = () => {
         width: "100%",
         minHeight: "100vh",
         backgroundColor: "#e0f4ff",
-        padding: "60px 20px",
-        position: "relative",
-        fontFamily: "Arial, sans-serif",
+        padding: "80px 20px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        overflowX: "hidden",
       }}
     >
-      {/* Background Bubbles (Decorative) */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "5%",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.5)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "40%",
-          right: "3%",
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.4)",
-        }}
-      />
-
-      {/* HEADER SECTION */}
+      {/* HEADER WITH CORRECTED BACKGROUND IMAGE */}
       <div
         style={{
           width: "100%",
-          maxWidth: "800px",
+          maxWidth: "1900px",
           height: "160px",
-          background: "linear-gradient(90deg, #4272B6 0%, #8bdaf9 100%)",
+          backgroundImage: `url(${Faqbg})`, // FIXED
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           borderRadius: "80px",
           display: "flex",
-          alignItems: "center",
-          padding: "0 40px",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "0 60px",
           marginBottom: "40px",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
           position: "relative",
+          textAlign: "center",
+          color: "black",
+          fontFamily: "Joti One",
         }}
       >
-        <div style={{ flex: 1, color: "white" }}>
-          <p style={{ margin: 0, fontSize: "18px", letterSpacing: "2px" }}>
-            FREQUENTLY ASKED
-          </p>
-          <h1
-            style={{
-              margin: 0,
-              fontSize: "60px",
-              fontFamily: "cursive",
-              fontWeight: "bold",
-            }}
-          >
-            Questions
-          </h1>
-        </div>
-        {/* Placeholder for Cruise Ship Image */}
-        <div
-          style={{
-            width: "200px",
-            height: "120px",
-            background: "rgba(255,255,255,0.2)",
-            borderRadius: "20px",
-          }}
-        >
-          <img
-            src="https://placeholder.com"
-            alt="Cruise"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "20px",
-            }}
-          />
-        </div>
+        <p style={{ margin: 0, fontSize: "28px", letterSpacing: "3px" }}>
+          FREQUENTLY ASKED
+        </p>
+        <h1 style={{ margin: 0, fontSize: "64px", fontFamily: "serif" }}>
+          Questions
+        </h1>
       </div>
 
       {/* TABS */}
@@ -143,26 +178,26 @@ const FAQSection = () => {
         style={{
           backgroundColor: "white",
           padding: "8px",
-          borderRadius: "30px",
+          borderRadius: "35px",
           display: "flex",
           gap: "10px",
           marginBottom: "40px",
-          boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
         }}
       >
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTabChange(tab)}
             style={{
-              padding: "10px 25px",
-              borderRadius: "20px",
+              padding: "12px 30px",
+              borderRadius: "25px",
               border: "none",
               cursor: "pointer",
               fontWeight: "bold",
-              transition: "0.3s",
-              backgroundColor: activeTab === tab ? "#5CB2D6" : "transparent",
+              backgroundColor: activeTab === tab ? "#4272B6" : "transparent",
               color: activeTab === tab ? "white" : "#888",
+              transition: "0.3s",
             }}
           >
             {tab}
@@ -170,23 +205,25 @@ const FAQSection = () => {
         ))}
       </div>
 
-      {/* FAQ CARD */}
+      {/* ACCORDION */}
       <div
         style={{
           width: "100%",
-          maxWidth: "900px",
+          maxWidth: "1600px",
           backgroundColor: "white",
           borderRadius: "40px",
           padding: "40px",
-          boxShadow: "0 15px 40px rgba(0,0,0,0.05)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
         }}
       >
-        {faqData.map((item, index) => (
+        {faqContent[activeTab].map((item, index) => (
           <div
-            key={index}
+            key={`${activeTab}-${index}`}
             style={{
               borderBottom:
-                index !== faqData.length - 1 ? "1px solid #eee" : "none",
+                index !== faqContent[activeTab].length - 1
+                  ? "1px solid #eee"
+                  : "none",
             }}
           >
             <div
@@ -208,21 +245,17 @@ const FAQSection = () => {
                   margin: 0,
                   fontSize: "18px",
                   color: openIndex === index ? "#4272B6" : "#333",
-                  fontWeight: "600",
-                  lineHeight: "1.4",
                 }}
               >
                 {item.question}
               </h3>
-              <span style={{ fontSize: "24px", color: "#ccc" }}>
+              <span style={{ fontSize: "20px", color: "#ccc" }}>
                 {openIndex === index ? "−" : "+"}
               </span>
             </div>
-
-            {/* Answer Content */}
             <div
               style={{
-                maxHeight: openIndex === index ? "200px" : "0",
+                maxHeight: openIndex === index ? "300px" : "0",
                 overflow: "hidden",
                 transition: "max-height 0.4s ease",
               }}
@@ -230,7 +263,7 @@ const FAQSection = () => {
               <p
                 style={{
                   margin: "0 0 25px 45px",
-                  color: "#777",
+                  color: "#666",
                   lineHeight: "1.6",
                   fontSize: "15px",
                 }}
@@ -240,28 +273,6 @@ const FAQSection = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Bottom Illustrations (Placeholders) */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          left: "5%",
-          fontSize: "80px",
-        }}
-      >
-        🐬
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          right: "5%",
-          fontSize: "80px",
-        }}
-      >
-        🐠
       </div>
     </div>
   );
