@@ -11,7 +11,7 @@ import SGimga from "../../../assets/SEAGUARDIAN/SGR3.jpg";
 import SGimgb from "../../../assets/SEAGUARDIAN/SGR2.jpg";
 import SGimgc from "../../../assets/SEAGUARDIAN/SGR1.jpg";
 import SGfooter from "../../../assets/SEAGUARDIAN/SGfooter.png";
-import styles from "/src/pages//OurCruisesPage/Cruises/SEAGUARDIAN.module.css";
+import styles from "./SEAGUARDIAN.module.css";
 
 const SEAGUARDIAN = () => {
   const thumbStyle = {
