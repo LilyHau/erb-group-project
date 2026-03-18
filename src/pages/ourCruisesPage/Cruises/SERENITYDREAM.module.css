@@ -1,0 +1,334 @@
+.hero {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 600px;
+  object-fit: cover;
+}
+
+.herooverlayunit {
+  position: fixed; /* fixed position on viewport */
+  top: 4%; /* position from top - adjust as needed */
+  left: 10%; /* position from left - adjust as needed */
+  /* remove margin-top; use top for position */
+  color: white;
+  z-index: 10; /* ensure on top of other elements */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* default, can override for responsiveness */
+  gap: 20px;
+}
+
+.btnRow {
+  position: fixed; /* lock position */
+  top: 60%; /* or set bottom: Xpx; for fixed bottom placement */
+  left: 19%; /* horizontally aligned */
+  transform: translateX(-7%);
+  z-index: 999; /* above everything else */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.thumbContainer {
+  position: fixed; /* lock position */
+  bottom: 21%; /* distance from bottom */
+  left: 19%; /* or right: 10%; for right side fixed position */
+  transform: translateX(3%);
+  z-index: 999; /* above other content */
+  display: flex;
+  gap: 10px;
+}
+
+.contentContainer {
+  background-color: #f9d984;
+  padding: 80px 40px;
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experienceTitle {
+  color: #000000;
+  font-size: clamp(40px, 7vw, 100px);
+  font-family: "Irish Grover", cursive;
+  margin-bottom: 60px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 10px;
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.summaryImg {
+  width: 800px;
+  height: 930px;
+  border-radius: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.summaryText {
+  flex: 1;
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  max-width: 700px;
+}
+
+/* Background images container */
+.bgImageContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bgImage {
+  width: 100%;
+  display: block;
+  min-height: 600px;
+  object-fit: cover;
+}
+
+.serenitySection {
+  background-color: #f7d77e;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+.serenityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border-bottom: 4px solid white;
+  padding-bottom: 20px;
+  margin-bottom: 60px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.iconImage {
+  width: 200px;
+  height: auto;
+}
+
+.titleHeading {
+  font-size: 180px;
+  margin: 0;
+  color: white;
+  font-family: sans-serif;
+}
+
+.descriptionText {
+  font-size: 36px;
+  opacity: 0.9;
+  margin-bottom: 80px;
+  text-align: left;
+  padding: 15px;
+  max-width: 800px;
+}
+
+.cardsContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 2400px;
+  margin: 0 auto;
+}
+
+.badge {
+  position: absolute;
+  top: -170px;
+  right: -50px;
+  max-width: 360px;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.2;
+  transform: rotate(15deg);
+  text-align: right;
+}
+
+.card {
+  width: 700px;
+  text-align: left;
+  background-color: transparent;
+}
+
+.cardImg {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cardTitle {
+  font-size: 48px;
+  margin: 40px 0 20px;
+}
+
+.cardDesc {
+  font-size: 30px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.footerLinks {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 40px;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.exploreLink {
+  display: inline-block;
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 32px;
+  color: #877e7e;
+  margin-top: 20px;
+}
+
+/* Responsive styles for max-width 992px */
+@media (max-width: 992px) {
+  /* Overlay container & content */
+  .herooverlayunit {
+    top: 7% !important; /* Slightly lower on smaller screens */
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Center horizontally */
+    width: 90% !important; /* Make sure it doesn't overflow */
+    align-items: center !important; /* Center content */
+  }
+
+  .btnRow {
+    top: auto !important;
+    bottom: 15% !important; /* Position near bottom for mobile */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .thumbContainer {
+    bottom: 10% !important; /* Slightly lower on small screens */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  /* Experience title size */
+  .experienceTitle {
+    font-size: clamp(30px, 5vw, 60px) !important;
+  }
+  /* Content block (image + text) stacked */
+  .contentBlock {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  /* Summary image size */
+  .summaryImg {
+    max-width: 90% !important;
+    height: auto !important;
+  }
+  /* Summary text */
+  .summaryText {
+    font-size: 16px !important;
+  }
+  /* Badge position & size */
+  .badge {
+    top: -100px !important;
+    right: 50% !important;
+    transform: translateX(50%) rotate(15deg) !important;
+    max-width: 90% !important;
+    font-size: 20px !important;
+  }
+  /* Card width */
+  .card {
+    width: 100% !important;
+  }
+  /* Card images */
+  .cardImg {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Overlay container & content */
+  .herooverlayunit {
+    position: relative; /* Make the container relative */
+    max-width: 100%; /* Set a max width for responsive design */
+    margin: 0 auto;
+  }
+
+  .btnRow {
+    bottom: 10% !important; /* Near bottom for small screens */
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .thumbContainer {
+    bottom: 5% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row;
+    gap: 8px !important;
+  }
+  /* Experience title size */
+  .experienceTitle {
+    font-size: clamp(20px, 4vw, 40px) !important;
+  }
+  /* Content block stacking */
+  .contentBlock {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  /* Summary image size */
+  .summaryImg {
+    max-width: 100% !important;
+  }
+  /* Summary text */
+  .summaryText {
+    font-size: 14px !important;
+  }
+  /* Badge adjustments */
+  .badge {
+    top: -50px !important;
+    right: 50% !important;
+    transform: translateX(50%) rotate(15deg) !important;
+    font-size: 16px !important;
+  }
+  /* Card width */
+  .card {
+    width: 100% !important;
+  }
+  /* Card images */
+  .cardImg {
+    height: auto !important;
+  }
+}

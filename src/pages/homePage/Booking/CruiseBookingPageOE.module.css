@@ -1,0 +1,116 @@
+.pageContainer {
+  background-color: #e0f7ff;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  text-align: center;
+  color: #5bc0de;
+  font-family: "Irish Grover", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 350px; /* Two columns for desktop */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formSection {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stickyBox {
+  position: sticky;
+  top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabin Selection Cards */
+.cabinCard {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cabinCard:hover {
+  border-color: #5bc0de;
+}
+.cabinImg {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+.cabinInfo {
+  padding: 10px;
+  flex: 1;
+}
+
+/* Input Styling */
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* MEDIA QUERIES */
+
+/* For Tablets and smaller desktops */
+@media (max-width: 992px) {
+  .mainLayout {
+    grid-template-columns: 1fr 300px; /* Narrower sidebar */
+    gap: 20px;
+  }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+  .mainLayout {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+  }
+
+  .stickyBox {
+    position: static; /* Summary moves to bottom or stays in flow */
+  }
+
+  .inputGrid {
+    grid-template-columns: 1fr; /* Stack form inputs */
+  }
+
+  .cabinCard {
+    flex-direction: column;
+  }
+  .cabinImg {
+    width: 100%;
+    height: 150px;
+  }
+}

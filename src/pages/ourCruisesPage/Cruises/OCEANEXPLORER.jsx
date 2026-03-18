@@ -76,13 +76,18 @@ const OCEANEXPLORER = () => {
             marginBottom: "80px",
           }}
         >
-          <button
-            style={btnStyle("#5ca4bc")}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#4a8ba1")} // Darker shade for Join Now
+          <Link
+            to="/CruiseBookingPageOE"
+            style={{
+              ...btnStyle("#5ca4bc"),
+              display: "inline-block",
+              textDecoration: "none",
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#4a8ba1")}
             onMouseOut={(e) => (e.target.style.backgroundColor = "#5ca4bc")}
           >
             JOIN NOW
-          </button>
+          </Link>
           <button
             style={btnStyle("#175490")}
             onMouseOver={(e) => (e.target.style.backgroundColor = "#0d3a66")} // Darker shade for More Info

@@ -9,27 +9,37 @@
   object-fit: cover;
 }
 .herooverlayunit {
-  position: absolute;
-  top: 3%;
-  left: 10%;
-  margin-top: 410px; /* default for large screens */
+  position: fixed; /* fixed position on viewport */
+  top: 4%; /* position from top - adjust as needed */
+  left: 10%; /* position from left - adjust as needed */
+  /* remove margin-top; use top for position */
   color: white;
-  z-index: 10;
-  font-family: sans-serif;
+  z-index: 10; /* ensure on top of other elements */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* default, can override for responsiveness */
+  gap: 20px;
 }
 
 .btnrow {
+  position: fixed; /* lock position */
+  top: 54%; /* or set bottom: Xpx; for fixed bottom placement */
+  left: 19%; /* horizontally aligned */
+  transform: translateX(-7%);
+  z-index: 999; /* above everything else */
   display: flex;
-  gap: 40px;
-  margin-bottom: 230px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .thumbcontainer {
-  position: absolute;
-  bottom: 5%;
-  left: 10%;
+  position: fixed; /* lock position */
+  bottom: 21%; /* distance from bottom */
+  left: 19%; /* or right: 10%; for right side fixed position */
+  transform: translateX(3%);
+  z-index: 999; /* above other content */
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .experiencetitle {
