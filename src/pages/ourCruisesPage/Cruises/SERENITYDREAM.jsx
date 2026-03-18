@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import OEimage from "../../../assets/SERENITYDREAM/SDpagehead.png";
 import Imagea from "../../../assets/Cruises/OE.PNG";
@@ -14,8 +15,8 @@ const SERENITYDREAM = () => {
     height: "150px",
     objectFit: "cover",
     borderRadius: "10px",
-    padding: "-5px",
   };
+
   const btnStyle = (bg) => ({
     padding: "27px 55px",
     marginTop: "100px",
@@ -34,11 +35,126 @@ const SERENITYDREAM = () => {
     width: "130px",
     height: "130px",
     objectFit: "contain",
-
     padding: "5px",
   };
+
   return (
     <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+      {/* Media Queries Hook */}
+      <style>
+        {`
+           @media (max-width: 992px) {
+  .hero-overlay-unit { 
+    /* Anchors to horizontal center */
+    top: 7% !important; 
+    left: 23% !important; 
+    transform: translateX(-50%) !important; 
+    
+    /* Centers children (rows) vertically */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
+    
+    width: 100% !important;
+    gap: 20px !important; 
+  }
+
+  .btn-row { 
+    gap: 15px !important; 
+    justify-content: center !important; /* Centers buttons horizontally */
+    width: 100% !important;
+  }
+
+  .action-btn { 
+    padding: 12px 25px !important; 
+    font-size: 16px !important; 
+    margin-top: 0 !important; 
+  }
+
+  .thumb-container { 
+    gap: 10px !important; 
+    justify-content: center !important; /* Centers thumbnails horizontally */
+    width: 100% !important;
+  }
+
+  .thumb-img { 
+    width: 60px !important; 
+    height: 60px !important; 
+  }
+
+  .experience-title { 
+    font-size: 40px !important; 
+  }
+
+  .content-block { 
+    flex-direction: column !important; 
+    gap: 30px !important; 
+  }
+}
+
+          @media (max-width: 768px) {
+  /* Updated class name and centered positioning */
+  .hero-overlay-unit { 
+    top: 7% !important; 
+    left: 23% !important; 
+    transform: translateX(-50%) !important; 
+    width: 90% !important;
+    gap: 15px !important;
+    align-items: center !important; 
+  }
+
+  /* Stack buttons vertically on mobile for better fit */
+  .btn-row { 
+    flex-direction: column !important; 
+    gap: 10px !important; 
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  /* Make buttons wider/easier to tap on phone */
+  .action-btn { 
+    width: 90px !important; 
+    padding: 10px 20px !important; 
+    font-size: 7px !important; 
+  }
+
+  .thumb-container { 
+    gap: 10px !important; 
+    justify-content: center !important; 
+  }
+
+  .thumb-img { 
+    width: 50px !important; 
+    height: 50px !important; 
+  }
+
+  .experience-title { 
+    font-size: 32px !important; 
+    padding-bottom: 10px !important; 
+    text-align: center !important;
+  }
+
+  .summary-img-container { 
+    flex: 0 0 auto !important; 
+    width: 100% !important; 
+  }
+
+  .summary-img { 
+    width: 100% !important; 
+    height: auto !important; 
+    max-width: 300px !important; 
+    margin: 0 auto !important; 
+  }
+
+  .summary-text { 
+    font-size: 16px !important; 
+    line-height: 1.6 !important; 
+    text-align: center !important;
+  }
+}
+        `}
+      </style>
+
       {/* Hero Image */}
       <div style={{ width: "100%" }}>
         <img
@@ -47,72 +163,90 @@ const SERENITYDREAM = () => {
             width: "100%",
             height: "auto",
             display: "block",
-            minHeight: "400px", // Ensures section doesn't collapse if image loads slowly
+            minHeight: "400px",
             objectFit: "cover",
           }}
           alt="Ocean Explorer"
         />
       </div>
 
-      {/* Join Now Button */}
-      <div>
+      {/* MASTER OVERLAY - Perfectly Locked */}
+      <div
+        className="hero-overlay-unit"
+        style={{
+          position: "absolute",
+          top: "10%", // Adjust this to move the whole block up or down
+          left: "10%",
+          zIndex: 20,
+          display: "flex",
+          flexDirection: "column",
+          gap: "40px", // Exact spacing between the rows
+          fontFamily: "sans-serif",
+        }}
+      >
+        {/* Buttons Row (Top) */}
         <div
+          className="btn-row"
           style={{
-            position: "absolute",
-            top: "15%",
-            left: "10%",
-            marginTop: "-450px", // 1. Moves the entire block up by 400px
-            color: "white",
-            zIndex: 10,
-            fontFamily: "sans-serif",
+            display: "flex",
+            gap: "30px",
           }}
         >
-          {/* Buttons Row */}
-          <div
-            style={{
-              display: "flex",
-              gap: "40px", // 2. Increased gap for the zoom look
-              marginBottom: "80px",
-            }}
+          <button
+            className="action-btn"
+            style={{ ...btnStyle("#d28d8d"), marginTop: 0 }} // Force remove the old margin
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#d28d76")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#d28d8d")}
           >
-            <button
-              style={btnStyle("#d28d8d")}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#d28d76")} // Darker shade for Join Now
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#d28d8d")}
-            >
-              JOIN NOW
-            </button>
-            <button
-              style={btnStyle("#f7d77e")}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#d28d8d")} // Darker shade for More Info
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#f7d77e")}
-            >
-              MORE INFO
-            </button>
-          </div>
+            JOIN NOW
+          </button>
+          <button
+            className="action-btn"
+            style={{ ...btnStyle("#f7d77e"), marginTop: 0 }} // Force remove the old margin
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#e5c566")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#f7d77e")}
+          >
+            MORE INFO
+          </button>
         </div>
-        {/* Thumbs container */}
+
+        {/* Thumbs container (Bottom) */}
         <div
+          className="thumb-container"
           style={{
-            position: "absolute",
-            bottom: "85%", // FIX 4: Used bottom instead of top 60% for better scaling
-            left: "10%",
             display: "flex",
             gap: "20px",
+            alignItems: "flex-end", // Aligns different height thumbs to the bottom
           }}
         >
-          <Link to="/Cruises/OCEANEXPLORER">
-            <img src={Imagea} style={thumbStyle1} alt="OE" />
+          <Link to="/OCEANEXPLORER">
+            <img
+              src={Imagea}
+              className="thumb-img"
+              style={thumbStyle1}
+              alt="OE"
+            />
           </Link>
-          <Link to="/Cruises/SEAGUARDIAN">
-            <img src={Imagec} style={thumbStyle1} alt="SG" />
+          <Link to="/SEAGUARDIAN">
+            <img
+              src={Imagec}
+              className="thumb-img"
+              style={thumbStyle1}
+              alt="SG"
+            />
           </Link>
-          <Link to="/Cruises/SERENITYDREAM">
-            <img src={Imageb} style={thumbStyle} alt="SD" />
+          <Link to="/SERENITYDREAM">
+            <img
+              src={Imageb}
+              className="thumb-img"
+              style={thumbStyle}
+              alt="SD"
+            />
           </Link>
         </div>
       </div>
 
+      {/* Experience Section */}
       <div
         style={{
           minHeight: "1100px",
@@ -120,20 +254,20 @@ const SERENITYDREAM = () => {
           padding: "80px 40px",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center", // Centers the header and content block
+          alignItems: "center",
           fontFamily: "'Inter', sans-serif",
         }}
       >
-        {/* Header Section */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
           <h2
+            className="experience-title"
             style={{
               color: "Black",
               fontSize: "85px",
               fontFamily: "'Irish Grover', cursive",
               margin: "0",
               display: "inline-block",
-              borderBottom: "2px solid rgb(0, 0, 0)", // The underline from your image
+              borderBottom: "2px solid rgb(0, 0, 0)",
               paddingBottom: "20px",
             }}
           >
@@ -141,39 +275,39 @@ const SERENITYDREAM = () => {
           </h2>
         </div>
 
-        {/* Content Block */}
         <div
+          className="content-block"
           style={{
             display: "flex",
             flexDirection: "row",
-            alignItems: "center", // Vertically centers image and text
-            gap: "60px", // Professional spacing between image and text
+            alignItems: "center",
+            gap: "60px",
             maxWidth: "1700px",
           }}
         >
-          {/* Image Container */}
-          <div style={{ flex: "0 0 441px" }}>
+          <div className="summary-img-container" style={{ flex: "0 0 441px" }}>
             <img
               src={SDsum}
+              className="summary-img"
               alt="Diver underwater"
               style={{
-                width: "441px", // Fixed width
-                height: "541px", // Fixed height
-                objectFit: "cover", // 1. Prevents stretching, crops to fit instead
+                width: "441px",
+                height: "541px",
+                objectFit: "cover",
                 borderRadius: "40px",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                display: "block", // 2. Removes any small gap below the image
+                display: "block",
               }}
             />
           </div>
 
-          {/* Text Container */}
           <div style={{ color: "black" }}>
             <p
+              className="summary-text"
               style={{
                 fontSize: "30px",
-                lineHeight: "1.8", // Matches the spacious text in the screenshot
-                fontWeight: "1200px",
+                lineHeight: "1.8",
+                fontWeight: "bold",
                 textAlign: "left",
               }}
             >
@@ -194,6 +328,8 @@ const SERENITYDREAM = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer Images */}
       <div>
         <img src={SDsum1} style={{ width: "100%" }} alt="" />
       </div>

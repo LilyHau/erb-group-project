@@ -94,7 +94,7 @@ const OCEANEXPLORER = () => {
 
         {/* Logos Row */}
         <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-          <Link to="/Cruises/OCEANEXPLORER">
+          <Link to="/OCEANEXPLORER">
             <img
               src={Imagea}
               style={{
@@ -107,14 +107,14 @@ const OCEANEXPLORER = () => {
               alt="OE"
             />
           </Link>
-          <Link to="/Cruises/SEAGUARDIAN">
+          <Link to="/SEAGUARDIAN">
             <img
               src={Imagec}
               style={{ ...thumbStyle, width: "150px", height: "150px" }}
               alt="SG"
             />
           </Link>
-          <Link to="/Cruises/SERENITYDREAM">
+          <Link to="/SERENITYDREAM">
             <img
               src={Imageb}
               style={{ ...thumbStyle, width: "150px", height: "150px" }}
