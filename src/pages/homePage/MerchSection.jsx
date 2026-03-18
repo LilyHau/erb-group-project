@@ -10,9 +10,9 @@ const MerchSection = () => {
         <p>ONLY HERE ! OPHK CRUISE EDITION</p>
       </div>
       <ImgGrid />
-      <a href="">
-        <Link to="/shop">shop now</Link>
-      </a>
+      <Link to="/shop" className={styles.link}>
+        shop now
+      </Link>
     </section>
   );
 };

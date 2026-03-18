@@ -2,7 +2,7 @@
   display: grid;
   gap: 30px;
   max-width: 1500px;
-  margin: 20px auto;
+  margin: 0 auto 55px;
 
   grid-template-areas:
     "tshirt turtle cap"
@@ -15,7 +15,7 @@
 .item {
   cursor: zoom-in;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--card-radius);
 }
 
 .item img {
