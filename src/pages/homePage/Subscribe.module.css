@@ -65,3 +65,14 @@ input:focus {
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
+@media (max-width:992px) {
+  .section {
+  background-position:
+    right,
+    5% 50%;
+  background-size: 30%, 30%;
+}
+}
+@media (max-width:768px) {
+}
+

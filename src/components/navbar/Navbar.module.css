@@ -207,8 +207,9 @@
     box-shadow: var(--box-shadow-hover);
     z-index: 9999;
     list-style: none;
-    transition: transform 0.3s ease;
-    transform: translateX(120%);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
     li {
       font-size: 1.2rem;
       border-bottom: 2px solid var(--background-gray);
@@ -219,6 +220,6 @@
     }
   }
   .mobileNavLinks.active {
-    transform: translateX(0);
+    max-height: 500px;
   }
 }
