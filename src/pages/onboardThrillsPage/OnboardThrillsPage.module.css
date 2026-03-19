@@ -1,9 +1,18 @@
+.onboardThrills{
+  background-color: var(--body-blue);
+  height: 110rem;
+}
 .hero{
   width: 100%;
-  position: relative;
   height: 16rem;
   padding: 3rem 0;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Joti One";
+  font-size: 2.5rem;
+  z-index: 0;
 }
 .hero::before {
     content: "";
@@ -18,5 +27,185 @@
     border-radius: 30px;
 }
 .info{
-  font-family: ;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding: 2rem 0;
+  position: relative;
+}
+.info h2{
+  font-family: "Irish Grover";
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-image: linear-gradient(to bottom, #3295c1, #3fb8ee);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  padding-right: 3rem;
+}
+.infoDescription{
+  padding-right: 1rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  p{
+    margin: 1rem 0;
+  }
+}
+.infoImage img{
+  width: 100%;
+  aspect-ratio:4/3;
+  border-radius: 10px;
+  max-height: 15rem;
+  max-width: 20rem;
+}
+.infoImage img:first-child{
+  transform: translateX(-2rem);
+}
+.infoImage img:nth-child(2){
+  transform: translateX(4rem);
+}
+.infoLinks{
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  display: flex;
+  flex-wrap: nowrap;
+  li:first-child{
+    border-right: 1.5px solid var(--black);
+    padding-right: 1rem;
+  }
+  li:last-child{
+    padding-left: 1rem;
+  }
+}
+.recreation{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recreation h2 span{
+  font-family: "Joti One";
+  text-align: center;
+  border-top: 1px solid var(--black);
+  font-size: 2.5rem;
+}
+.cardContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+  padding: 1rem;
+  height: 30rem;
+}
+.cardContainer .recreationCard:last-child{
+  height: 30rem;
+  transform: translateY(-10rem);
+}
+.cardContainer>p{
+  font-family: 'Joti One';
+  font-weight: 100;
+  font-size: 1.8rem;
+  line-height: 120%;
+  display: flex;
+  align-items: start;
+  letter-spacing: -0.02em;
+}
+.recreationCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  img{
+    width: 110%;
+    object-fit: contain;
+  }
+}
+
+.cardContent{
+  flex: none;
+  align-self: stretch;
+  flex-grow: 1;
+  padding: 1rem;
+  h3{
+    font-size: 1.2rem;
+  }
+  p{
+    color: var(--text-gray);
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:992px) {
+  .onboardThrills{
+    height: 115rem;
+  }
+  .info{
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero{
+    font-size: 2rem;
+  }
+  .info h2{
+    font-size: 2rem;
+  }
+  .infoDescription{
+    font-size: 1.3rem;
+  }
+  .infoLinks{
+    font-size: 1rem;
+    li:first-child{
+      padding-right: 0.5rem;
+    }
+    li:last-child{
+      padding-left: 0.5rem;
+    }
+  }
+  .recreation h2 span{
+    font-size: 2.2rem;
+  }
+  .cardContainer>p{
+    font-size: 1.5rem;
+  }
+  .cardContent{
+    h3{
+      font-size: 1rem;
+    }
+    p{
+      font-size: 0.9rem;
+    }
+  }
+}
+@media (max-width:768px) {
+  .onboardThrills{
+    height: 110rem;
+  }
+  .hero{
+    font-size: 1.5rem;
+  }
+  .info h2{
+    font-size: 1.7rem;
+  }
+  .infoDescription{
+    font-size: 1.1rem;
+  }
+    .infoLinks{
+    font-size: 0.8rem;
+  }
+  .recreation h2 span{
+    font-size: 2rem;
+  }
+  .cardContainer>p{
+    font-size: 1.3rem;
+  }
 }

@@ -51,6 +51,7 @@ const Cart = ({cartItems,handleDecrease,handleIncrease,handleRemoveItem}) => {
               <div>
                 ${itemsPrice.toFixed(2)}
               </div>
+              <a href="#">Proceed to checkout</a>
             </div>
           </div>
         )}

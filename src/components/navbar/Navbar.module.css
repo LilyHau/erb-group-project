@@ -50,6 +50,9 @@
     cursor: pointer;
   }
 }
+.navbarListItems>li{
+  color: var(--text-gray);
+}
 .dropdownContent {
     display: none;
     position: absolute;
