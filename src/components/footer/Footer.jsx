@@ -13,39 +13,48 @@ const Footer = () => {
             offers
           </h3>
         </div>
-        <div className={styles.link}>
-          <h2>Overview</h2>
-          <Link to="/cruises">Ships Overview</Link>
-          <Link to="/onboard">Activities</Link>
-          <Link to="/">Overview</Link>
-        </div>
-        <div className={styles.link}>
-          <h2>Support</h2>
-          <p>Contact</p>
+        <div className={styles.linkbar}>
+          <div className={styles.link}>
+            <h2>Overview</h2>
+            <Link to="/cruises">Ships Overview</Link>
+            <Link to="/onboard">Activities</Link>
+            <Link to="/">Overview</Link>
+          </div>
+          <div className={styles.link}>
+            <h2>Support</h2>
+            <Link to="/">Contact</Link>
+            <Link to="/">Support</Link>
+            <Link to="/">Legal</Link>
+            {/* <p>Contact</p>
           <p>Support</p>
-          <p>Legal</p>
-        </div>
-        <div className={styles.link}>
-          <h2>Our Curises</h2>
-          <Link to="/OCEANEXPLORER">Ocean Explorer</Link>
-          <Link to="/SEAGUARDIAN">Sea Giardian</Link>
-          <Link to="/SERENITYDREAM">Serenity Dream</Link>
-        </div>
-        <div className={styles.bar}>
-          <form action="" method="post" className={styles.form}>
-            <input
-              type="email"
-              name="email"
-              id=""
-              placeholder="Email Address"
-              required
-            />
-            {/* <button>SUBSCRIBE</button> */}
-            <input type="submit" value="SUBSCRIBE" />
-          </form>
+          <p>Legal</p> */}
+          </div>
+          <div className={styles.link}>
+            <h2>Our Curises</h2>
+            <Link to="/OCEANEXPLORER">Ocean Explorer</Link>
+            <Link to="/SEAGUARDIAN">Sea Giardian</Link>
+            <Link to="/SERENITYDREAM">Serenity Dream</Link>
+          </div>
         </div>
       </div>
-
+      <div className={styles.bar}>
+        <form action="" method="post" className={styles.form}>
+          <input
+            type="email"
+            name="email"
+            id=""
+            placeholder="Email Address"
+            required
+          />
+          <button>SUBSCRIBE</button>
+          {/* <input type="submit" value="SUBSCRIBE" /> */}
+        </form>
+        <div className="icon">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+      </div>
       <div className={styles.bottom}>
         <p>© 2026 Ocean Park. All rights reserved.</p>
       </div>

@@ -6,15 +6,65 @@
 }
 
 .container {
-  /* margin: 80px 50px; */
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  /* line-height: 1.8; */
-  border: solid blue;
+  height: 160px;
+  width: 100%;
+}
+
+.content {
+  width: 30%;
+
+  h2 {
+    font-size: 1.3rem;
+    padding-bottom: 20px;
+  }
+
+  p {
+    padding-bottom: 30px;
+    color: var(--text-gray);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+}
+
+.linkbar {
+  display: flex;
+  justify-content: end;
+  width: 70%;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  width: 16%;
+  line-height: 2;
 }
 
 .bar {
-  display: table-row;
-  border: solid blue;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  /* border: solid green; */
+}
+
+.form {
+  border: 1px solid purple;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  input {
+    padding: 15px 40px;
+    border: none;
+  }
+
+  button {
+    padding: 15px 20px;
+    border: none;
+    font-weight: 600;
+    background: #6246eb;
+    color: var(--white);
+  }
 }
