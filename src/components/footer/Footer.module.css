@@ -145,11 +145,8 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    /* padding: 50px 20px 0px; */
-  }
   .container {
-    height: 150px;
+    height: 130px;
   }
   .content {
     width: 70%;
@@ -159,7 +156,7 @@
     }
 
     p {
-      padding-bottom: 10px;
+      padding-bottom: 15px;
       font-size: 0.8rem;
     }
 
@@ -177,27 +174,33 @@
     }
 
     a {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 
   /* bottom bar section */
   .bar {
-    width: 66%;
+    width: 69%;
   }
 
   .form {
     input {
-      padding: 11px 16px;
+      padding: 9px 8px;
     }
 
     button {
-      padding: 11px 16px;
+      padding: 9px 8px;
     }
   }
 
   /* bottom footer */
   .bottom {
     margin-top: 35px;
+
+    p {
+      margin-top: 18px;
+
+      font-size: 0.8rem;
+    }
   }
 }
