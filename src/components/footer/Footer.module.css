@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: 50px 60px 10px;
+  padding: 50px 60px 20px;
   background: var(--footer-blue);
 }
 
@@ -54,7 +54,7 @@
 /* bottom bar section */
 .bar {
   display: flex;
-  width: 80%;
+  width: 72%;
   justify-content: space-between;
   align-items: center;
 }
@@ -95,13 +95,26 @@
   }
 }
 
+@media (max-width: 1250px) {
+  /* bottom bar section */
+  .bar {
+    width: 75%;
+  }
+
+  .container {
+    margin-bottom: 25px;
+  }
+}
+
 @media (max-width: 992px) {
   .section {
     padding: 50px 20px 10px;
   }
+
   .container {
-    height: 170px;
+    height: 140px;
   }
+
   .content {
     width: 70%;
 
@@ -146,7 +159,7 @@
 
 @media (max-width: 768px) {
   .container {
-    height: 130px;
+    height: 110px;
   }
   .content {
     width: 70%;

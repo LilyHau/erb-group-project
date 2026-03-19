@@ -1,0 +1,152 @@
+.mainContainer {
+  width: 100%;
+  max-width: 4600px;
+  margin: 0 auto;
+  padding: 160px 80px;
+  background-color: #edfaff;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerSection {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+.mainTitle {
+  font-family: "Joti One", cursive;
+  font-size: clamp(80px, 12vw, 140px);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 30px;
+}
+
+.moreText {
+  color: #43c5ff;
+}
+
+.subTitleText {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 0.7em;
+  color: #333;
+}
+
+.quoteContainer {
+  max-width: 1400px;
+  margin: 80px auto 0 auto;
+}
+
+.quoteText {
+  font-style: italic;
+  font-size: 2.4rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Bottom Features Section */
+.featuresGrid {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.card {
+  flex: 1;
+  min-width: 500px;
+  max-width: 700px;
+  padding: 20px;
+  background-color: transparent;
+  text-align: left;
+}
+
+.cardTitle {
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.cardDescription {
+  font-size: 1.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .mainContainer {
+    padding: 80px 40px;
+  }
+
+  .headerSection {
+    margin-bottom: 60px;
+  }
+
+  .mainTitle {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quoteText {
+    font-size: 1.8rem;
+  }
+
+  .featuresGrid {
+    gap: 40px;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 60px 20px;
+  }
+
+  .mainTitle {
+    font-size: 40px;
+  }
+
+  .subTitleText {
+    font-size: 0.4em;
+  }
+
+  .quoteContainer {
+    margin-top: 40px;
+  }
+
+  .quoteText {
+    font-size: 1rem;
+  }
+
+  .featuresGrid {
+    margin-top: 40px;
+  }
+
+  .card {
+    padding: 10px 0;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .cardDescription {
+    font-size: 1.1rem;
+  }
+
+  .cardTitle br {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.content {
+  max-width: 500px;
+  padding: 3rem;
+  line-height: 2;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 8px 20px;
+  font-weight: 550;
+  font-size: 1.1rem;
+  font-style: italic;
+  background-color: var(--white);
+  border: 3px solid var(--text-blue);
+  cursor: pointer;
+}

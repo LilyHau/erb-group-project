@@ -1,0 +1,29 @@
+.container {
+  background-color: #edfaff;
+  color: #43c5ff;
+  display: inline-block;
+  font-family: "Joti One", system-ui;
+  font-size: 56px;
+  font-weight: bold;
+  border-radius: 8px;
+  min-height: 1.2em;
+}
+
+@media (max-width: 992px) {
+  .container {
+    font-size: 46px;
+    min-height: 1.1em;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    font-size: 40px;
+    padding: 4px 12px;
+    margin: 0 auto 15px;
+  }
+}
