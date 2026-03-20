@@ -13,7 +13,7 @@
   width: 30%;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding-bottom: 20px;
   }
 
@@ -48,6 +48,11 @@
 
   a {
     color: var(--text-gray);
+    transition: all 0.3 ease;
+
+    &:hover {
+      color: var(--background-blue);
+    }
   }
 }
 
@@ -75,6 +80,7 @@
     font-weight: 600;
     background: #6246eb;
     color: var(--white);
+    cursor: pointer;
   }
 }
 

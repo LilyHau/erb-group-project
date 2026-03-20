@@ -22,9 +22,9 @@ const Footer = () => {
           </div>
           <div className={styles.link}>
             <h2>Support</h2>
-            <Link to="/">Contact</Link>
-            <Link to="/">Support</Link>
-            <Link to="/">Legal</Link>
+            <Link to="/FAQSection">Contact</Link>
+            <Link to="/FAQSection">Support</Link>
+            <Link to="/FAQSection">Legal</Link>
             {/* <p>Contact</p>
           <p>Support</p>
           <p>Legal</p> */}
