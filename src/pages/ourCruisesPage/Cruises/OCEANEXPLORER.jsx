@@ -18,16 +18,6 @@ import Heroimg3 from "../../../assets/OCEANEXPLORER/underthesea2.png";
 import Heroimg2 from "../../../assets/OCEANEXPLORER/Clip.png";
 import { useNavigate } from "react-router-dom";
 
-const btnStyle = (bgColor) => ({
-  backgroundColor: bgColor,
-  padding: "15px 30px",
-  color: "white",
-  borderRadius: "30px",
-  border: "none",
-  cursor: "pointer",
-  fontWeight: "bold",
-  transition: "0.3s",
-});
 const OCEANEXPLORER = () => {
   const navigate = useNavigate();
   return (
@@ -37,48 +27,12 @@ const OCEANEXPLORER = () => {
         <div className={styles.content}>
           <h1 className={styles.title}>OCEAN EXPLORER</h1>
           <p className={styles.chineseTitle}>海洋探索號</p>
-        </div>
-        {/* ^^^ 修復：這裡補上閉合標籤 */}
-      {/* 2. Content Overlay Container (Moves everything to the left side) */}
-      <div
-        style={{
-          position: "absolute",
-          top: "15%",
-          left: "10%",
-          marginTop: "-550px", // 1. Moves the entire block up by 400px
-          color: "white",
-          zIndex: 10,
-          fontFamily: "sans-serif",
-        }}
-      >
-        {/* Buttons Row */}
-        <div
-          style={{
-            display: "flex",
-            gap: "40px", // 2. Increased gap for the zoom look
-            marginBottom: "80px",
-          }}
-        >
-          <Link
-            to="/CruiseBookingPageOE"
-            style={{
-              ...btnStyle("#5ca4bc"),
-              display: "inline-block",
-              textDecoration: "none",
-            }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#4a8ba1")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#5ca4bc")}
-          >
-            JOIN NOW
-          </Link>
-          <Link to="/oeInfo"
-            style={btnStyle("#175490")}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#0d3a66")} // Darker shade for More Info
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#175490")}
-          >
-            MORE INFO
-          </Link>
-        </div>
+
+          <p className={styles.tagline}>
+            Dive into the Deep,
+            <br />
+            Touch the Abyss
+          </p>
 
           <div className={styles.btnRow}>
             <button
@@ -93,7 +47,7 @@ const OCEANEXPLORER = () => {
               className={styles.infoBtn}
               onMouseOver={(e) => (e.target.style.backgroundColor = "#4c93af")} // Or any color
               onMouseOut={(e) => (e.target.style.backgroundColor = "#5ca4bc")} // Or original color
-              onClick={() => navigate("/")} // Your click handler here
+              onClick={() => navigate("/oeInfo")} // Your click handler here
             >
               MORE INFO
             </button>
