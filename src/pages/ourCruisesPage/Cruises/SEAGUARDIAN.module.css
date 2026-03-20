@@ -1,7 +1,3 @@
-/* styles.css */
-
-/* Base styles for all elements */
-/* hero */
 /* --- 主容器 --- */
 .heroContainer {
   position: relative;
@@ -157,16 +153,6 @@
   border-radius: 20px;
   z-index: 3;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-/* 響應式微調 */
-@media (max-width: 1200px) {
-  .imageGallery {
-    right: 50px;
-  }
-  .title {
-    font-size: 3.5rem;
-  }
 }
 
 /* hero end */
@@ -329,15 +315,35 @@
   text-align: right;
   color: #877e7e;
   position: relative;
-  right: -920px;
+  right: -320px;
 }
 
 .footerimage {
   width: 100%;
 }
 
-/* Media Query for screens <= 992px */
+@media (max-width: 1200px) {
+  .imageGallery {
+    right: 50px;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .explorelink {
+    right: -200px;
+  }
+}
+
 @media (max-width: 992px) {
+  .content {
+    padding-left: 50px;
+  }
+
+  .titleheading {
+    font-size: 90px;
+  }
+
   .herooverlayunit {
     top: 5%;
     left: 5%;
@@ -401,12 +407,19 @@
 
   .explorelink {
     font-size: 20px;
-    right: 0;
+    right: 2;
   }
 }
 
-/* Media Query for screens <= 768px */
 @media (max-width: 768px) {
+  .content {
+    padding-left: 20px;
+  }
+
+  .titleheading {
+    font-size: 40px;
+  }
+
   .herooverlayunit {
     top: 10%;
     left: 2%;
