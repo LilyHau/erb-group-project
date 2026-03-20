@@ -75,7 +75,7 @@ const SEAGUARDIAN = () => {
               className={styles.infoBtn}
               onMouseOver={(e) => (e.target.style.backgroundColor = "#c0dfb1")} // Or any color
               onMouseOut={(e) => (e.target.style.backgroundColor = "#c0dfb1")} // Or original color
-              onClick={() => navigate("/")} // Your click handler here
+              onClick={() => navigate("/SGInfo")} // Your click handler here
             >
               MORE INFO
             </button>
