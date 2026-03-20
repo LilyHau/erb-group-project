@@ -18,6 +18,16 @@ import Heroimg3 from "../../../assets/OCEANEXPLORER/underthesea2.png";
 import Heroimg2 from "../../../assets/OCEANEXPLORER/Clip.png";
 import { useNavigate } from "react-router-dom";
 
+const btnStyle = (bgColor) => ({
+  backgroundColor: bgColor,
+  padding: "15px 30px",
+  color: "white",
+  borderRadius: "30px",
+  border: "none",
+  cursor: "pointer",
+  fontWeight: "bold",
+  transition: "0.3s",
+});
 const OCEANEXPLORER = () => {
   const navigate = useNavigate();
   return (
@@ -28,6 +38,7 @@ const OCEANEXPLORER = () => {
           <h1 className={styles.title}>OCEAN EXPLORER</h1>
           <p className={styles.chineseTitle}>海洋探索號</p>
         </div>
+        {/* ^^^ 修復：這裡補上閉合標籤 */}
       {/* 2. Content Overlay Container (Moves everything to the left side) */}
       <div
         style={{
