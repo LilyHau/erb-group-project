@@ -32,13 +32,7 @@ const Navbar = ({cartItems}) => {
               <li><Link to="/SERENITYDREAM">Serenity Dream</Link></li>
             </ul>
           </li><li className={styles.dropdown}>
-            <a className={styles.hoverUnderlineAnimation}>Onboard Thrills</a>
-            <ul className={styles.dropdownContent}>
-              <li><Link to="/onboard">Activities Overview</Link></li>
-              <li><Link to="/about">Entertainment</Link></li>
-              <li><Link to="/about">Dining</Link></li>
-              <li><Link to="/about">Recreation</Link></li>
-            </ul>
+            <Link to="onboard"><a className={styles.hoverUnderlineAnimation}>Onboard Thrills</a></Link>
           </li>
           <Link to="/shop"><li className={styles.hoverUnderlineAnimation}>Exclusive Merch</li></Link>
         </ul>

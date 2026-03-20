@@ -81,19 +81,239 @@
     padding-left: 1rem;
   }
 }
-.recreation{
+.exploration{
+  width: 100%;
+  border-top: 1px solid var(--black) ;
+  padding: 5rem;
+  h2 {
+    font-family: "Joti One";
+    margin: 1rem 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 2.5rem;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 29rem;
+    bottom: 0.3em;
+    width: 7rem;
+    height: 1rem;
+    background-color: #6fdbff;
+    border-radius: 50%;
+    z-index: -1;
+}
+  p{
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+}
+.explorationCardContainer{
+  display: flex;
+  gap: 1rem;
+}
+.explorationCard{
+  width: 33%;
+  h3{
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: normal;
+  }
+  p{
+    line-height: normal;
+    font-size: 0.9rem;
+  }
+  img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+.conservation{
+  border-top: 1px solid var(--black) ;
+  width: 100%;
+  padding: 5rem;
+}
+.conservationContainer{
   width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+.conservationContent{
+  width: 40%;
+  h2 {
+    font-family: "Joti One";
+    margin: 1rem 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 2.5rem;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 9rem;
+    bottom: 0.3em;
+    width: 7rem;
+    height: 1rem;
+    background-color: #6fdbff;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  p{
+    font-size: 1rem;
+  }
+}
+.conservationCardContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.conservationCard{
+  display: flex;
+  gap: 1rem;
+  line-height: normal;
+  .conservationInfo{
+    flex-grow: 1;
+    width: 50%;
+    h3{
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    p{
+      font-size: 0.9rem;
+    }
+  }
+  img{
+    height: 12rem;
+    aspect-ratio: 1.5/1;
+    object-fit: cover;
+  }
+}
+.adventure{
+  border-top: 1px solid var(--black) ;
+  width: 100%;
+  padding: 3rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-family: "Joti One";
+    margin: 1rem 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 2.5rem;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 29rem;
+    bottom: 0.3em;
+    width: 7rem;
+    height: 1rem;
+    background-color: #6fdbff;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  p{
+    font-size: 1rem;
+  }
+}
+.adventureContainer{
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+  img{
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+  }
+  figcaption{
+    font-size: 0.8rem;
+  }
+  p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Irish Grover";
+    font-size: 4rem;
+    text-align: center;
+  }
+  p:first-of-type{
+    color: #61c0df;
+    text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
+  }
+  p:nth-of-type(2){
+    color: #379969;
+    text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
+  }
+  p:nth-of-type(3){
+    color: #38619d;
+    text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
+  }
+  p:last-of-type{
+    line-height: normal;
+    color: #515151;
+    text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
+  }
+}
+.recreation{
+  border-top: 1px solid var(--black) ;
+  width: 100%;
+  padding: 2rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.recreation h2 span{
-  font-family: "Joti One";
-  text-align: center;
-  border-top: 1px solid var(--black);
-  font-size: 2.5rem;
+.recreation {
+  h2 {
+    font-family: "Joti One";
+    margin: 1rem 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 2.5rem;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 26rem;
+    bottom: 0.3em;
+    width: 7rem;
+    height: 1rem;
+    background-color: #6fdbff;
+    border-radius: 50%;
+    z-index: -1;
+  }
 }
 .cardContainer{
   display: grid;
@@ -167,6 +387,20 @@
       padding-left: 0.5rem;
     }
   }
+  .conservationCard{
+  img{
+    height: 10rem;
+  }
+}
+.conservationContent{
+  h2 {
+    font-size: 2.3rem;
+  }
+  h2::after {
+    left: 7rem;
+    width: 7rem;
+  }
+}
   .recreation h2 span{
     font-size: 2.2rem;
   }
@@ -204,4 +438,73 @@
   .cardContainer>p{
     font-size: 1.3rem;
   }
+  .exploration{
+  h2 {
+    font-size: 2rem;
+  }
+  h2::after {
+    left: 25rem;
+    width: 5rem;
+}
+  p{
+    font-size: 1rem;
+  }
+}
+.explorationCard{
+  h3{
+    font-size: 0.9rem;
+  }
+  p{
+    font-size: 0.8rem;
+  }
+}
+.conservationContainer{
+  gap: none;
+  width: 100%;
+}
+.conservationContent{
+  h2 {
+    font-size: 2rem;
+  }
+  h2::after {
+    left: 6rem;
+    width: 5rem;
+  }
+  p{
+    font-size: 0.9rem;
+  }
+}
+.conservationCard{
+  .conservationInfo{
+    h3{
+      font-size: 0.9rem;
+    }
+    p{
+      font-size: 0.8rem;
+    }
+  }
+  img{
+    height: 8rem;
+  }
+}
+.adventure{
+  h2 {
+    font-size: 2rem;
+  }
+  h2::after {
+    left: 25rem;
+    width: 5rem;
+  }
+  p{
+    font-size: 0.9rem;
+  }
+}
+.adventureContainer{
+  figcaption{
+    font-size: 0.8rem;
+  }
+  p{
+    font-size: 3.5rem;
+  }
+}
 }
