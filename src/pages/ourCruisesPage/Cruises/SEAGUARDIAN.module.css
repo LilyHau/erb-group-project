@@ -12,7 +12,7 @@
   position: fixed; /* fixed position on viewport */
   top: 4%; /* position from top - adjust as needed */
   left: 10%; /* position from left - adjust as needed */
-  /* remove margin-top; use top for position */
+  /* remove margin-top;Diving use top for position */
   color: white;
   z-index: 10; /* ensure on top of other elements */
   display: flex;

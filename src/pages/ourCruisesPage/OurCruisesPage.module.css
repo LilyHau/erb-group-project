@@ -39,13 +39,13 @@
   width: 60%;
   justify-content: center;
 }
-.thumbItem:first-child{
+.thumbItem:first-child {
   color: var(--oe-main);
 }
-.thumbItem:nth-child(2){
+.thumbItem:nth-child(2) {
   color: var(--sg-main);
 }
-.thumbItem:last-child{
+.thumbItem:last-child {
   color: var(--sd-main);
 }
 .thumbItem {
@@ -60,7 +60,7 @@
   border-radius: 10px;
   max-width: 100%;
 }
-.thumbImage:hover{
+.thumbImage:hover {
   box-shadow: var(--box-shadow);
 }
 
@@ -85,7 +85,7 @@
   }
 
   .thumbImage {
-  width: 70%;
+    width: 70%;
   }
 
   .thumbText {
@@ -126,8 +126,8 @@
   }
 
   .thumbImage {
-    width: 90vw;
-    height: 31rem;
+    width: 65vw;
+    height: 25rem;
     object-fit: cover;
     object-position: center;
   }
