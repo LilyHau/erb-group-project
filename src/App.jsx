@@ -87,6 +87,9 @@ function App() {
           <Route path="oeInfo" element={<OEInfo />} />
           <Route path="sgInfo" element={<SGInfo />} />
           <Route path="sdInfo" element={<SDInfo />} />
+          <Route path="oeInfo" element={<OEInfo />} />
+          <Route path="sgInfo" element={<SGInfo />} />
+          <Route path="sdInfo" element={<SDInfo />} />
           <Route path="exclusive" element={<ExclusiveMerchPage />} />
           <Route path="OCEANEXPLORER" element={<OCEANEXPLORER />} />
           <Route path="SEAGUARDIAN" element={<SEAGUARDIAN />} />

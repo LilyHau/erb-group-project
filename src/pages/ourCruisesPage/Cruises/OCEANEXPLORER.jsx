@@ -68,6 +68,7 @@ const OCEANEXPLORER = () => {
             JOIN NOW
           </Link>
           <Link to="/oeInfo"
+          <Link to="/oeInfo"
             style={btnStyle("#175490")}
             onMouseOver={(e) => (e.target.style.backgroundColor = "#0d3a66")} // Darker shade for More Info
             onMouseOut={(e) => (e.target.style.backgroundColor = "#175490")}
