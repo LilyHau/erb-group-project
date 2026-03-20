@@ -10,6 +10,9 @@ import SDsum2 from "../../../assets/SERENITYDREAM/SDsum2.png";
 import SDfooter from "../../../assets/SERENITYDREAM/SDfooter.png";
 import styles from "./SERENITYDREAM.module.css";
 import { useNavigate } from "react-router-dom";
+import Heroimg1 from "../../../assets/SERENITYDREAM/Clippathgroup.png";
+import Heroimg2 from "../../../assets/SERENITYDREAM/Group.png";
+import Heroimg3 from "../../../assets/SERENITYDREAM/Clip.png";
 
 const SERENITYDREAM = () => {
   const thumbStyle = {
@@ -44,45 +47,66 @@ const SERENITYDREAM = () => {
 
   return (
     <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-      {/* Hero Image */}
-      <div>
-        <img className={styles.hero} src={OEimage} alt="Ocean Explorer" />
-      </div>
+      {/* Hero Overlay */}
+      <section className={styles.heroContainer}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>OCEAN EXPLORER</h1>
+          <p className={styles.chineseTitle}>海洋探索號</p>
 
-      {/* MASTER OVERLAY - Perfectly Locked */}
-      <div className={styles.herooverlayunit}>
-        {/* Buttons Row (Top) */}
-        <div className={styles.btnRow}>
-          <Link to="/CruiseBookingPageOE"><button
-            style={{ ...btnStyle("#d28d8d"), marginTop: 0 }} // Force remove the old margin
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#d28d76")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#d28d8d")}
-            onClick={() => navigate("/CruiseBookingPageSD")}
-          >
-            JOIN NOW
-          </button></Link>
-          <Link to="/sdInfo"><button
-            style={{ ...btnStyle("#f7d77e"), marginTop: 0 }} // Force remove the old margin
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#e5c566")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#f7d77e")}
-          >
-            MORE INFO
-          </button></Link>
+          <p className={styles.tagline}>
+            Dive into the Deep,
+            <br />
+            Touch the Abyss
+          </p>
+
+          <div className={styles.btnRow}>
+            <button
+              className={styles.joinBtn}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#d28d8d")} // Darker shade
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#d28d8d")} // Original color
+              onClick={() => navigate("/CruiseBookingPageSD")} // Your click handler here
+            >
+              JOIN NOW
+            </button>
+            <button
+              className={styles.infoBtn}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#f7d77e")} // Or any color
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#f7d77e")} // Or original color
+              onClick={() => navigate("/SDInfo")} // Your click handler here
+            >
+              MORE INFO
+            </button>
+          </div>
+
+          {/* Small Navigation Icons */}
+          <div className={styles.iconNav}>
+            <div className={styles.iconItem}>
+              <Link to="/OCEANEXPLORER">
+                <img src={Imagea} alt="Eco" />
+              </Link>
+            </div>
+            <div className={styles.iconItem}>
+              <Link to="/SEAGUARDIAN">
+                <img src={Imageb} alt="Turtle" />
+              </Link>
+            </div>
+            <div className={styles.iconItem}>
+              <Link to="/SERENITYDREAM">
+                <img src={Imagec} alt="Island" />
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Thumbs container (Bottom) */}
-        <div className={styles.thumbContainer}>
-          <Link to="/OCEANEXPLORER">
-            <img src={Imagea} style={thumbStyle1} alt="OE" />
-          </Link>
-          <Link to="/SEAGUARDIAN">
-            <img src={Imagec} style={thumbStyle1} alt="SG" />
-          </Link>
-          <Link to="/SERENITYDREAM">
-            <img src={Imageb} style={thumbStyle} alt="SD" />
-          </Link>
+        {/* Floating Image Composition */}
+        <div className={styles.imageGallery}>
+          <img src={Heroimg1} className={styles.mainShip} alt="Cruise Ship" />
+          <img src={Heroimg2} className={styles.thumbDiver} alt="Diver" />
+          <img src={Heroimg3} className={styles.thumbReef} alt="Coral Reef" />
         </div>
-      </div>
+      </section>
+
+      {/* hero end */}
 
       {/* Experience Section */}
       <div className={styles.contentContainer}>

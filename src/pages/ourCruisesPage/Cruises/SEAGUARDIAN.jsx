@@ -84,13 +84,19 @@ const SEAGUARDIAN = () => {
           {/* Small Navigation Icons */}
           <div className={styles.iconNav}>
             <div className={styles.iconItem}>
-              <img src={Imagea} alt="Eco" />
+              <Link to="/OCEANEXPLORER">
+                <img src={Imagea} alt="Eco" />
+              </Link>
             </div>
             <div className={styles.iconItem}>
-              <img src={Imageb} alt="Turtle" />
+              <Link to="/SEAGUARDIAN">
+                <img src={Imageb} alt="Turtle" />
+              </Link>
             </div>
             <div className={styles.iconItem}>
-              <img src={Imagec} alt="Island" />
+              <Link to="/SERENITYDREAM">
+                <img src={Imagec} alt="Island" />
+              </Link>
             </div>
           </div>
         </div>

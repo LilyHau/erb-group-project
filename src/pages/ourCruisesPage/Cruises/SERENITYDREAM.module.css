@@ -1,44 +1,170 @@
-.hero {
+.heroContainer {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
-  min-height: 600px;
-  object-fit: cover;
+  height: 100vh;
+  background-color: #f9d984; /* 深藍色背景 */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
-.herooverlayunit {
-  position: fixed; /* fixed position on viewport */
-  top: 4%; /* position from top - adjust as needed */
-  left: 10%; /* position from left - adjust as needed */
-  /* remove margin-top; use top for position */
-  color: white;
-  z-index: 10; /* ensure on top of other elements */
+/* 背景裝飾大圓形 */
+.heroContainer::after {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: rgba(255, 255, 255, 0.227);
+  border-radius: 50%;
+  right: -100px;
+  top: 10%;
+  z-index: 1;
+}
+
+/* --- 左側文字內容 (固定左側 30px) --- */
+.content {
+  position: relative;
+  padding-left: 220px; /* FIXED 100px from the left edge */
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* default, can override for responsiveness */
-  gap: 20px;
+  justify-content: center; /* Ensures inner elements are grouped and centered */
+  max-width: 700px;
 }
 
+.title {
+  font-family: "Irish Grover", cursive;
+  color: black;
+  font-size: 3.5rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.chineseTitle {
+  color: black;
+  font-size: 1.8rem;
+  margin: 10px 0 40px 0;
+  opacity: 0.9;
+}
+
+.tagline {
+  color: black;
+  font-size: 2.4rem;
+  line-height: 1.3;
+  margin-bottom: 50px;
+}
+
+/* --- Buttons --- */
 .btnRow {
-  position: fixed; /* lock position */
-  top: 60%; /* or set bottom: Xpx; for fixed bottom placement */
-  left: 19%; /* horizontally aligned */
-  transform: translateX(-7%);
-  z-index: 999; /* above everything else */
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
+  margin-bottom: 70px;
 }
 
-.thumbContainer {
-  position: fixed; /* lock position */
-  bottom: 21%; /* distance from bottom */
-  left: 19%; /* or right: 10%; for right side fixed position */
-  transform: translateX(3%);
-  z-index: 999; /* above other content */
-  display: flex;
-  gap: 10px;
+.joinBtn,
+.infoBtn {
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.joinBtn {
+  background-color: #d28d8d;
+  /* color: white; */
+}
+.infoBtn {
+  background-color: #f7d77e;
+  /* color: white; */
+  border: 2px solid black;
+}
+
+/* --- Bottom Icons --- */
+.iconNav {
+  display: flex;
+  gap: 20px; /* 20px space between icons */
+}
+
+.iconItem {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.iconItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- 右側圖片組合 (固定右側 200px) --- */
+.imageGallery {
+  position: absolute;
+  right: 200px; /* 固定右側 200px */
+  width: 50%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* 郵輪主圖 (傾斜效果) */
+.mainShip {
+  width: 60%;
+  transform: rotate(-10deg);
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
+}
+
+/* 右上角潛水員 */
+.thumbDiver {
+  position: absolute;
+  top: 380px;
+  right: -50px;
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 25px;
+  z-index: 1;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* 右下角珊瑚礁 */
+.thumbReef {
+  position: absolute;
+  bottom: 370px;
+  right: -20px;
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 3;
+  /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); */
+}
+
+/* 響應式微調 */
+@media (max-width: 1200px) {
+  .imageGallery {
+    right: 50px;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+/* hero end */
 
 .contentContainer {
   background-color: #f9d984;
