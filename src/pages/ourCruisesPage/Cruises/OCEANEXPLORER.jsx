@@ -13,10 +13,9 @@ import EXimgb from "../../../assets/OCEANEXPLORER/Expedition2.png";
 import EXimgc from "../../../assets/OCEANEXPLORER/Expedition3.png";
 import ADCimga from "../../../assets/OCEANEXPLORER/ADC1.png";
 import ADCimgb from "../../../assets/OCEANEXPLORER/ADC2.png";
-import Heroimg1 from "../../../assets/OCEANEXPLORER/diving1.png";
-import Heroimg3 from "../../../assets/OCEANEXPLORER/underthesea2.png";
-import Heroimg2 from "../../../assets/OCEANEXPLORER/Clip.png";
+
 import { useNavigate } from "react-router-dom";
+import backgroundVideo from "../../../assets/OCEANEXPLORER/OEherovideo.mp4"; // Path to your video
 
 const OCEANEXPLORER = () => {
   const navigate = useNavigate();
@@ -24,6 +23,9 @@ const OCEANEXPLORER = () => {
     <div className={styles.container}>
       {/* Hero Overlay */}
       <section className={styles.heroContainer}>
+        <video autoPlay loop muted playsInline className={styles.bgVideo}>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
         <div className={styles.content}>
           <h1 className={styles.title}>OCEAN EXPLORER</h1>
           <p className={styles.chineseTitle}>海洋探索號</p>
@@ -74,11 +76,6 @@ const OCEANEXPLORER = () => {
         </div>
 
         {/* Floating Image Composition */}
-        <div className={styles.imageGallery}>
-          <img src={Heroimg2} className={styles.mainShip} alt="Cruise Ship" />
-          <img src={Heroimg1} className={styles.thumbDiver} alt="Diver" />
-          <img src={Heroimg3} className={styles.thumbReef} alt="Coral Reef" />
-        </div>
       </section>
 
       {/* hero end */}
