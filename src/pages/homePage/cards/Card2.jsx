@@ -11,8 +11,7 @@ const Card2 = () => {
       <div className={styles.content}>
         <h2>Sea Diving Adventures</h2>
         <p>
-          When there’s one great thing, there’s usually another. What’s your
-          second thing to showcase?
+          Embark on guided dives to explore coral reefs, underwater caves, and marine habitats, with access to onboard sea labs for hands-on learning.
         </p>
         <Link
           to="/cruises"
@@ -21,7 +20,7 @@ const Card2 = () => {
             maxWidth: "12rem",
           }}
         >
-          <Button>Another button</Button>
+          <Button>MORE INFO</Button>
         </Link>
       </div>
     </div>

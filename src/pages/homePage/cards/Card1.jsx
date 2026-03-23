@@ -6,10 +6,9 @@ const Card1 = () => {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <h2>救海龜</h2>
+        <h2>Turtle Rescue & Rehabilitation</h2>
         <p>
-          Call out a feature, benefit, or value of your site, then link to a
-          page where people can learn more about it.
+          Assist our crew in monitoring nesting sites, caring for injured turtles, and learning how to protect these endangered creatures.
         </p>
         <Link
           to="/about"
@@ -18,7 +17,7 @@ const Card1 = () => {
             maxWidth: "12rem",
           }}
         >
-          <Button>Call to action</Button>
+          <Button>MORE INFO</Button>
         </Link>
       </div>
       <div className={styles.image}>

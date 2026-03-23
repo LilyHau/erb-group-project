@@ -6,10 +6,9 @@ const Card3 = () => {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <h2>保育</h2>
+        <h2>Ocean Guardians Interactive Programme</h2>
         <p>
-          Call out a feature, benefit, or value of your site, then link to a
-          page where people can learn more about it.
+          Turn learning into action with this hands-on workshop—held in the ship’s dedicated Kids’ Club or family activity zone! Kids become “Junior Ocean Guardians” as they practice reducing waste, conserving water, and protecting marine habitats. 
         </p>
         <Link
           to="/about"
@@ -18,7 +17,7 @@ const Card3 = () => {
             maxWidth: "12rem",
           }}
         >
-          <Button>Call to action</Button>
+          <Button>MORE INFO</Button>
         </Link>
       </div>
       <div className={styles.image}>
