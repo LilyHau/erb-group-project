@@ -22,8 +22,7 @@ const Whycruise = () => {
         <br />
         <p className={styles.footerText}>
           <strong>
-            <Link to="/cruises">Find Your Perfect Cruise</Link> |{" "}
-            <Link to="/">Book Your Voyage Now</Link>
+            <Link to="/cruises">Find Your Perfect Cruise</Link>
           </strong>
         </p>
       </div>
