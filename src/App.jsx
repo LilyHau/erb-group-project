@@ -4,7 +4,6 @@ import HomePage from "./pages/homePage/HomePage";
 import AboutPage from "./pages/aboutPage/AboutPage";
 import OurCruisesPage from "./pages/ourCruisesPage/OurCruisesPage";
 import OnboardThrillsPage from "./pages/onboardThrillsPage/OnboardThrillsPage";
-import ExclusiveMerchPage from "./pages/exclusiveMerchPage/ExclusiveMerchPage";
 import OCEANEXPLORER from "./pages/ourCruisesPage/Cruises/OCEANEXPLORER";
 import SEAGUARDIAN from "./pages/ourCruisesPage/Cruises/SEAGUARDIAN";
 import SERENITYDREAM from "./pages/ourCruisesPage/Cruises/SERENITYDREAM";
@@ -87,7 +86,6 @@ function App() {
           <Route path="oeInfo" element={<OEInfo />} />
           <Route path="sgInfo" element={<SGInfo />} />
           <Route path="sdInfo" element={<SDInfo />} />
-          <Route path="exclusive" element={<ExclusiveMerchPage />} />
           <Route path="OCEANEXPLORER" element={<OCEANEXPLORER />} />
           <Route path="SEAGUARDIAN" element={<SEAGUARDIAN />} />
           <Route path="SERENITYDREAM" element={<SERENITYDREAM />} />

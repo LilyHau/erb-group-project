@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroVideo from "../../assets/homePage/CRUISE-PROMO-video.mp4";
 
 const Hero = () => {
@@ -7,7 +8,7 @@ const Hero = () => {
         position: "relative",
         width: "100vw",
         height: "550px",
-        maxWidth: "2500px", // Optional: caps the width so it doesn't get TOO big
+        maxWidth: "2500px",
         margin: "0 auto",
         display: "flex",
         justifyContent: "center",
@@ -23,7 +24,6 @@ const Hero = () => {
         playsInline
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
-      {/* Text Overlay - Adjusted for Right-Top */}
       <div
         style={{
           position: "absolute",
@@ -32,14 +32,13 @@ const Hero = () => {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "flex-start", // Vertically centers
-          justifyContent: "flex-end", // Pushes to the RIGHT
-          paddingRight: "1%", // Space from the right edge
+          alignItems: "flex-start",
+          justifyContent: "flex-end",
+          paddingRight: "1%",
           color: "white",
           backgroundColor: "rgba(0, 0, 0, 0)",
           pointerEvents: "none",
-          paddingTop: "1%", // Space from the top edge
-        }}
+          paddingTop: "1%",}}
       >
         <h1
           style={{
@@ -52,14 +51,11 @@ const Hero = () => {
             fontWeight: "bold",
             textAlign: "top",
             color: "white",
-            backgroundColor: "#ffd664ba",
-            // Aligns text lines to the right
-          }}
+            backgroundColor: "#ffd664ba",}}
         >
           Hong Kong departure
         </h1>
       </div>
-      {/* Text Overlay - Adjusted for Right-Center */}
       <div
         style={{
           position: "absolute",
@@ -68,9 +64,9 @@ const Hero = () => {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center", // Vertically centers
-          justifyContent: "flex-end", // Pushes to the RIGHT
-          paddingRight: "2%", // Space from the right edge
+          alignItems: "center",
+          justifyContent: "flex-end",
+          paddingRight: "2%",
           color: "white",
           backgroundColor: "rgba(0, 0, 0, 0)",
           pointerEvents: "none",
@@ -83,21 +79,19 @@ const Hero = () => {
             maxWidth: "900px",
             lineHeight: "1.1",
             fontWeight: "bold",
-            textAlign: "center", // Aligns text lines to the right
+            textAlign: "center",
           }}
         >
           LET’S <br /> EXPLORE <br /> THE <br /> SEA!
         </h1>
       </div>
       <div>
-        <button
+        <Link to="/about"><button
           style={{
             position: "absolute",
-            bottom: "39px", // Distance from bottom
-            right: "90px", // Distance from right
-            padding: "15px 25px", // Button size
-
-            // 1. Initial Background Color
+            bottom: "39px",
+            right: "90px",
+            padding: "15px 25px",
             backgroundColor: "#4271b7bf",
             color: "white",
             fontSize: "1rem",
@@ -106,21 +100,19 @@ const Hero = () => {
             borderRadius: "11px",
             cursor: "pointer",
             transition: "0.3s ease",
-
-            // 2. CRITICAL: must be auto for hover to work
             pointerEvents: "auto",
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = "#4271b7b5"; // Hover Color
+            e.currentTarget.style.backgroundColor = "#4271b7b5";
             e.currentTarget.style.transform = "translateY(-3px)";
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = "#567db6"; // Original Color
+            e.currentTarget.style.backgroundColor = "#567db6";
             e.currentTarget.style.transform = "translateY(0)";
           }}
         >
           Start Planning
-        </button>
+        </button></Link>
       </div>
     </div>
   );

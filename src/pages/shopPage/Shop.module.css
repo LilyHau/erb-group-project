@@ -8,6 +8,10 @@
   position: relative;
   height: 28rem;
   padding: 3rem 0;
+  a{
+    padding: 0.6rem 1rem;
+    color: var(--white);
+  }
 }
 .heroArrival {
   display: inline-block;

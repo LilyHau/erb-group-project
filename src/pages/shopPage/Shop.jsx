@@ -16,9 +16,9 @@ const Shop = ({ handleAddToCart }) => {
         <p className={styles.heroArrival}>NEW ARRIVAL</p>
         <h1 className={styles.heroHeader}>Sailor Calling</h1>
         <h2 className={styles.heroSubheader}>FROM THE HEART OF SAILING</h2>
-        <button className={styles.btn}>SHOP NOW</button>
+        <a href="#merch" className={styles.btn}>SHOP NOW</a>
       </div>
-      <div className={styles.clothContainer}>
+      <div className={styles.clothContainer} id="merch">
         <div className={styles.products}>
           {clothes.map((singleProduct) => {
             const { id, name, price, image, limited, stock } = singleProduct;
