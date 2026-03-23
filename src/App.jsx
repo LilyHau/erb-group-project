@@ -18,7 +18,7 @@ import CruiseBookingPageSD from "./pages/homePage/Booking/CruiseBookingPageSD";
 import OEInfo from "./pages/ourCruisesPage/CruisesInfo/OEInfo";
 import SGInfo from "./pages/ourCruisesPage/CruisesInfo/SGInfo";
 import SDInfo from "./pages/ourCruisesPage/CruisesInfo/SDInfo";
-
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 function App() {
   const cartItemsFromLocalStorage =
     JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -108,6 +108,7 @@ function App() {
               />
             }
           />
+          <Route path="privacy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </BrowserRouter>

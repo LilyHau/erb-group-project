@@ -24,7 +24,7 @@ const Footer = () => {
             <h2>Support</h2>
             <Link to="/FAQSection">Contact</Link>
             <Link to="/FAQSection">Support</Link>
-            <Link to="/FAQSection">Legal</Link>
+            <Link to="/privacy">Legal</Link>
             {/* <p>Contact</p>
           <p>Support</p>
           <p>Legal</p> */}
