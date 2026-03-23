@@ -149,7 +149,7 @@ const Help = () => {
         <div className={styles.linksGrid}>
           <a href="#contact">Contact us</a>
           <a href="./FAQSection">Frequently Asked Questions</a>
-          <a href="./PrivacyPolicy">Privacy Policy</a>
+          <a href="./privacy">Privacy Policy</a>
         </div>
       </section>
 
