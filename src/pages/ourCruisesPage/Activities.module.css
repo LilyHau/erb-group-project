@@ -138,3 +138,83 @@
     text-align: center;
   }
 }
+@media (max-width: 992px) {
+  .sectionTitle {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+  }
+
+  .gridContainer {
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .tallImageCard img {
+    width: 240px; /* Scaled down */
+    height: 400px;
+  }
+
+  .textColumn {
+    padding-top: 100px;
+  }
+
+  .blueSubtitle {
+    font-size: 1.5rem;
+  }
+
+  .diversImg {
+    width: 200px;
+    height: 150px;
+  }
+
+  .turtleImg {
+    width: 250px;
+    height: 180px;
+    margin-left: 40px; /* Reduced stagger */
+  }
+
+  .sideTitle {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile Devices (Vertical Stack) */
+@media (max-width: 768px) {
+  .activitiesSection {
+    padding: 40px 15px;
+  }
+
+  .gridContainer {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    gap: 40px;
+  }
+
+  .tallImageCard img,
+  .diversImg,
+  .turtleImg {
+    width: 100%; /* Images take full width of mobile screen */
+    max-width: 400px;
+    height: auto;
+  }
+
+  .textColumn {
+    padding-top: 0;
+    text-align: center;
+    order: -1; /* Moves "On-Board Roller Coaster" text above its image if desired */
+  }
+
+  .conservationHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .turtleImg {
+    margin-left: 0; /* Remove stagger for mobile */
+  }
+
+  .sideTitle {
+    max-width: 100%;
+  }
+}
