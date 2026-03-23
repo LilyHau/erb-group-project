@@ -1,8 +1,8 @@
 .textWrapper {
-  font-size: clamp(1.2rem, 3vw, 2.6rem);
+  font-size: clamp(1.1rem, 2vw, 2.5rem);
   color: #000000;
   background-color: #edfaff;
-  line-height: 1.64;
+  line-height: 1.53;
 }
 
 @media (max-width: 992px) {
