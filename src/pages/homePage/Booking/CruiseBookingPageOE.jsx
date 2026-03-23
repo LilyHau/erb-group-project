@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./CruiseBookingPageOE.module.css";
 import { Link } from "react-router-dom";
 
-// --- IMAGE IMPORTS ---
 import CRUISEregular from "../../../assets/Cruises/CRUISEregularsuitewithnoseaview.jpg";
 import CRUISEluxrysuite2 from "../../../assets/Cruises/CRUISEluxrysuite2.jpg";
 import CRUISEluxrysuiteforfamily from "../../../assets/Cruises/CRUISEluxrysuiteforfamily4people.jpg";
 
 const CruiseBookingPageOE = () => {
-  // --- 1. STATE MANAGEMENT ---
   const [step, setStep] = useState(1);
   const [dates, setDates] = useState("");
   const [party, setParty] = useState({ adults: 1, children: 0 });
@@ -28,7 +26,6 @@ const CruiseBookingPageOE = () => {
   });
   const [showModal, setShowModal] = useState(false);
 
-  // --- 2. CONFIGURATION ---
   const NIGHTS = 7;
   const cabinTypes = [
     {
@@ -70,7 +67,6 @@ const CruiseBookingPageOE = () => {
     { id: "gen_bio", name: "General Marine Workshop", price: 300 },
   ];
 
-  // --- 3. CALCULATIONS ---
   const totalPeople = Number(party.adults) + Number(party.children);
   const currentCapacity =
     selectedCabins.deluxe * 2 +
@@ -88,7 +84,6 @@ const CruiseBookingPageOE = () => {
   );
   const grandTotal = cabinSubtotal + activitiesTotal + insurance;
 
-  // --- 4. VALIDATION ---
   useEffect(() => {
     setPassengers((prev) =>
       Array.from(
@@ -137,16 +132,14 @@ const CruiseBookingPageOE = () => {
 
   const isPaymentReady =
     paymentDetails.cardName.trim().length >= 3 &&
-    paymentDetails.cardNumber.length === 16 && // Button only lights up at 16 digits
+    paymentDetails.cardNumber.length === 16 &&
     paymentDetails.expiry.length >= 5 &&
     paymentDetails.cvv.length >= 3 &&
     isPaxInfoComplete;
 
   const handleCardChange = (e) => {
-    // 1. Remove anything that isn't a number (\D matches non-digits)
     const numericValue = e.target.value.replace(/\D/g, "");
 
-    // 2. Only update state if it's 16 digits or fewer
     if (numericValue.length <= 16) {
       setPaymentDetails({
         ...paymentDetails,
@@ -154,7 +147,7 @@ const CruiseBookingPageOE = () => {
       });
     }
   };
-  // --- 5. HANDLERS ---
+
   const handleRoomChange = (id, val) =>
     setSelectedCabins((prev) => ({
       ...prev,
@@ -184,7 +177,6 @@ const CruiseBookingPageOE = () => {
         <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
         <div className={styles.mainLayout}>
           <div className={styles.formArea}>
-            {/* STEP 1: DATES */}
             <section className={styles.formSection}>
               <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
               <select
@@ -204,7 +196,6 @@ const CruiseBookingPageOE = () => {
               </select>
             </section>
 
-            {/* STEP 2: PARTY */}
             {step >= 2 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -232,7 +223,6 @@ const CruiseBookingPageOE = () => {
               </section>
             )}
 
-            {/* STEP 3: STATEROOMS */}
             {step >= 3 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -275,7 +265,6 @@ const CruiseBookingPageOE = () => {
               </section>
             )}
 
-            {/* STEP 4: ACTIVITIES & INSURANCE */}
             {step >= 4 && (
               <>
                 <section className={styles.formSection}>
@@ -322,7 +311,6 @@ const CruiseBookingPageOE = () => {
               </>
             )}
 
-            {/* STEP 5: PASSENGER INFO */}
             {step >= 5 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -333,7 +321,6 @@ const CruiseBookingPageOE = () => {
                   <div key={i} className={styles.paxBox}>
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
-                      {/* Title - Fixed duplicate "Mr" value */}
                       <select
                         value={p.title || ""}
                         onChange={(e) =>
@@ -346,7 +333,6 @@ const CruiseBookingPageOE = () => {
                         <option value="Ms">Miss.</option>
                       </select>
 
-                      {/* Added value={p.fieldName} to all inputs to make them controlled */}
                       <input
                         placeholder="First Name"
                         value={p.firstName || ""}
@@ -421,12 +407,11 @@ const CruiseBookingPageOE = () => {
                         placeholder="Zip Code"
                         value={p.zip || ""}
                         onChange={(e) => {
-                          const val = e.target.value.replace(/\D/g, ""); // Numbers only for Zip
+                          const val = e.target.value.replace(/\D/g, "");
                           handlePaxChange(i, "zip", val);
                         }}
                       />
 
-                      {/* Fixed: changed 'pax.phone' to 'p.phone' */}
                       <input
                         type="tel"
                         placeholder="Phone"
@@ -465,7 +450,6 @@ const CruiseBookingPageOE = () => {
             )}
           </div>
 
-          {/* --- SIDEBAR --- */}
           <aside className={styles.sidebar}>
             <div className={styles.policyBox}>
               <h4>Cancellation Policy</h4>
@@ -537,7 +521,6 @@ const CruiseBookingPageOE = () => {
             <div className={styles.paymentBox}>
               <h4>COMPLETE YOUR BOOKING</h4>
               <div className={styles.payGrid}>
-                {/* Card Name: Letters & Spaces only */}
                 <input
                   placeholder="Name on Card"
                   className={styles.fullWidth}
@@ -550,7 +533,6 @@ const CruiseBookingPageOE = () => {
                   }}
                 />
 
-                {/* Card Number: Numbers only, max 16 */}
                 <input
                   type="text"
                   placeholder="Card Number"
@@ -564,12 +546,10 @@ const CruiseBookingPageOE = () => {
                   }}
                 />
 
-                {/* Expiry: Needs value prop to stay in sync */}
                 <input
                   placeholder="MM/YY"
                   value={paymentDetails.expiry}
                   onChange={(e) => {
-                    // Simple length check for MM/YY (5 chars)
                     if (e.target.value.length <= 5) {
                       setPaymentDetails({
                         ...paymentDetails,
@@ -579,7 +559,6 @@ const CruiseBookingPageOE = () => {
                   }}
                 />
 
-                {/* CVV: Numbers only, max 3 or 4 */}
                 <input
                   placeholder="CVV"
                   value={paymentDetails.cvv}
@@ -605,16 +584,13 @@ const CruiseBookingPageOE = () => {
           </aside>
         </div>
 
-        {/* --- POPUP MODAL WINDOW --- */}
         {showModal && (
           <div className={styles.modalOverlay}>
             <div className={styles.modalWindow}>
-              {/* Header with Icon */}
               <div className={styles.modalHeader}>
                 <div className={styles.successIcon}>✓</div>
               </div>
 
-              {/* Body with Message */}
               <div className={styles.modalBody}>
                 <h2>Booking Confirmed!</h2>
                 <p>
@@ -624,7 +600,6 @@ const CruiseBookingPageOE = () => {
                 </p>
               </div>
 
-              {/* Footer with Button */}
               <div className={styles.modalFooter}>
                 <button
                   className={styles.modalConfirmBtn}

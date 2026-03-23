@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./CruiseBookingPageSG.module.css";
 import { Link } from "react-router-dom";
 
-// --- IMAGE IMPORTS ---
 import CRUISEregular from "../../../assets/Cruises/CRUISEregularsuitewithnoseaview.jpg";
 import CRUISEluxrysuite2 from "../../../assets/Cruises/CRUISEluxrysuite2.jpg";
 import CRUISEluxrysuiteforfamily from "../../../assets/Cruises/CRUISEluxrysuiteforfamily4people.jpg";
 
 const CruiseBookingPageSG = () => {
-  // --- 1. STATE MANAGEMENT ---
   const [step, setStep] = useState(1);
   const [dates, setDates] = useState("");
   const [party, setParty] = useState({ adults: 1, children: 0 });
@@ -28,7 +26,6 @@ const CruiseBookingPageSG = () => {
   });
   const [showModal, setShowModal] = useState(false);
 
-  // --- 2. CONFIGURATION ---
   const NIGHTS = 7;
   const cabinTypes = [
     {
@@ -70,7 +67,6 @@ const CruiseBookingPageSG = () => {
     { id: "gen_bio", name: "General Marine Workshop", price: 300 },
   ];
 
-  // --- 3. CALCULATIONS ---
   const totalPeople = Number(party.adults) + Number(party.children);
   const currentCapacity =
     selectedCabins.deluxe * 2 +
@@ -88,7 +84,6 @@ const CruiseBookingPageSG = () => {
   );
   const grandTotal = cabinSubtotal + activitiesTotal + insurance;
 
-  // --- 4. VALIDATION ---
   useEffect(() => {
     setPassengers((prev) =>
       Array.from(
@@ -137,12 +132,11 @@ const CruiseBookingPageSG = () => {
 
   const isPaymentReady =
     paymentDetails.cardName.trim().length >= 3 &&
-    paymentDetails.cardNumber.length === 16 && // Button only lights up at 16 digits
+    paymentDetails.cardNumber.length === 16 &&
     paymentDetails.expiry.length >= 5 &&
     paymentDetails.cvv.length >= 3 &&
     isPaxInfoComplete;
 
-  // --- 5. HANDLERS ---
   const handleRoomChange = (id, val) =>
     setSelectedCabins((prev) => ({
       ...prev,
@@ -154,10 +148,8 @@ const CruiseBookingPageSG = () => {
     setPassengers(updated);
   };
   const handleCardChange = (e) => {
-    // 1. Remove anything that isn't a number (\D matches non-digits)
     const numericValue = e.target.value.replace(/\D/g, "");
 
-    // 2. Only update state if it's 16 digits or fewer
     if (numericValue.length <= 16) {
       setPaymentDetails({
         ...paymentDetails,
@@ -183,7 +175,6 @@ const CruiseBookingPageSG = () => {
         <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
         <div className={styles.mainLayout}>
           <div className={styles.formArea}>
-            {/* STEP 1: DATES */}
             <section className={styles.formSection}>
               <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
               <select
@@ -203,7 +194,6 @@ const CruiseBookingPageSG = () => {
               </select>
             </section>
 
-            {/* STEP 2: PARTY */}
             {step >= 2 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -231,7 +221,6 @@ const CruiseBookingPageSG = () => {
               </section>
             )}
 
-            {/* STEP 3: STATEROOMS */}
             {step >= 3 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -274,7 +263,6 @@ const CruiseBookingPageSG = () => {
               </section>
             )}
 
-            {/* STEP 4: ACTIVITIES & INSURANCE */}
             {step >= 4 && (
               <>
                 <section className={styles.formSection}>
@@ -321,20 +309,18 @@ const CruiseBookingPageSG = () => {
               </>
             )}
 
-            {/* STEP 5: PASSENGER INFO */}
             {step >= 5 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
                   5. Passenger Information*
                 </h3>
-                {/* FIXED: Changed <P> to <p> (HTML tags must be lowercase) */}
+
                 <p>Please enter N/A for not applicable.</p>
 
                 {passengers.map((p, i) => (
                   <div key={i} className={styles.paxBox}>
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
-                      {/* Title */}
                       <select
                         value={p.title || ""}
                         onChange={(e) =>
@@ -347,7 +333,6 @@ const CruiseBookingPageSG = () => {
                         <option value="Ms">Miss.</option>
                       </select>
 
-                      {/* Names */}
                       <input
                         placeholder="First Name"
                         value={p.firstName || ""}
@@ -381,7 +366,6 @@ const CruiseBookingPageSG = () => {
                         <option value="F">F</option>
                       </select>
 
-                      {/* DOB - Set max to today so they can't pick future dates */}
                       <input
                         type="date"
                         max={new Date().toISOString().split("T")[0]}
@@ -391,7 +375,6 @@ const CruiseBookingPageSG = () => {
                         }
                       />
 
-                      {/* Location fields */}
                       <input
                         placeholder="Country"
                         value={p.country || ""}
@@ -422,7 +405,6 @@ const CruiseBookingPageSG = () => {
                         }
                       />
 
-                      {/* Zip Code - Numeric only */}
                       <input
                         placeholder="Zip Code"
                         value={p.zip || ""}
@@ -432,7 +414,6 @@ const CruiseBookingPageSG = () => {
                         }}
                       />
 
-                      {/* Phone - Numeric only */}
                       <input
                         type="tel"
                         placeholder="Phone"
@@ -445,7 +426,6 @@ const CruiseBookingPageSG = () => {
                         }}
                       />
 
-                      {/* Email with validation styling */}
                       <div className={styles.emailCol}>
                         <input
                           placeholder="Email"
@@ -473,7 +453,6 @@ const CruiseBookingPageSG = () => {
             )}
           </div>
 
-          {/* --- SIDEBAR --- */}
           <aside className={styles.sidebar}>
             <div className={styles.policyBox}>
               <h4>Cancellation Policy</h4>
@@ -545,7 +524,6 @@ const CruiseBookingPageSG = () => {
             <div className={styles.paymentBox}>
               <h4>COMPLETE YOUR BOOKING</h4>
               <div className={styles.payGrid}>
-                {/* Card Name: Letters & Spaces only */}
                 <input
                   placeholder="Name on Card"
                   className={styles.fullWidth}
@@ -558,7 +536,6 @@ const CruiseBookingPageSG = () => {
                   }}
                 />
 
-                {/* Card Number: Numbers only, max 16 */}
                 <input
                   type="text"
                   placeholder="Card Number"
@@ -572,12 +549,10 @@ const CruiseBookingPageSG = () => {
                   }}
                 />
 
-                {/* Expiry: Needs value prop to stay in sync */}
                 <input
                   placeholder="MM/YY"
                   value={paymentDetails.expiry}
                   onChange={(e) => {
-                    // Simple length check for MM/YY (5 chars)
                     if (e.target.value.length <= 5) {
                       setPaymentDetails({
                         ...paymentDetails,
@@ -587,7 +562,6 @@ const CruiseBookingPageSG = () => {
                   }}
                 />
 
-                {/* CVV: Numbers only, max 3 or 4 */}
                 <input
                   placeholder="CVV"
                   value={paymentDetails.cvv}
@@ -613,16 +587,13 @@ const CruiseBookingPageSG = () => {
           </aside>
         </div>
 
-        {/* --- POPUP MODAL WINDOW --- */}
         {showModal && (
           <div className={styles.modalOverlay}>
             <div className={styles.modalWindow}>
-              {/* Header with Icon */}
               <div className={styles.modalHeader}>
                 <div className={styles.successIcon}>✓</div>
               </div>
 
-              {/* Body with Message */}
               <div className={styles.modalBody}>
                 <h2>Booking Confirmed!</h2>
                 <p>
@@ -632,7 +603,6 @@ const CruiseBookingPageSG = () => {
                 </p>
               </div>
 
-              {/* Footer with Button */}
               <div className={styles.modalFooter}>
                 <button
                   className={styles.modalConfirmBtn}
