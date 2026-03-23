@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./OCEANEXPLORER.module.css";
-
-import OEimage from "../../../assets/OCEANEXPLORER/OEpagehead.png";
 import Imagea from "../../../assets/Cruises/OE.webp";
 import Imageb from "../../../assets/Cruises/SD.webp";
 import Imagec from "../../../assets/Cruises/SG.webp";
