@@ -153,402 +153,421 @@ const CruiseBookingPageSD = () => {
 
   return (
     <>
-          <div className={styles.heroContainer}>
+      <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
           <div className={styles.ovalEffect}>
-          <h1>SERENITY DREAM</h1>
-          <h2>海洋悠享號</h2>
-          <p>A Luxury Resort Floating on the Sea</p>
-          <Link to="/sdInfo"><a>More Info</a></Link>
-        </div>
+            <h1>SERENITY DREAM</h1>
+            <h2>海洋悠享號</h2>
+            <p>A Luxury Resort Floating on the Sea</p>
+            <Link to="/sdInfo">
+              <a>More Info</a>
+            </Link>
+          </div>
         </div>
       </div>
-    <div className={styles.pageContainer}>
-      <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
-      <div className={styles.mainLayout}>
-        <div className={styles.formArea}>
-          {/* STEP 1: DATES */}
-          <section className={styles.formSection}>
-            <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
-            <select
-              className={styles.inputField}
-              onChange={(e) => {
-                setDates(e.target.value);
-                setStep(2);
-              }}
-            >
-              <option value="">-- Choose Dates --</option>
-              <option value="Jan 24, 2027 - Jan 31, 2027">
-                Jan 24, 2027 - Jan 31, 2027
-              </option>
-            </select>
-          </section>
-
-          {/* STEP 2: PARTY */}
-          {step >= 2 && (
+      <div className={styles.pageContainer}>
+        <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
+        <div className={styles.mainLayout}>
+          <div className={styles.formArea}>
+            {/* STEP 1: DATES */}
             <section className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>1. Travel Party Details*</h3>
-              <div className={styles.inputGrid}>
+              <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
+              <select
+                className={styles.inputField}
+                onChange={(e) => {
+                  setDates(e.target.value);
+                  setStep(2);
+                }}
+              >
+                <option value="">-- Choose Dates --</option>
+                <option value="Jan 24, 2027 - Jan 31, 2027">
+                  Jan 24, 2027 - Jan 31, 2027
+                </option>
+                <option value="Jul 24, 2027 - Jul 31, 2027">
+                  Jul 24, 2027 - Jul 31, 2027
+                </option>
+              </select>
+            </section>
+
+            {/* STEP 2: PARTY */}
+            {step >= 2 && (
+              <section className={styles.formSection}>
+                <h3 className={styles.sectionTitle}>
+                  1. Travel Party Details*
+                </h3>
+                <div className={styles.inputGrid}>
+                  <input
+                    type="number"
+                    min="1"
+                    placeholder="Adults"
+                    onChange={(e) => {
+                      setParty({ ...party, adults: e.target.value });
+                      setStep(3);
+                    }}
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Children"
+                    onChange={(e) =>
+                      setParty({ ...party, children: e.target.value })
+                    }
+                  />
+                </div>
+              </section>
+            )}
+
+            {/* STEP 3: STATEROOMS */}
+            {step >= 3 && (
+              <section className={styles.formSection}>
+                <h3 className={styles.sectionTitle}>
+                  2. Select Stateroom Type*
+                </h3>
+                <div className={styles.cabinList}>
+                  {cabinTypes.map((c) => (
+                    <div key={c.id} className={styles.cabinCard}>
+                      <img
+                        src={c.img}
+                        className={styles.cabinImg}
+                        alt={c.name}
+                      />
+                      <div className={styles.cabinInfo}>
+                        <strong>{c.name}</strong>
+                        <span className={styles.subInfo}>
+                          {c.info} | {c.info2}
+                        </span>
+                        <span className={styles.priceHighlight}>
+                          ${c.price} USD / night
+                        </span>
+                      </div>
+                      <input
+                        type="number"
+                        min="0"
+                        value={selectedCabins[c.id]}
+                        onChange={(e) => handleRoomChange(c.id, e.target.value)}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {isCapacityMet && (
+                  <button
+                    className={styles.confirmBtn}
+                    onClick={() => setStep(4)}
+                  >
+                    Proceed to Activities
+                  </button>
+                )}
+              </section>
+            )}
+
+            {/* STEP 4: ACTIVITIES & INSURANCE */}
+            {step >= 4 && (
+              <>
+                <section className={styles.formSection}>
+                  <h3 className={styles.sectionTitle}>
+                    3. Additional Activities & Dive Courses
+                  </h3>
+                  {activityList.map((act) => (
+                    <div key={act.id} className={styles.rowItem}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={() =>
+                            setSelectedActivities((prev) =>
+                              prev.includes(act.id)
+                                ? prev.filter((a) => a !== act.id)
+                                : [...prev, act.id],
+                            )
+                          }
+                        />{" "}
+                        {act.name}
+                      </label>
+                      <span>${act.price} USD</span>
+                    </div>
+                  ))}
+                </section>
+
+                <section className={styles.formSection}>
+                  <h3 className={styles.sectionTitle}>
+                    4. Optional Basic Travel Insurance
+                  </h3>
+                  <select
+                    className={styles.inputField}
+                    onChange={(e) => {
+                      setInsurance(Number(e.target.value));
+                      setStep(5);
+                    }}
+                  >
+                    <option value="0">-- Option --</option>
+                    <option value="0">No Insurance</option>
+                    <option value="250">Basic Coverage ($250)</option>
+                    <option value="500">Premium Coverage ($500)</option>
+                  </select>
+                </section>
+              </>
+            )}
+
+            {/* STEP 5: PASSENGER INFO */}
+            {step >= 5 && (
+              <section className={styles.formSection}>
+                <h3 className={styles.sectionTitle}>
+                  5. Passenger Information*
+                </h3>
+                {passengers.map((p, i) => (
+                  <div key={i} className={styles.paxBox}>
+                    <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
+                    <div className={styles.paxGrid}>
+                      <select
+                        onChange={(e) =>
+                          handlePaxChange(i, "title", e.target.value)
+                        }
+                      >
+                        <option value="">Title</option>
+                        <option value="Mr">Mr.</option>
+                        <option value="Mr">Mrs.</option>
+                        <option value="Ms">Miss.</option>
+                      </select>
+                      <input
+                        placeholder="First Name"
+                        onChange={(e) =>
+                          handlePaxChange(i, "firstName", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Middle Name"
+                        onChange={(e) =>
+                          handlePaxChange(i, "middleName", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Last Name"
+                        onChange={(e) =>
+                          handlePaxChange(i, "lastName", e.target.value)
+                        }
+                      />
+                      <select
+                        onChange={(e) =>
+                          handlePaxChange(i, "gender", e.target.value)
+                        }
+                      >
+                        <option value="">Gender</option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                      </select>
+                      <input
+                        type="date"
+                        onChange={(e) =>
+                          handlePaxChange(i, "dob", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Country"
+                        onChange={(e) =>
+                          handlePaxChange(i, "country", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="City"
+                        onChange={(e) =>
+                          handlePaxChange(i, "city", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Address 1"
+                        className={styles.fullWidth}
+                        onChange={(e) =>
+                          handlePaxChange(i, "addr1", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="State"
+                        onChange={(e) =>
+                          handlePaxChange(i, "state", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Zip Code"
+                        onChange={(e) =>
+                          handlePaxChange(i, "zip", e.target.value)
+                        }
+                      />
+                      <input
+                        placeholder="Phone"
+                        onChange={(e) =>
+                          handlePaxChange(i, "phone", e.target.value)
+                        }
+                      />
+                      <div className={styles.emailCol}>
+                        <input
+                          placeholder="Email"
+                          className={
+                            p.email && !validateEmail(p.email)
+                              ? styles.inputError
+                              : ""
+                          }
+                          onChange={(e) =>
+                            handlePaxChange(i, "email", e.target.value)
+                          }
+                        />
+                        {p.email && !validateEmail(p.email) && (
+                          <small className={styles.errorLabel}>
+                            Gmail/iCloud/Hotmail only
+                          </small>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </section>
+            )}
+          </div>
+
+          {/* --- SIDEBAR --- */}
+          <aside className={styles.sidebar}>
+            <div className={styles.policyBox}>
+              <h4>Cancellation Policy</h4>
+              <div className={styles.policyRow}>
+                <span>120+ days before departure:</span>
+                <span>Full refund</span>
+              </div>
+              <div className={styles.policyRow}>
+                <span>60-119 days before departure:</span>
+                <span>75% refund</span>
+              </div>
+              <div className={styles.policyRow}>
+                <span>&lt;30 days before departure:</span>
+                <span>No refund</span>
+              </div>
+            </div>
+
+            <div className={styles.summaryBox}>
+              <h3>Booking Summary</h3>
+              <p className={styles.summaryCruise}>
+                7 Night: OCEAN EXPLORER Cruise
+              </p>
+              <p className={styles.summaryDates}>{dates || "Select Dates"}</p>
+              <hr className={styles.divider} />
+
+              {Object.entries(selectedCabins).map(([id, qty]) => {
+                if (qty <= 0) return null;
+                const cabin = cabinTypes.find((c) => c.id === id);
+                return (
+                  <div key={id} className={styles.sumRoomItem}>
+                    <img
+                      src={cabin.img}
+                      className={styles.sumRoomImg}
+                      alt={cabin.name}
+                    />
+                    <div className={styles.sumRoomInfo}>
+                      <span>
+                        {qty}x {cabin.name}
+                      </span>
+                      <span className={styles.priceText}>
+                        ${(cabin.price * NIGHTS * qty).toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+
+              <div className={styles.summaryRow}>
+                <span>
+                  Guests ({party.adults}A, {party.children}C)
+                </span>
+                <span>Incl.</span>
+              </div>
+              <div className={styles.summaryRow}>
+                <span>Activities Subtotal</span>
+                <span>${activitiesTotal.toLocaleString()}</span>
+              </div>
+              <div className={styles.summaryRow}>
+                <span>Insurance</span>
+                <span>${insurance}</span>
+              </div>
+              <hr className={styles.divider} />
+              <div className={styles.totalRow}>
+                <span>TOTAL AMOUNT</span>
+                <span>${grandTotal.toLocaleString()}</span>
+              </div>
+            </div>
+
+            <div className={styles.paymentBox}>
+              <h4>COMPLETE YOUR BOOKING</h4>
+              <div className={styles.payGrid}>
                 <input
-                  type="number"
-                  min="1"
-                  placeholder="Adults"
-                  onChange={(e) => {
-                    setParty({ ...party, adults: e.target.value });
-                    setStep(3);
-                  }}
+                  placeholder="Card Number"
+                  className={styles.fullWidth}
+                  onChange={(e) =>
+                    setPaymentDetails({
+                      ...paymentDetails,
+                      cardNumber: e.target.value,
+                    })
+                  }
                 />
                 <input
-                  type="number"
-                  min="0"
-                  placeholder="Children"
+                  placeholder="MM/YY"
                   onChange={(e) =>
-                    setParty({ ...party, children: e.target.value })
+                    setPaymentDetails({
+                      ...paymentDetails,
+                      expiry: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  placeholder="CVV"
+                  onChange={(e) =>
+                    setPaymentDetails({
+                      ...paymentDetails,
+                      cvv: e.target.value,
+                    })
                   }
                 />
               </div>
-            </section>
-          )}
-
-          {/* STEP 3: STATEROOMS */}
-          {step >= 3 && (
-            <section className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>2. Select Stateroom Type*</h3>
-              <div className={styles.cabinList}>
-                {cabinTypes.map((c) => (
-                  <div key={c.id} className={styles.cabinCard}>
-                    <img src={c.img} className={styles.cabinImg} alt={c.name} />
-                    <div className={styles.cabinInfo}>
-                      <strong>{c.name}</strong>
-                      <span className={styles.subInfo}>
-                        {c.info} | {c.info2}
-                      </span>
-                      <span className={styles.priceHighlight}>
-                        ${c.price} USD / night
-                      </span>
-                    </div>
-                    <input
-                      type="number"
-                      min="0"
-                      value={selectedCabins[c.id]}
-                      onChange={(e) => handleRoomChange(c.id, e.target.value)}
-                    />
-                  </div>
-                ))}
-              </div>
-              {isCapacityMet && (
-                <button
-                  className={styles.confirmBtn}
-                  onClick={() => setStep(4)}
-                >
-                  Proceed to Activities
-                </button>
-              )}
-            </section>
-          )}
-
-          {/* STEP 4: ACTIVITIES & INSURANCE */}
-          {step >= 4 && (
-            <>
-              <section className={styles.formSection}>
-                <h3 className={styles.sectionTitle}>
-                  3. Additional Activities & Dive Courses
-                </h3>
-                {activityList.map((act) => (
-                  <div key={act.id} className={styles.rowItem}>
-                    <label>
-                      <input
-                        type="checkbox"
-                        onChange={() =>
-                          setSelectedActivities((prev) =>
-                            prev.includes(act.id)
-                              ? prev.filter((a) => a !== act.id)
-                              : [...prev, act.id],
-                          )
-                        }
-                      />{" "}
-                      {act.name}
-                    </label>
-                    <span>${act.price} USD</span>
-                  </div>
-                ))}
-              </section>
-
-              <section className={styles.formSection}>
-                <h3 className={styles.sectionTitle}>
-                  4. Optional Basic Travel Insurance
-                </h3>
-                <select
-                  className={styles.inputField}
-                  onChange={(e) => {
-                    setInsurance(Number(e.target.value));
-                    setStep(5);
-                  }}
-                >
-                  <option value="0">No Insurance</option>
-                  <option value="250">Basic Coverage ($250)</option>
-                  <option value="500">Premium Coverage ($500)</option>
-                </select>
-              </section>
-            </>
-          )}
-
-          {/* STEP 5: PASSENGER INFO */}
-          {step >= 5 && (
-            <section className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>5. Passenger Information*</h3>
-              {passengers.map((p, i) => (
-                <div key={i} className={styles.paxBox}>
-                  <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
-                  <div className={styles.paxGrid}>
-                    <select
-                      onChange={(e) =>
-                        handlePaxChange(i, "title", e.target.value)
-                      }
-                    >
-                      <option value="">Title</option>
-                      <option value="Mr">Mr.</option>
-                      <option value="Mr">Mrs.</option>
-                      <option value="Ms">Miss.</option>
-                    </select>
-                    <input
-                      placeholder="First Name"
-                      onChange={(e) =>
-                        handlePaxChange(i, "firstName", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Middle Name"
-                      onChange={(e) =>
-                        handlePaxChange(i, "middleName", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Last Name"
-                      onChange={(e) =>
-                        handlePaxChange(i, "lastName", e.target.value)
-                      }
-                    />
-                    <select
-                      onChange={(e) =>
-                        handlePaxChange(i, "gender", e.target.value)
-                      }
-                    >
-                      <option value="">Gender</option>
-                      <option value="M">M</option>
-                      <option value="F">F</option>
-                    </select>
-                    <input
-                      type="date"
-                      onChange={(e) =>
-                        handlePaxChange(i, "dob", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Country"
-                      onChange={(e) =>
-                        handlePaxChange(i, "country", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="City"
-                      onChange={(e) =>
-                        handlePaxChange(i, "city", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Address 1"
-                      className={styles.fullWidth}
-                      onChange={(e) =>
-                        handlePaxChange(i, "addr1", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="State"
-                      onChange={(e) =>
-                        handlePaxChange(i, "state", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Zip Code"
-                      onChange={(e) =>
-                        handlePaxChange(i, "zip", e.target.value)
-                      }
-                    />
-                    <input
-                      placeholder="Phone"
-                      onChange={(e) =>
-                        handlePaxChange(i, "phone", e.target.value)
-                      }
-                    />
-                    <div className={styles.emailCol}>
-                      <input
-                        placeholder="Email"
-                        className={
-                          p.email && !validateEmail(p.email)
-                            ? styles.inputError
-                            : ""
-                        }
-                        onChange={(e) =>
-                          handlePaxChange(i, "email", e.target.value)
-                        }
-                      />
-                      {p.email && !validateEmail(p.email) && (
-                        <small className={styles.errorLabel}>
-                          Gmail/iCloud/Hotmail only
-                        </small>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </section>
-          )}
-        </div>
-
-        {/* --- SIDEBAR --- */}
-        <aside className={styles.sidebar}>
-          <div className={styles.policyBox}>
-            <h4>Cancellation Policy</h4>
-            <div className={styles.policyRow}>
-              <span>120+ days before departure:</span>
-              <span>Full refund</span>
-            </div>
-            <div className={styles.policyRow}>
-              <span>60-119 days before departure:</span>
-              <span>75% refund</span>
-            </div>
-            <div className={styles.policyRow}>
-              <span>&lt;30 days before departure:</span>
-              <span>No refund</span>
-            </div>
-          </div>
-
-          <div className={styles.summaryBox}>
-            <h3>Booking Summary</h3>
-            <p className={styles.summaryCruise}>
-              7 Night: OCEAN EXPLORER Cruise
-            </p>
-            <p className={styles.summaryDates}>{dates || "Select Dates"}</p>
-            <hr className={styles.divider} />
-
-            {Object.entries(selectedCabins).map(([id, qty]) => {
-              if (qty <= 0) return null;
-              const cabin = cabinTypes.find((c) => c.id === id);
-              return (
-                <div key={id} className={styles.sumRoomItem}>
-                  <img
-                    src={cabin.img}
-                    className={styles.sumRoomImg}
-                    alt={cabin.name}
-                  />
-                  <div className={styles.sumRoomInfo}>
-                    <span>
-                      {qty}x {cabin.name}
-                    </span>
-                    <span className={styles.priceText}>
-                      ${(cabin.price * NIGHTS * qty).toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-
-            <div className={styles.summaryRow}>
-              <span>
-                Guests ({party.adults}A, {party.children}C)
-              </span>
-              <span>Incl.</span>
-            </div>
-            <div className={styles.summaryRow}>
-              <span>Activities Subtotal</span>
-              <span>${activitiesTotal.toLocaleString()}</span>
-            </div>
-            <div className={styles.summaryRow}>
-              <span>Insurance</span>
-              <span>${insurance}</span>
-            </div>
-            <hr className={styles.divider} />
-            <div className={styles.totalRow}>
-              <span>TOTAL AMOUNT</span>
-              <span>${grandTotal.toLocaleString()}</span>
-            </div>
-          </div>
-
-          <div className={styles.paymentBox}>
-            <h4>COMPLETE YOUR BOOKING</h4>
-            <div className={styles.payGrid}>
-              <input
-                placeholder="Card Number"
-                className={styles.fullWidth}
-                onChange={(e) =>
-                  setPaymentDetails({
-                    ...paymentDetails,
-                    cardNumber: e.target.value,
-                  })
-                }
-              />
-              <input
-                placeholder="MM/YY"
-                onChange={(e) =>
-                  setPaymentDetails({
-                    ...paymentDetails,
-                    expiry: e.target.value,
-                  })
-                }
-              />
-              <input
-                placeholder="CVV"
-                onChange={(e) =>
-                  setPaymentDetails({ ...paymentDetails, cvv: e.target.value })
-                }
-              />
-            </div>
-            <button
-              className={
-                isPaymentReady ? styles.confirmBtn : styles.disabledBtn
-              }
-              disabled={!isPaymentReady}
-              onClick={() => setShowModal(true)}
-            >
-              Confirm Booking
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      {/* --- POPUP MODAL WINDOW --- */}
-      {showModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modalWindow}>
-            {/* Header with Icon */}
-            <div className={styles.modalHeader}>
-              <div className={styles.successIcon}>✓</div>
-            </div>
-
-            {/* Body with Message */}
-            <div className={styles.modalBody}>
-              <h2>Booking Confirmed!</h2>
-              <p>
-                Thank you for choosing <strong>SERENITY DREAM</strong>.<br />A
-                confirmation email with your itinerary has been sent to your
-                primary guest.
-              </p>
-            </div>
-
-            {/* Footer with Button */}
-            <div className={styles.modalFooter}>
               <button
-                className={styles.modalConfirmBtn}
-                onClick={() => (window.location.href = "/shop")}
+                className={
+                  isPaymentReady ? styles.confirmBtn : styles.disabledBtn
+                }
+                disabled={!isPaymentReady}
+                onClick={() => setShowModal(true)}
               >
-                OK
+                Confirm Booking
               </button>
             </div>
-          </div>
+          </aside>
         </div>
-      )}
-    </div>
+
+        {/* --- POPUP MODAL WINDOW --- */}
+        {showModal && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.modalWindow}>
+              {/* Header with Icon */}
+              <div className={styles.modalHeader}>
+                <div className={styles.successIcon}>✓</div>
+              </div>
+
+              {/* Body with Message */}
+              <div className={styles.modalBody}>
+                <h2>Booking Confirmed!</h2>
+                <p>
+                  Thank you for choosing <strong>SERENITY DREAM</strong>.<br />A
+                  confirmation email with your itinerary has been sent to your
+                  primary guest.
+                </p>
+              </div>
+
+              {/* Footer with Button */}
+              <div className={styles.modalFooter}>
+                <button
+                  className={styles.modalConfirmBtn}
+                  onClick={() => (window.location.href = "/shop")}
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };

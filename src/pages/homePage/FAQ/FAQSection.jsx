@@ -82,8 +82,7 @@ const FAQSection = () => {
       icon: "ⓘ",
       question:
         "What payment methods are supported, and is installment payment available?",
-      answer:
-        "Alipay, WeChat Pay, UnionPay credit cards, and international Visa/Mastercard payments are accepted. Installment options are provided on the booking page, with real-time interest rates displayed by the payment provider for you to choose from as needed.",
+      answer: "International Visa/Mastercard payments are accepted.",
     },
     {
       icon: "♡",

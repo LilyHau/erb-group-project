@@ -6,7 +6,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #2c3e50;
 }
-.heroContainer{
+.heroContainer {
   width: 100%;
   height: 20rem;
   display: flex;
@@ -14,29 +14,29 @@
   justify-content: center;
   align-items: center;
   background:
-  url('../../../assets/Cruises/OE-Logo.png') no-repeat top left / 200px 200px,
-  url('../../../assets//Cruises/OE-ship.png') no-repeat right / 300px,
-  var(--oe-main);
+    url("../../../assets/Cruises/OE-Logo.png") no-repeat top left / 200px 200px,
+    url("../../../assets//Cruises/OE-ship.png") no-repeat right / 300px,
+    var(--oe-main);
 }
-.heroContent{
+.heroContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--white);
-  h1{
+  h1 {
     font-family: "Joti One";
     font-size: 4rem;
   }
-  h2{
+  h2 {
     transform: translateX(-10rem);
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  p{
+  p {
     font-size: 1.5rem;
   }
-  a{
+  a {
     background-color: #50c9ff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -45,20 +45,20 @@
   }
 }
 .ovalEffect {
-    width: 120%;
-    height: 120%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 120%;
+  height: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .mainTitle {
   text-align: center;
@@ -392,7 +392,9 @@
     order: -1;
   }
   .heroContent {
-    h1 { font-size: 3rem; }
+    h1 {
+      font-size: 3rem;
+    }
     h2 {
       transform: translateX(0);
       font-size: 1.25rem;
