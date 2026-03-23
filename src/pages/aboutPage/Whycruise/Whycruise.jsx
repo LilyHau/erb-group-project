@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom"; // FIX 1: Import Link
 import Text from "./Text";
 import Image from "../../../assets/Whycruise/SERENITYDREAM.jpg";
 import styles from "./Whycruise.module.css";
@@ -18,13 +20,15 @@ const Whycruise = () => {
           that leaves both you and the planet better <br />
           off.
         </p>
-        <br />
-        <br />
-        <p className={styles.footerText}>
-          <strong>
-            <Link to="/cruises">Find Your Perfect Cruise</Link>
-          </strong>
-        </p>
+
+        {/* Cleaned up excessive <br /> tags with margin in CSS if possible */}
+        <div className={styles.footerWrapper}>
+          <p className={styles.footerText}>
+            <strong>
+              <Link to="/cruises">Find Your Perfect Cruise</Link>
+            </strong>
+          </p>
+        </div>
       </div>
     </div>
   );
