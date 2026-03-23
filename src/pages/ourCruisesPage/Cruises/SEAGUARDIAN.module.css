@@ -337,8 +337,14 @@
   .imageGallery {
     right: 50px;
   }
+
   .title {
     font-size: 3.5rem;
+  }
+
+  .summaryimg {
+    width: 500px;
+    height: 900px;
   }
 
   .badge {
@@ -390,6 +396,7 @@
 
   .summaryimg {
     width: 800px;
+    height: 500px;
   }
 
   .summarytext {

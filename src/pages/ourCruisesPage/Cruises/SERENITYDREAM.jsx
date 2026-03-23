@@ -129,15 +129,7 @@ const SERENITYDREAM = () => {
           </div>
 
           <div style={{ color: "black" }}>
-            <p
-              className={styles.summaryText}
-              style={{
-                fontSize: "30px",
-                lineHeight: "1.8",
-                fontWeight: "bold",
-                textAlign: "left",
-              }}
-            >
+            <p className={styles.summaryText}>
               Escape the chaos of everyday life and sail into tranquility aboard
               the SERENITY DREAM—the family-friendly cruise designed for slow,
               sunny days and peaceful nights by the sea. This idyllic vessel is

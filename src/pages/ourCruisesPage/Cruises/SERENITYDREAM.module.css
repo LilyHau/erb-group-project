@@ -9,7 +9,6 @@
   background-color: #f9d984;
 }
 
-/* 背景裝飾大圓形 */
 .heroContainer::after {
   content: "";
   position: absolute;
@@ -22,7 +21,6 @@
   z-index: 1;
 }
 
-/* --- 左側文字內容 (固定左側 30px) --- */
 .content {
   position: relative;
   padding-left: 220px; /* FIXED 100px from the left edge */
@@ -107,10 +105,9 @@
   object-fit: contain;
 }
 
-/* --- 右側圖片組合 (固定右側 200px) --- */
 .imageGallery {
   position: absolute;
-  right: 200px; /* 固定右側 200px */
+  right: 200px;
   width: 50%;
   height: 80%;
   display: flex;
@@ -119,7 +116,6 @@
   z-index: 5;
 }
 
-/* 郵輪主圖 (傾斜效果) */
 .mainShip {
   width: 40%;
   transform: rotate(-10deg);
@@ -128,7 +124,6 @@
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
 }
 
-/* 右上角潛水員 */
 .thumbDiver {
   position: absolute;
   top: 380px;
@@ -141,7 +136,6 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* 右下角珊瑚礁 */
 .thumbReef {
   position: absolute;
   bottom: 370px;
@@ -194,11 +188,12 @@
 
 .summaryText {
   flex: 1;
-  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 1.6;
   color: #333;
   text-align: left;
   max-width: 700px;
+  font-weight: bold;
 }
 
 /* Background images container */
@@ -325,13 +320,24 @@
   margin-top: 20px;
 }
 
-/* 響應式微調 */
 @media (max-width: 1200px) {
   .imageGallery {
-    right: 50px;
+    right: 200px;
+    width: 50%;
+    height: auto;
   }
   .title {
     font-size: 3.5rem;
+  }
+  .summaryImg {
+    width: 500px;
+    height: 1000px;
+    border-radius: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .summaryText {
+    font-size: 1.8rem;
   }
 }
 /* Responsive styles for max-width 992px */
@@ -371,15 +377,18 @@
     flex-direction: column;
     gap: 30px;
   }
-  /* Summary image size */
+
+  /* Summary size */
   .summaryImg {
-    max-width: 90%;
-    height: auto;
+    width: 700px;
+    height: 550px;
   }
+
   /* Summary text */
   .summaryText {
-    font-size: 16px;
+    font-size: 0.7rem;
   }
+
   /* Badge position & size */
   .badge {
     top: -100px;
@@ -433,13 +442,13 @@
     flex-direction: column;
     gap: 20px;
   }
-  /* Summary image size */
   .summaryImg {
-    max-width: 100%;
+    width: 100%;
+    height: 450px;
   }
   /* Summary text */
   .summaryText {
-    font-size: 14px;
+    font-size: 1rem;
   }
   /* Badge adjustments */
   .badge {
