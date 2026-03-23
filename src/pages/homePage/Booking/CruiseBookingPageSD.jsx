@@ -61,7 +61,7 @@ const CruiseBookingPageSD = () => {
   ];
 
   const activityList = [
-    { id: "No", name: "No No activities", price: 0 },
+    { id: "No", name: "No activities", price: 0 },
     { id: "cert", name: "Adult Dive Certification Courses", price: 450 },
     { id: "padi", name: "PADI Open Water Dive Course", price: 600 },
     { id: "junior_sub", name: "ADI Bubbleblower Course", price: 200 },
