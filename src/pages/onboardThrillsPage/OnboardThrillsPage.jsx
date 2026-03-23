@@ -30,7 +30,6 @@ const OnboardThrillsPage = () => {
         <p>Whether you’re diving into scientific exploration, giving back through conservation, or unwinding with your loved ones, our three distinct ships offer experiences that let you embrace the sea your way, no compromises needed.</p>
         <ul className={styles.infoLinks}>
           <li><Link to="/cruises">Find Your Perfect Cruise</Link></li>
-          <li><Link to="/CruiseBookingPageOE">Book Now</Link></li>
         </ul>
       </div>
       <div className={styles.infoImage}>
@@ -58,7 +57,6 @@ const OnboardThrillsPage = () => {
       </div>
       <ul className={styles.infoLinks}>
         <li><Link to="/cruises">Find Your Perfect Cruise</Link></li>
-        <li><Link to="/CruiseBookingPageOE">Book Now</Link></li>
       </ul>
     </section>
     <section className={styles.conservation}>
@@ -91,7 +89,6 @@ const OnboardThrillsPage = () => {
       </div>
       <ul className={styles.infoLinks}>
           <li><Link to="/cruises">Find Your Perfect Cruise</Link></li>
-          <li><Link to="/CruiseBookingPageOE">Book Now</Link></li>
         </ul>
     </section>
     <section className={styles.adventure}>
@@ -125,11 +122,13 @@ const OnboardThrillsPage = () => {
       </div>
       <ul className={styles.infoLinks}>
           <li><Link to="/cruises">Find Your Perfect Cruise</Link></li>
-          <li><Link to="/CruiseBookingPageOE">Book Now</Link></li>
         </ul>
     </section>
     <section className={styles.recreation}>
       <h2>RECREATION & WELLNESS</h2>
+      <ul className={styles.infoLinks}>
+        <li><Link to="/cruises">Find Your Perfect Cruise</Link></li>
+      </ul>
       <div className={styles.cardContainer}>
         <div className={styles.recreationCard}>
           <div className={styles.cardContent}>

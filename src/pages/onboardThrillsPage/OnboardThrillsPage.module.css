@@ -74,7 +74,6 @@
   display: flex;
   flex-wrap: nowrap;
   li:first-child{
-    border-right: 1.5px solid var(--black);
     padding-right: 1rem;
   }
   li:last-child{

@@ -14,6 +14,7 @@ const Subscribe = () => {
               className={styles.input}
               type="email"
               placeholder="  Enter your email"
+              required
             />
             <button className={styles.button}>SUBSCRIBE</button>
           </form>
