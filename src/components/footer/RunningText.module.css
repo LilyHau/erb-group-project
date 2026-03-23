@@ -1,6 +1,6 @@
 .wrapper {
   background: #f7f7f7;
-  padding: 100px 0;
+  padding: 40px 0;
   overflow: hidden;
   width: 100%;
 }
@@ -24,20 +24,20 @@
 }
 
 .mainText {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: bold;
-  font-family: 'Joti One', sans-serif;
+  font-family: "Joti One", sans-serif;
   line-height: 1.1;
 }
 
 .subText {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: normal;
   margin-top: 10px;
 }
 
 .image {
-  height: 220px;
+  height: 200px;
   width: auto;
   border-radius: 20px;
   object-fit: contain;
@@ -81,6 +81,10 @@
 }
 
 @keyframes moveLeftFull {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
