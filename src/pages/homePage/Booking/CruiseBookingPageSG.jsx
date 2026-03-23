@@ -312,7 +312,7 @@ const CruiseBookingPageSG = () => {
                       setStep(5);
                     }}
                   >
-                    <option value="0">-- Option --</option>
+                    <option value="">-- Select Option --</option>
                     <option value="0">No Insurance</option>
                     <option value="250">Basic Coverage ($250)</option>
                     <option value="500">Premium Coverage ($500)</option>
@@ -327,39 +327,51 @@ const CruiseBookingPageSG = () => {
                 <h3 className={styles.sectionTitle}>
                   5. Passenger Information*
                 </h3>
+                {/* FIXED: Changed <P> to <p> (HTML tags must be lowercase) */}
+                <p>Please enter N/A for not applicable.</p>
+
                 {passengers.map((p, i) => (
                   <div key={i} className={styles.paxBox}>
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
+                      {/* Title */}
                       <select
+                        value={p.title || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "title", e.target.value)
                         }
                       >
                         <option value="">Title</option>
                         <option value="Mr">Mr.</option>
-                        <option value="Mr">Mrs.</option>
+                        <option value="Mrs">Mrs.</option>
                         <option value="Ms">Miss.</option>
                       </select>
+
+                      {/* Names */}
                       <input
                         placeholder="First Name"
+                        value={p.firstName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Middle Name"
+                        value={p.middleName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Last Name"
+                        value={p.lastName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
                         }
                       />
+
                       <select
+                        value={p.gender || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "gender", e.target.value)
                         }
@@ -368,20 +380,28 @@ const CruiseBookingPageSG = () => {
                         <option value="M">M</option>
                         <option value="F">F</option>
                       </select>
+
+                      {/* DOB - Set max to today so they can't pick future dates */}
                       <input
                         type="date"
+                        max={new Date().toISOString().split("T")[0]}
+                        value={p.dob || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "dob", e.target.value)
                         }
                       />
+
+                      {/* Location fields */}
                       <input
                         placeholder="Country"
+                        value={p.country || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
                         }
                       />
                       <input
                         placeholder="City"
+                        value={p.city || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
                         }
@@ -389,31 +409,48 @@ const CruiseBookingPageSG = () => {
                       <input
                         placeholder="Address 1"
                         className={styles.fullWidth}
+                        value={p.addr1 || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
                         placeholder="State"
+                        value={p.state || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
                         }
                       />
+
+                      {/* Zip Code - Numeric only */}
                       <input
                         placeholder="Zip Code"
-                        onChange={(e) =>
-                          handlePaxChange(i, "zip", e.target.value)
-                        }
+                        value={p.zip || ""}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, "");
+                          handlePaxChange(i, "zip", val);
+                        }}
                       />
+
+                      {/* Phone - Numeric only */}
                       <input
+                        type="tel"
                         placeholder="Phone"
-                        onChange={(e) =>
-                          handlePaxChange(i, "phone", e.target.value)
-                        }
+                        value={p.phone || ""}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, "");
+                          if (val.length <= 15) {
+                            handlePaxChange(i, "phone", val);
+                          }
+                        }}
                       />
+
+                      {/* Email with validation styling */}
                       <div className={styles.emailCol}>
                         <input
                           placeholder="Email"
+                          type="email"
+                          value={p.email || ""}
                           className={
                             p.email && !validateEmail(p.email)
                               ? styles.inputError

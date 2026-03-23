@@ -313,7 +313,7 @@ const CruiseBookingPageOE = () => {
                       setStep(5);
                     }}
                   >
-                    <option value="0">-- Option --</option>
+                    <option value="">-- Select Option --</option>
                     <option value="0">No Insurance</option>
                     <option value="250">Basic Coverage ($250)</option>
                     <option value="500">Premium Coverage ($500)</option>
@@ -328,39 +328,49 @@ const CruiseBookingPageOE = () => {
                 <h3 className={styles.sectionTitle}>
                   5. Passenger Information*
                 </h3>
+                <p>Please enter N/A for not applicable.</p>
                 {passengers.map((p, i) => (
                   <div key={i} className={styles.paxBox}>
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
+                      {/* Title - Fixed duplicate "Mr" value */}
                       <select
+                        value={p.title || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "title", e.target.value)
                         }
                       >
                         <option value="">Title</option>
                         <option value="Mr">Mr.</option>
-                        <option value="Mr">Mrs.</option>
+                        <option value="Mrs">Mrs.</option>
                         <option value="Ms">Miss.</option>
                       </select>
+
+                      {/* Added value={p.fieldName} to all inputs to make them controlled */}
                       <input
                         placeholder="First Name"
+                        value={p.firstName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Middle Name"
+                        value={p.middleName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Last Name"
+                        value={p.lastName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
                         }
                       />
+
                       <select
+                        value={p.gender || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "gender", e.target.value)
                         }
@@ -369,20 +379,25 @@ const CruiseBookingPageOE = () => {
                         <option value="M">M</option>
                         <option value="F">F</option>
                       </select>
+
                       <input
                         type="date"
+                        value={p.dob || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "dob", e.target.value)
                         }
                       />
+
                       <input
                         placeholder="Country"
+                        value={p.country || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
                         }
                       />
                       <input
                         placeholder="City"
+                        value={p.city || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
                         }
@@ -390,31 +405,44 @@ const CruiseBookingPageOE = () => {
                       <input
                         placeholder="Address 1"
                         className={styles.fullWidth}
+                        value={p.addr1 || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
                         placeholder="State"
+                        value={p.state || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
                         }
                       />
                       <input
                         placeholder="Zip Code"
-                        onChange={(e) =>
-                          handlePaxChange(i, "zip", e.target.value)
-                        }
+                        value={p.zip || ""}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, ""); // Numbers only for Zip
+                          handlePaxChange(i, "zip", val);
+                        }}
                       />
+
+                      {/* Fixed: changed 'pax.phone' to 'p.phone' */}
                       <input
+                        type="tel"
                         placeholder="Phone"
-                        onChange={(e) =>
-                          handlePaxChange(i, "phone", e.target.value)
-                        }
+                        value={p.phone || ""}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, "");
+                          if (val.length <= 15) {
+                            handlePaxChange(i, "phone", val);
+                          }
+                        }}
                       />
+
                       <div className={styles.emailCol}>
                         <input
                           placeholder="Email"
+                          value={p.email || ""}
                           className={
                             p.email && !validateEmail(p.email)
                               ? styles.inputError
