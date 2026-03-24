@@ -11,7 +11,7 @@ const CruiseBookingPageSG = () => {
   const [showTable, setShowTable] = useState(false);
   const [step, setStep] = useState(1);
   const [dates, setDates] = useState("");
-  const [party, setParty] = useState({ adults: 1, children: 0 });
+  const [party, setParty] = useState({ adults: 0, children: 0 });
   const [selectedCabins, setSelectedCabins] = useState({
     deluxe: 0,
     view: 0,
@@ -417,7 +417,7 @@ const CruiseBookingPageSG = () => {
                     }}
                     value={insurance}
                   >
-                    <option value="">-- Select Option --</option>
+                    <option value="0">-- Select Option --</option>
                     <option value="0">No Insurance</option>
                     <option value="250">Basic Coverage ($250)</option>
                     <option value="500">Premium Coverage ($500)</option>
@@ -514,7 +514,7 @@ const CruiseBookingPageSG = () => {
                         }
                       />
                       <input
-                        placeholder="State"
+                        placeholder="Enter N/A for not applicable."
                         value={p.state || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
@@ -522,7 +522,7 @@ const CruiseBookingPageSG = () => {
                       />
 
                       <input
-                        placeholder="Zip Code"
+                        placeholder="Enter 000000 for not applicable."
                         value={p.zip || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
@@ -544,7 +544,7 @@ const CruiseBookingPageSG = () => {
 
                       <div className={styles.emailCol}>
                         <input
-                          placeholder="Email"
+                          placeholder="Gmail/iCloud/Hotmail only"
                           type="email"
                           value={p.email || ""}
                           className={
@@ -657,10 +657,12 @@ const CruiseBookingPageSG = () => {
 
                 <input
                   type="text"
+                  inputMode="numeric"
                   placeholder="Card Number"
                   className={styles.fullWidth}
                   value={paymentDetails.cardNumber}
-                  onChange={(e) => handleCardChange(e)}
+                  onChange={handleCardChange}
+                  maxLength="16" // Extra protection to stop typing at 16
                 />
 
                 <input

@@ -11,7 +11,7 @@ const CruiseBookingPageOE = () => {
   const [showTable, setShowTable] = useState(false);
   const [step, setStep] = useState(1);
   const [dates, setDates] = useState("");
-  const [party, setParty] = useState({ adults: 1, children: 0 });
+  const [party, setParty] = useState({ adults: 0, children: 0 });
   const [selectedCabins, setSelectedCabins] = useState({
     deluxe: 0,
     view: 0,
@@ -150,7 +150,6 @@ const CruiseBookingPageOE = () => {
       });
     }
   };
-
   const handleRoomChange = (id, val) =>
     setSelectedCabins((prev) => ({
       ...prev,
@@ -269,11 +268,11 @@ const CruiseBookingPageOE = () => {
                 <div className={styles.inputGrid}>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     placeholder="Adults"
                     value={party.adults}
                     onChange={(e) => {
-                      const val = Math.max(1, parseInt(e.target.value) || 1);
+                      const val = Math.max(0, parseInt(e.target.value) || 0);
                       setParty({ ...party, adults: val });
                       setStep(3);
                     }}
@@ -425,7 +424,7 @@ const CruiseBookingPageOE = () => {
                     }}
                     value={insurance}
                   >
-                    <option value="">-- Select Option --</option>
+                    <option value="0">-- Select Option --</option>
                     <option value="0">No Insurance</option>
                     <option value="250">Basic Coverage ($250)</option>
                     <option value="500">Premium Coverage ($500)</option>
@@ -446,7 +445,7 @@ const CruiseBookingPageOE = () => {
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
                       <select
-                        value={p.title}
+                        value={p.title || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "title", e.target.value)
                         }
@@ -459,28 +458,28 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="First Name"
-                        value={p.firstName}
+                        value={p.firstName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Middle Name"
-                        value={p.middleName}
+                        value={p.middleName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Last Name"
-                        value={p.lastName}
+                        value={p.lastName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
                         }
                       />
 
                       <select
-                        value={p.gender}
+                        value={p.gender || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "gender", e.target.value)
                         }
@@ -492,7 +491,8 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         type="date"
-                        value={p.dob}
+                        max={new Date().toISOString().split("T")[0]}
+                        value={p.dob || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "dob", e.target.value)
                         }
@@ -500,14 +500,14 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="Country"
-                        value={p.country}
+                        value={p.country || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
                         }
                       />
                       <input
                         placeholder="City"
-                        value={p.city}
+                        value={p.city || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
                         }
@@ -515,21 +515,22 @@ const CruiseBookingPageOE = () => {
                       <input
                         placeholder="Address 1"
                         className={styles.fullWidth}
-                        value={p.addr1}
+                        value={p.addr1 || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
-                        placeholder="State"
-                        value={p.state}
+                        placeholder="Enter N/A for not applicable."
+                        value={p.state || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
                         }
                       />
+
                       <input
-                        placeholder="Zip Code"
-                        value={p.zip}
+                        placeholder="Enter 000000 for not applicable."
+                        value={p.zip || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
                           handlePaxChange(i, "zip", val);
@@ -539,7 +540,7 @@ const CruiseBookingPageOE = () => {
                       <input
                         type="tel"
                         placeholder="Phone"
-                        value={p.phone}
+                        value={p.phone || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
                           if (val.length <= 15) {
@@ -550,8 +551,9 @@ const CruiseBookingPageOE = () => {
 
                       <div className={styles.emailCol}>
                         <input
-                          placeholder="Email"
-                          value={p.email}
+                          placeholder="Gmail/iCloud/Hotmail only"
+                          type="email"
+                          value={p.email || ""}
                           className={
                             p.email && !validateEmail(p.email)
                               ? styles.inputError
@@ -663,10 +665,12 @@ const CruiseBookingPageOE = () => {
 
                 <input
                   type="text"
+                  inputMode="numeric"
                   placeholder="Card Number"
                   className={styles.fullWidth}
                   value={paymentDetails.cardNumber}
-                  onChange={(e) => handleCardChange(e)}
+                  onChange={handleCardChange}
+                  maxLength="16" // Extra protection to stop typing at 16
                 />
 
                 <input
