@@ -1,0 +1,10 @@
+.section{
+  padding: 80px 0;
+  background: var(--body-blue);
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw;
+  margin: 0 auto;
+}

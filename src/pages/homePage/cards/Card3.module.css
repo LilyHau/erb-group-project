@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 500px;
+  height: auto;
+  min-height: 500px;
   padding: 25px 25px 15px;
   background: var(--card-green);
 }
@@ -40,14 +41,12 @@
 }
 
 @media (max-width: 992px) {
-  .card {
-    height: 420px;
-  }
   .content {
     margin-left: 10px;
 
     h2 {
       font-size: 1.8rem;
+      line-height: normal;
     }
 
     p {
@@ -61,14 +60,12 @@
 }
 
 @media (max-width: 768px) {
-  .card {
-    height: 350px;
-  }
   .content {
     margin-left: 0px;
 
     h2 {
       font-size: 1.5rem;
+      line-height: normal;
     }
 
     p {
