@@ -119,11 +119,11 @@ function App() {
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="Help" element={<Help />} />
           <Route path="Contact" element={<Contact />} />
-<<<<<<< Updated upstream
+
           <Route path="AccommodationDetail" element={<AccommodationDetail />} />
-=======
+
           <Route path="Dining" element={<Dining />} />
->>>>>>> Stashed changes
+
         </Route>
       </Routes>
     </BrowserRouter>
