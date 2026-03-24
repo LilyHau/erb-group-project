@@ -45,8 +45,8 @@ const OCEANEXPLORER = () => {
             </button>
             <button
               className={styles.infoBtn}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#4c93af")} // Or any color
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#5ca4bc")} // Or original color
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#4c93af")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#5ca4bc")}
               onClick={() => navigate("/oeInfo")} // Your click handler here
             >
               MORE INFO

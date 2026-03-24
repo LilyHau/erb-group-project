@@ -138,7 +138,7 @@ const Help = () => {
               <button
                 type="submit"
                 className={styles.sendBtn}
-                onClick={() => navigate("/HomePage")}
+                onClick={() => navigate("/")}
               >
                 Send Message
               </button>
@@ -151,7 +151,7 @@ const Help = () => {
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionHeading}>2. More help</h2>
         <div className={styles.linksGrid}>
-          <a href="#contact">Contact us</a>
+          <a href="./Contact">Contact us</a>
           <a href="./FAQSection">Frequently Asked Questions</a>
           <a href="./privacy">Privacy Policy</a>
         </div>

@@ -20,6 +20,7 @@ import SGInfo from "./pages/ourCruisesPage/CruisesInfo/SGInfo";
 import SDInfo from "./pages/ourCruisesPage/CruisesInfo/SDInfo";
 import Help from "./pages/Helpcenter/Help.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
+import Contact from "./pages/Contactus/Contact.jsx";
 
 function App() {
   const cartItemsFromLocalStorage =
@@ -112,6 +113,7 @@ function App() {
           />
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="Help" element={<Help />} />
+          <Route path="Contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>
