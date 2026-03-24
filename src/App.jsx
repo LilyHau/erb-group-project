@@ -21,11 +21,11 @@ import SDInfo from "./pages/ourCruisesPage/CruisesInfo/SDInfo";
 import Help from "./pages/Helpcenter/Help.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import Contact from "./pages/Contactus/Contact.jsx";
-<<<<<<< Updated upstream
+
 import AccommodationDetail from "./pages/AccommodationDetail/AccommodationDetail.jsx";
-=======
+
 import Dining from "./pages/Dining/Dining.jsx";
->>>>>>> Stashed changes
+
 
 function App() {
   const cartItemsFromLocalStorage =
