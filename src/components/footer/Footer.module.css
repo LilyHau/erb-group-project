@@ -89,10 +89,16 @@
     padding: 0px 20px;
   }
 }
-.toTopBtn{
+
+.toTopBtn {
   color: var(--text-gray);
   text-align: right;
+
+  &:hover {
+    color: var(--background-blue);
+  }
 }
+
 /* bottom footer */
 .bottom {
   text-align: center;
