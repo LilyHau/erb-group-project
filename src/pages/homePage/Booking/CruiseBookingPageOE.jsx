@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CruiseBookingPageOE.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Info from "../../../assets/Cruises/Info.png";
 import CRUISEregular from "../../../assets/Cruises/CRUISEregularsuitewithnoseaview.jpg";
 import CRUISEluxrysuite2 from "../../../assets/Cruises/CRUISEluxrysuite2.jpg";
 import CRUISEluxrysuiteforfamily from "../../../assets/Cruises/CRUISEluxrysuiteforfamily4people.jpg";
+import confetti from "canvas-confetti";
 
 const CruiseBookingPageOE = () => {
   const [showTable, setShowTable] = useState(false);
@@ -26,6 +27,8 @@ const CruiseBookingPageOE = () => {
     cvv: "",
   });
   const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const NIGHTS = 7;
   const cabinTypes = [
@@ -140,7 +143,6 @@ const CruiseBookingPageOE = () => {
 
   const handleCardChange = (e) => {
     const numericValue = e.target.value.replace(/\D/g, "");
-
     if (numericValue.length <= 16) {
       setPaymentDetails({
         ...paymentDetails,
@@ -154,49 +156,111 @@ const CruiseBookingPageOE = () => {
       ...prev,
       [id]: Math.max(0, parseInt(val) || 0),
     }));
+
   const handlePaxChange = (i, field, val) => {
     const updated = [...passengers];
     updated[i] = { ...updated[i], [field]: val };
     setPassengers(updated);
   };
 
+  // BookingModal component
+  const BookingModal = ({ showModal }) => {
+    const handleConfirm = () => {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        zIndex: 10000,
+        colors: [
+          "#26ccff",
+          "#a25afd",
+          "#ff5e7e",
+          "#88ff5a",
+          "#fcff42",
+          "#ffa62d",
+          "#ff36ff",
+        ],
+      });
+
+      setTimeout(() => {
+        navigate("/shop");
+      }, 2500);
+    };
+
+    if (!showModal) return null;
+
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalWindow}>
+          <div className={styles.modalHeader}>
+            <div className={styles.successIcon}>✓</div>
+          </div>
+
+          <div className={styles.modalBody}>
+            <h2>Booking Confirmed!</h2>
+            <p>
+              Thank you for choosing <strong>OCEAN EXPLORER</strong>.
+              <br />A confirmation email with your itinerary has been sent to
+              your primary guest.
+            </p>
+          </div>
+
+          <div className={styles.modalFooter}>
+            <button className={styles.modalConfirmBtn} onClick={handleConfirm}>
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Main JSX return
   return (
     <>
+      {/* Hero Section */}
       <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
           <div className={styles.ovalEffect}>
             <h1>OCEAN EXPLORER</h1>
             <h2>海洋探索號</h2>
             <p>Dive into the Deep, Touch the Abyss</p>
-            <Link to="/oeInfo">
-              <a>More Info</a>
-            </Link>
+            <Link to="/oeInfo">More Info</Link>
           </div>
         </div>
       </div>
+
+      {/* Booking Content */}
       <div className={styles.pageContainer}>
         <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
         <div className={styles.mainLayout}>
           <div className={styles.formArea}>
-            <section className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
-              <select
-                className={styles.inputField}
-                onChange={(e) => {
-                  setDates(e.target.value);
-                  setStep(2);
-                }}
-              >
-                <option value="">-- Choose Dates --</option>
-                <option value="Jan 24, 2027 - Jan 31, 2027">
-                  Jan 24, 2027 - Jan 31, 2027
-                </option>
-                <option value="Jul 24, 2027 - Jul 31, 2027">
-                  Jul 24, 2027 - Jul 31, 2027
-                </option>
-              </select>
-            </section>
+            {/* Step 1: Dates */}
+            {step >= 1 && (
+              <section className={styles.formSection}>
+                <h3 className={styles.sectionTitle}>
+                  Select Your Travel Dates*
+                </h3>
+                <select
+                  className={styles.inputField}
+                  onChange={(e) => {
+                    setDates(e.target.value);
+                    setStep(2);
+                  }}
+                  value={dates}
+                >
+                  <option value="">-- Choose Dates --</option>
+                  <option value="Jan 24, 2027 - Jan 31, 2027">
+                    Jan 24, 2027 - Jan 31, 2027
+                  </option>
+                  <option value="Jul 24, 2027 - Jul 31, 2027">
+                    Jul 24, 2027 - Jul 31, 2027
+                  </option>
+                </select>
+              </section>
+            )}
 
+            {/* Step 2: Travel Party */}
             {step >= 2 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -207,8 +271,10 @@ const CruiseBookingPageOE = () => {
                     type="number"
                     min="1"
                     placeholder="Adults"
+                    value={party.adults}
                     onChange={(e) => {
-                      setParty({ ...party, adults: e.target.value });
+                      const val = Math.max(1, parseInt(e.target.value) || 1);
+                      setParty({ ...party, adults: val });
                       setStep(3);
                     }}
                   />
@@ -216,14 +282,19 @@ const CruiseBookingPageOE = () => {
                     type="number"
                     min="0"
                     placeholder="Children"
+                    value={party.children}
                     onChange={(e) =>
-                      setParty({ ...party, children: e.target.value })
+                      setParty({
+                        ...party,
+                        children: parseInt(e.target.value) || 0,
+                      })
                     }
                   />
                 </div>
               </section>
             )}
 
+            {/* Step 3: Cabins */}
             {step >= 3 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -266,8 +337,10 @@ const CruiseBookingPageOE = () => {
               </section>
             )}
 
+            {/* Step 4: Activities & Insurance */}
             {step >= 4 && (
               <>
+                {/* Activities */}
                 <section className={styles.formSection}>
                   <h3 className={styles.sectionTitle}>
                     3. Additional Activities & Dive Courses
@@ -277,6 +350,7 @@ const CruiseBookingPageOE = () => {
                       <label>
                         <input
                           type="checkbox"
+                          checked={selectedActivities.includes(act.id)}
                           onChange={() =>
                             setSelectedActivities((prev) =>
                               prev.includes(act.id)
@@ -292,11 +366,12 @@ const CruiseBookingPageOE = () => {
                   ))}
                 </section>
 
+                {/* Insurance */}
                 <section className={styles.formSection}>
                   <h3 className={styles.sectionTitle}>
                     4. Optional Basic Travel Insurance{" "}
                     <div className={styles.infoContainers}>
-                      {/* 1. The Trigger Icon */}
+                      {/* Info Icon */}
                       <img
                         src={Info}
                         alt="Info"
@@ -305,9 +380,11 @@ const CruiseBookingPageOE = () => {
                         onMouseLeave={() => setShowTable(false)}
                       />
 
-                      {/* 2. The Hover Table Box */}
+                      {/* Hover Table */}
                       <div
-                        className={`${styles.tableBox} ${showTable ? styles.isVisible : ""}`}
+                        className={`${styles.tableBox} ${
+                          showTable ? styles.isVisible : ""
+                        }`}
                       >
                         <h3>Optional Basic Travel Insurance</h3>
                         <table className={styles.insuranceTable}>
@@ -346,6 +423,7 @@ const CruiseBookingPageOE = () => {
                       setInsurance(Number(e.target.value));
                       setStep(5);
                     }}
+                    value={insurance}
                   >
                     <option value="">-- Select Option --</option>
                     <option value="0">No Insurance</option>
@@ -356,6 +434,7 @@ const CruiseBookingPageOE = () => {
               </>
             )}
 
+            {/* Step 5: Passenger Info */}
             {step >= 5 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -367,7 +446,7 @@ const CruiseBookingPageOE = () => {
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
                     <div className={styles.paxGrid}>
                       <select
-                        value={p.title || ""}
+                        value={p.title}
                         onChange={(e) =>
                           handlePaxChange(i, "title", e.target.value)
                         }
@@ -380,28 +459,28 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="First Name"
-                        value={p.firstName || ""}
+                        value={p.firstName}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Middle Name"
-                        value={p.middleName || ""}
+                        value={p.middleName}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
                         }
                       />
                       <input
                         placeholder="Last Name"
-                        value={p.lastName || ""}
+                        value={p.lastName}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
                         }
                       />
 
                       <select
-                        value={p.gender || ""}
+                        value={p.gender}
                         onChange={(e) =>
                           handlePaxChange(i, "gender", e.target.value)
                         }
@@ -413,7 +492,7 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         type="date"
-                        value={p.dob || ""}
+                        value={p.dob}
                         onChange={(e) =>
                           handlePaxChange(i, "dob", e.target.value)
                         }
@@ -421,14 +500,14 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="Country"
-                        value={p.country || ""}
+                        value={p.country}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
                         }
                       />
                       <input
                         placeholder="City"
-                        value={p.city || ""}
+                        value={p.city}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
                         }
@@ -436,21 +515,21 @@ const CruiseBookingPageOE = () => {
                       <input
                         placeholder="Address 1"
                         className={styles.fullWidth}
-                        value={p.addr1 || ""}
+                        value={p.addr1}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
                         placeholder="State"
-                        value={p.state || ""}
+                        value={p.state}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
                         }
                       />
                       <input
                         placeholder="Zip Code"
-                        value={p.zip || ""}
+                        value={p.zip}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
                           handlePaxChange(i, "zip", val);
@@ -460,7 +539,7 @@ const CruiseBookingPageOE = () => {
                       <input
                         type="tel"
                         placeholder="Phone"
-                        value={p.phone || ""}
+                        value={p.phone}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
                           if (val.length <= 15) {
@@ -472,7 +551,7 @@ const CruiseBookingPageOE = () => {
                       <div className={styles.emailCol}>
                         <input
                           placeholder="Email"
-                          value={p.email || ""}
+                          value={p.email}
                           className={
                             p.email && !validateEmail(p.email)
                               ? styles.inputError
@@ -495,7 +574,9 @@ const CruiseBookingPageOE = () => {
             )}
           </div>
 
+          {/* Sidebar with summary and payment */}
           <aside className={styles.sidebar}>
+            {/* Cancellation Policy */}
             <div className={styles.policyBox}>
               <h4>Cancellation Policy</h4>
               <div className={styles.policyRow}>
@@ -512,6 +593,7 @@ const CruiseBookingPageOE = () => {
               </div>
             </div>
 
+            {/* Booking Summary */}
             <div className={styles.summaryBox}>
               <h3>Booking Summary</h3>
               <p className={styles.summaryCruise}>
@@ -563,6 +645,7 @@ const CruiseBookingPageOE = () => {
               </div>
             </div>
 
+            {/* Payment section */}
             <div className={styles.paymentBox}>
               <h4>COMPLETE YOUR BOOKING</h4>
               <div className={styles.payGrid}>
@@ -583,12 +666,7 @@ const CruiseBookingPageOE = () => {
                   placeholder="Card Number"
                   className={styles.fullWidth}
                   value={paymentDetails.cardNumber}
-                  onChange={(e) => {
-                    const val = e.target.value.replace(/\D/g, "");
-                    if (val.length <= 16) {
-                      setPaymentDetails({ ...paymentDetails, cardNumber: val });
-                    }
-                  }}
+                  onChange={(e) => handleCardChange(e)}
                 />
 
                 <input
@@ -628,35 +706,10 @@ const CruiseBookingPageOE = () => {
             </div>
           </aside>
         </div>
-
-        {showModal && (
-          <div className={styles.modalOverlay}>
-            <div className={styles.modalWindow}>
-              <div className={styles.modalHeader}>
-                <div className={styles.successIcon}>✓</div>
-              </div>
-
-              <div className={styles.modalBody}>
-                <h2>Booking Confirmed!</h2>
-                <p>
-                  Thank you for choosing <strong>OCEAN EXPLORER</strong>.<br />A
-                  confirmation email with your itinerary has been sent to your
-                  primary guest.
-                </p>
-              </div>
-
-              <div className={styles.modalFooter}>
-                <button
-                  className={styles.modalConfirmBtn}
-                  onClick={() => (window.location.href = "/shop")}
-                >
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Confirmation Modal */}
+      <BookingModal showModal={showModal} />
     </>
   );
 };

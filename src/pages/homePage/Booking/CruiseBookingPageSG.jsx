@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CruiseBookingPageSG.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Info from "../../../assets/Cruises/Info.png";
 import CRUISEregular from "../../../assets/Cruises/CRUISEregularsuitewithnoseaview.jpg";
 import CRUISEluxrysuite2 from "../../../assets/Cruises/CRUISEluxrysuite2.jpg";
@@ -26,6 +26,8 @@ const CruiseBookingPageSG = () => {
     cvv: "",
   });
   const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const NIGHTS = 7;
   const cabinTypes = [
@@ -79,10 +81,12 @@ const CruiseBookingPageSG = () => {
     selectedCabins.deluxe * 600 * NIGHTS +
     selectedCabins.view * 799 * NIGHTS +
     selectedCabins.suite * 1299 * NIGHTS;
+
   const activitiesTotal = selectedActivities.reduce(
     (sum, id) => sum + (activityList.find((a) => a.id === id)?.price || 0),
     0,
   );
+
   const grandTotal = cabinSubtotal + activitiesTotal + insurance;
 
   useEffect(() => {
@@ -143,23 +147,72 @@ const CruiseBookingPageSG = () => {
       ...prev,
       [id]: Math.max(0, parseInt(val) || 0),
     }));
+
   const handlePaxChange = (i, field, val) => {
     const updated = [...passengers];
     updated[i] = { ...updated[i], [field]: val };
     setPassengers(updated);
   };
+
   const handleCardChange = (e) => {
     const numericValue = e.target.value.replace(/\D/g, "");
-
     if (numericValue.length <= 16) {
-      setPaymentDetails({
-        ...paymentDetails,
-        cardNumber: numericValue,
-      });
+      setPaymentDetails({ ...paymentDetails, cardNumber: numericValue });
     }
   };
+
+  // BookingModal component
+  const BookingModal = ({ showModal }) => {
+    const handleConfirm = () => {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        zIndex: 10000,
+        colors: [
+          "#26ccff",
+          "#a25afd",
+          "#ff5e7e",
+          "#88ff5a",
+          "#fcff42",
+          "#ffa62d",
+          "#ff36ff",
+        ],
+      });
+      setTimeout(() => {
+        navigate("/shop");
+      }, 2500);
+    };
+
+    if (!showModal) return null;
+
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalWindow}>
+          <div className={styles.modalHeader}>
+            <div className={styles.successIcon}>✓</div>
+          </div>
+          <div className={styles.modalBody}>
+            <h2>Booking Confirmed!</h2>
+            <p>
+              Thank you for choosing <strong>OCEAN EXPLORER</strong>.
+              <br />A confirmation email with your itinerary has been sent to
+              your primary guest.
+            </p>
+          </div>
+          <div className={styles.modalFooter}>
+            <button className={styles.modalConfirmBtn} onClick={handleConfirm}>
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
+      {/* Hero Section */}
       <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
           <div className={styles.ovalEffect}>
@@ -172,14 +225,19 @@ const CruiseBookingPageSG = () => {
           </div>
         </div>
       </div>
+
+      {/* Main Content */}
       <div className={styles.pageContainer}>
         <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
         <div className={styles.mainLayout}>
+          {/* Form Area */}
           <div className={styles.formArea}>
+            {/* Step 1: Travel Dates */}
             <section className={styles.formSection}>
               <h3 className={styles.sectionTitle}>Select Your Travel Dates*</h3>
               <select
                 className={styles.inputField}
+                value={dates}
                 onChange={(e) => {
                   setDates(e.target.value);
                   setStep(2);
@@ -195,6 +253,7 @@ const CruiseBookingPageSG = () => {
               </select>
             </section>
 
+            {/* Step 2: Travel Party */}
             {step >= 2 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -205,8 +264,10 @@ const CruiseBookingPageSG = () => {
                     type="number"
                     min="1"
                     placeholder="Adults"
+                    value={party.adults}
                     onChange={(e) => {
-                      setParty({ ...party, adults: e.target.value });
+                      const val = Math.max(1, parseInt(e.target.value) || 1);
+                      setParty({ ...party, adults: val });
                       setStep(3);
                     }}
                   />
@@ -214,14 +275,19 @@ const CruiseBookingPageSG = () => {
                     type="number"
                     min="0"
                     placeholder="Children"
+                    value={party.children}
                     onChange={(e) =>
-                      setParty({ ...party, children: e.target.value })
+                      setParty({
+                        ...party,
+                        children: parseInt(e.target.value) || 0,
+                      })
                     }
                   />
                 </div>
               </section>
             )}
 
+            {/* Step 3: Staterooms */}
             {step >= 3 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -264,8 +330,10 @@ const CruiseBookingPageSG = () => {
               </section>
             )}
 
+            {/* Step 4: Activities & Insurance */}
             {step >= 4 && (
               <>
+                {/* Activities */}
                 <section className={styles.formSection}>
                   <h3 className={styles.sectionTitle}>
                     3. Additional Activities & Dive Courses
@@ -275,6 +343,7 @@ const CruiseBookingPageSG = () => {
                       <label>
                         <input
                           type="checkbox"
+                          checked={selectedActivities.includes(act.id)}
                           onChange={() =>
                             setSelectedActivities((prev) =>
                               prev.includes(act.id)
@@ -290,11 +359,12 @@ const CruiseBookingPageSG = () => {
                   ))}
                 </section>
 
+                {/* Insurance */}
                 <section className={styles.formSection}>
                   <h3 className={styles.sectionTitle}>
                     4. Optional Basic Travel Insurance
                     <div className={styles.infoContainers}>
-                      {/* 1. The Trigger Icon */}
+                      {/* Info Icon */}
                       <img
                         src={Info}
                         alt="Info"
@@ -303,7 +373,7 @@ const CruiseBookingPageSG = () => {
                         onMouseLeave={() => setShowTable(false)}
                       />
 
-                      {/* 2. The Hover Table Box */}
+                      {/* Hover Table Box */}
                       <div
                         className={`${styles.tableBox} ${showTable ? styles.isVisible : ""}`}
                       >
@@ -344,6 +414,7 @@ const CruiseBookingPageSG = () => {
                       setInsurance(Number(e.target.value));
                       setStep(5);
                     }}
+                    value={insurance}
                   >
                     <option value="">-- Select Option --</option>
                     <option value="0">No Insurance</option>
@@ -354,14 +425,13 @@ const CruiseBookingPageSG = () => {
               </>
             )}
 
+            {/* Step 5: Passenger Info */}
             {step >= 5 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
                   5. Passenger Information*
                 </h3>
-
                 <p>Please enter N/A for not applicable.</p>
-
                 {passengers.map((p, i) => (
                   <div key={i} className={styles.paxBox}>
                     <h4 className={styles.paxHeader}>Passenger #{i + 1}</h4>
@@ -498,7 +568,9 @@ const CruiseBookingPageSG = () => {
             )}
           </div>
 
+          {/* Sidebar with Summary & Payment */}
           <aside className={styles.sidebar}>
+            {/* Cancellation Policy */}
             <div className={styles.policyBox}>
               <h4>Cancellation Policy</h4>
               <div className={styles.policyRow}>
@@ -515,11 +587,10 @@ const CruiseBookingPageSG = () => {
               </div>
             </div>
 
+            {/* Booking Summary */}
             <div className={styles.summaryBox}>
               <h3>Booking Summary</h3>
-              <p className={styles.summaryCruise}>
-                7 Night: OCEAN EXPLORER Cruise
-              </p>
+              <p className={styles.summaryCruise}>7 Night: SERENITY DREAM</p>
               <p className={styles.summaryDates}>{dates || "Select Dates"}</p>
               <hr className={styles.divider} />
 
@@ -560,12 +631,14 @@ const CruiseBookingPageSG = () => {
                 <span>${insurance}</span>
               </div>
               <hr className={styles.divider} />
+
               <div className={styles.totalRow}>
                 <span>TOTAL AMOUNT</span>
                 <span>${grandTotal.toLocaleString()}</span>
               </div>
             </div>
 
+            {/* Payment Section */}
             <div className={styles.paymentBox}>
               <h4>COMPLETE YOUR BOOKING</h4>
               <div className={styles.payGrid}>
@@ -586,12 +659,7 @@ const CruiseBookingPageSG = () => {
                   placeholder="Card Number"
                   className={styles.fullWidth}
                   value={paymentDetails.cardNumber}
-                  onChange={(e) => {
-                    const val = e.target.value.replace(/\D/g, "");
-                    if (val.length <= 16) {
-                      setPaymentDetails({ ...paymentDetails, cardNumber: val });
-                    }
-                  }}
+                  onChange={(e) => handleCardChange(e)}
                 />
 
                 <input
@@ -631,35 +699,10 @@ const CruiseBookingPageSG = () => {
             </div>
           </aside>
         </div>
-
-        {showModal && (
-          <div className={styles.modalOverlay}>
-            <div className={styles.modalWindow}>
-              <div className={styles.modalHeader}>
-                <div className={styles.successIcon}>✓</div>
-              </div>
-
-              <div className={styles.modalBody}>
-                <h2>Booking Confirmed!</h2>
-                <p>
-                  Thank you for choosing <strong>SEA GUARDIAN</strong>.<br />A
-                  confirmation email with your itinerary has been sent to your
-                  primary guest.
-                </p>
-              </div>
-
-              <div className={styles.modalFooter}>
-                <button
-                  className={styles.modalConfirmBtn}
-                  onClick={() => (window.location.href = "/shop")}
-                >
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Booking Confirm Modal */}
+      <BookingModal showModal={showModal} />
     </>
   );
 };
