@@ -254,9 +254,9 @@ const DiningPage = () => {
       </div>
 
       {/* Title & Description */}
-      <header className={styles.header}>
-        <h1>Dining That Sails With Your Vibe</h1>
-        <p>
+      <div className={styles.textBox}>
+        <h1 className={styles.title}>Dining That Sails With Your Vibe</h1>
+        <p className={styles.description}>
           Ocean Park HK Cruise Line serves up theme-aligned, Hong Kong-inspired
           dining experiences tailored to every voyage—whether you’re refueling
           after deep-sea dives, savoring sustainable zero-waste meals, or
@@ -264,7 +264,7 @@ const DiningPage = () => {
           flavors, immersive decor, and thoughtful touches to turn every meal
           into a memorable part of your ocean adventure.
         </p>
-      </header>
+      </div>
 
       {/* Navigation Buttons */}
       <nav className={styles.filterNav}>
