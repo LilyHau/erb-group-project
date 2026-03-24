@@ -799,3 +799,90 @@ export const sdDetails = [
     ],
   },
 ];
+export const oeRooms = [
+  {
+    id: "1",
+    image: "./src/assets/Accommodation/oe1.jpg",
+    size: "268sq ft | 2 Adults (No Children)",
+    title: "Deluxe Cabin",
+    points:
+      "Dedicated dive gear storage locker\nQuick-access camera charging ports\nOcean-inspired minimalist decor\n24-hour in-room expedition-grade amenities\nEco-friendly toiletries (reef-safe, plastic-free",
+    price: "From $2,560 USD / 7 Nights",
+  },
+  {
+    id: "2",
+    image: "./src/assets/Accommodation/oe2.jpg",
+    size: "304sq ft | 2 Adults + 1 Child (<8)",
+    title: "Deluxe Sea View Cabin",
+    points:
+      "Panoramic ocean view window\nDedicated dive gear storage + drying rack\nSplit bathroom for post-dive routines\nMarine science-themed decor (maps, expedition posters)\n24-hour in-room service with expedition meal options",
+    price: "From $2,960 USD / 7 Nights",
+  },
+  {
+    id: "3",
+    image: "./src/assets/Accommodation/oe3.jpg",
+    size: "528sq ft | 2 Adults + 2 Children",
+    title: "Wall Hall Family Suite",
+    points:
+      "Dual dive gear storage lockers\nSpacious open layout with ocean view balcony\nFamily-friendly split bathrooms\nExpedition library corner with marine science books\nPriority access to dive briefings & science sessions",
+    price: "From $3,560 USD / 7 Nights",
+  },
+];
+export const sgRooms = [
+  {
+    id: "1",
+    image: "./src/assets/Accommodation/sg1.png",
+    size: "268sq ft | 2 Adults (No Children)",
+    title: "Deluxe Cabin",
+    points:
+      "Recycled-material furnishings & organic linen bedding\nVolunteer gear storage compartment\nZero-plastic amenities & refill stations\nConservation-themed decor (turtle, coral prints)\n24-hour in-room service with plant-based meal options",
+    price: "From $3,290 USD / 7 Nights",
+  },
+  {
+    id: "2",
+    image: "./src/assets/Accommodation/sg2.jpg",
+    size: "304sq ft | 2 Adults + 1 Child (<8)",
+    title: "Deluxe Sea View Cabin",
+    points:
+      "Ocean view window with conservation fact decals\nVolunteer gear storage + water-saving split bathroom\nOrganic cotton linens & zero-waste toiletries\nTurtle conservation-themed decor & activity kits\nPriority access to volunteer briefings & rescue center tours",
+    price: "From $3,780 USD / 7 Nights",
+  },
+  {
+    id: "3",
+    image: "./src/assets/Accommodation/sg3.png",
+    size: "528sq ft | 2 Adults + 2 Children",
+    title: "Wall Hall Family Suite",
+    points:
+      "Dual volunteer gear storage lockers\nSpacious family layout with ocean view balcony\nEco-friendly kid-friendly amenities (recycled toys, plant-based snacks)\nConservation library corner with kids’ activity books\nExclusive access to family volunteer sessions (mangrove planting, hatchling releases)",
+    price: "From $4,700 USD / 7 Nights",
+  },
+];
+export const sdRooms = [
+  {
+    id: "1",
+    image: "./src/assets/Accommodation/sd1.jpg",
+    size: "268sq ft | 2 Adults (No Children)",
+    title: "Deluxe Cabin",
+    points:
+      "Ocean-inspired calm decor (soft blues, coastal textures)\nQuiet relaxation nook with reading lights\nPremium linens & beach-themed amenities\n24-hour in-room service with gourmet meal options\nPriority access to adult-exclusive Stellar Deck Lounge",
+    price: "From $2,790 USD / 7 Nights",
+  },
+  {
+    id: "2",
+    image: "./src/assets/Accommodation/sd2.jpg",
+    size: "304sq ft | 2 Adults + 1 Child (<8)",
+    title: "Deluxe Sea View Cabin",
+    points:
+      "Panoramic ocean view window with child-safe railings\nBeach gear storage + split bathroom (minimize morning rush)\nKid-approved bunk bed option & ocean-themed decor\n24-hour in-room service with kid-friendly menu options\nPriority access to Ocean Explorers Kids’ Club",
+    price: "From $3,210 USD / 7 Nights",
+  },
+  {
+    id: "3",
+    image: "./src/assets/Accommodation/sd3.jpg",
+    size: "528sq ft | 2 Adults + 2 Children",
+    title: "Wall Hall Family Suite",
+    points:
+      "Dual dive gear storage lockers\nSpacious open layout with ocean view balcony\nFamily-friendly split bathrooms\nExpedition library corner with marine science books\nPriority access to dive briefings & science sessions",
+    price: "From $4,000 USD / 7 Nights",
+  },
+];

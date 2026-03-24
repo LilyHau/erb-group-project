@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  margin: 1rem;
+}
+.sliderWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+.cardTrack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: all 0.5s ease-in-out;
+}
+.card {
+  width: 30%;
+  height: auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  img{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1.5/1;
+  }
+}
+.size{
+  font-size: 0.5rem;
+  color: #999999;
+  margin: 0.5rem 0;
+  align-self: flex-start;
+  padding-left: 1rem;
+}
+.cardContent{
+  height: 50%;
+  padding: 0 0.5rem 1rem 0.5rem;
+  h4{
+    font-size:1rem;
+  }
+  ul {
+    padding-left: 1rem;
+  list-style-type: square;
+}
+  li{
+    font-size: 0.5rem;
+  }
+  p{
+    font-size: 0.7rem;
+  }
+}
+/* Active & Inactive States */
+.activeCard {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.inactiveCard {
+  transform: scale(0.85);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Navigation Buttons */
+.navBtn {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 9999;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.navBtn:hover {
+  background: rgba(224, 224, 224, 0.7);
+}
+.left { left: 20px; }
+.right { right: 20px; }
+
+@media (max-width:768px) {
+  .cardTrack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .card{
+    width: 80%;
+  }
+  .navBtn{
+    display: none;
+  }
+  .activeCard {
+  transform: scale(0.95);
+}
+
+.inactiveCard {
+  transform: scale(0.85);
+  opacity: 1;
+}
+}

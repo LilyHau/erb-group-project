@@ -96,7 +96,6 @@ const Accommodations = () => {
               display: "flex",
               flexDirection: "column",
               textAlign: "left",
-              cursor: "pointer",
               transition:
                 "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
               transform: hoveredIndex === index ? "scale(1.06)" : "scale(1)",
@@ -149,6 +148,7 @@ const Accommodations = () => {
               >
                 {item.desc}
               </p>
+              <Link to="/AccommodationDetail"><a style={{cursor: "pointer",fontWeight:"bold",color: "var(--text-gray)"}}>View More</a></Link>
             </div>
           </div>
         ))}
