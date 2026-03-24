@@ -13,10 +13,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:
+  /* background:
     url("../../../assets/Cruises/SG-Logo.png") no-repeat top left / 200px 200px,
     url("../../../assets//Cruises/SG-ship.png") no-repeat right / 300px,
-    var(--sg-main);
+    var(--sg-main); */
+  background: url(../../../assets/SEAGUARDIAN/OceanLife\ _000.webp);
 }
 .heroContent {
   display: flex;

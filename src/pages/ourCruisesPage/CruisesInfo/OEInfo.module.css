@@ -1,34 +1,35 @@
-.heroContainer{
+.heroContainer {
   width: 100%;
   height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:
+  /* background:
   url('../../../assets/Cruises/OE-Logo.png') no-repeat top left / 200px 200px,
   url('../../../assets//Cruises/OE-ship.png') no-repeat right / 300px,
-  var(--oe-main);
+  var(--oe-main); */
+  background: url(../../../assets/OCEANEXPLORER/OEherovideo_000.webp) bottom;
 }
-.heroContent{
+.heroContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--white);
-  h1{
+  h1 {
     font-family: "Joti One";
     font-size: 4rem;
   }
-  h2{
+  h2 {
     transform: translateX(-10rem);
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  p{
+  p {
     font-size: 1.5rem;
   }
-  a{
+  a {
     background-color: #50c9ff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -37,48 +38,48 @@
   }
 }
 .ovalEffect {
-    width: 120%;
-    height: 120%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 120%;
+  height: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-.infoContainer{
+.infoContainer {
   max-width: 1400px;
   width: 70%;
   margin: 2rem 20% 2rem 10%;
 }
-.overview{
+.overview {
   position: relative;
   border-bottom: 1px solid var(--oe-main);
-  h2{
+  h2 {
     font-weight: 300;
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
-  p{
+  p {
     font-size: 1.5rem;
   }
-  p:nth-child(4){
+  p:nth-child(4) {
     margin-top: 3rem;
   }
-  p:nth-child(5){
+  p:nth-child(5) {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-  span{
+  span {
     font-size: 2rem;
   }
-  a{
+  a {
     background-color: #4c93af;
     color: var(--white);
     padding: 0.8rem;
@@ -90,22 +91,22 @@
     z-index: 9999;
   }
 }
-.inclusion{
+.inclusion {
   margin-top: 2rem;
-  h2{
+  h2 {
     color: #4676a6;
     margin-bottom: 1rem;
   }
-  ul{
+  ul {
     margin-left: 0.5rem;
-    span{
+    span {
       font-size: 1rem;
     }
   }
 }
-.itinerary{
+.itinerary {
   margin-top: 2rem;
-  h2{
+  h2 {
     color: #4676a6;
     margin-bottom: 1rem;
   }
@@ -114,7 +115,8 @@
     border-collapse: collapse;
     margin: 20px auto;
   }
-  th, td {
+  th,
+  td {
     border: 1px solid var(--black);
     padding: 8px;
     text-align: center;
@@ -123,27 +125,27 @@
     background-color: #f2f2f2;
   }
 }
-.details{
+.details {
   margin-top: 2rem;
 }
-.details :global .detailsCardContainer{
+.details :global .detailsCardContainer {
   padding: 1rem;
   border: 1px solid var(--black);
   margin-bottom: 1rem;
   line-height: normal;
   background-color: #f0faff;
-  h2{
+  h2 {
     color: #4676a6;
     margin-bottom: 1rem;
   }
-  p{
+  p {
     margin-top: 1rem;
   }
-  ul{
+  ul {
     margin-left: 0.5rem;
   }
 }
-.disclaimer{
+.disclaimer {
   width: 70%;
   margin-left: 10%;
   margin-bottom: 2rem;
@@ -152,7 +154,9 @@
 }
 @media (max-width: 992px) {
   .heroContent {
-    h1 { font-size: 3rem; }
+    h1 {
+      font-size: 3rem;
+    }
     h2 {
       transform: translateX(0);
       font-size: 1.25rem;
@@ -181,8 +185,12 @@
   }
 
   .heroContent {
-    h1 { font-size: 2.2rem; }
-    p { font-size: 1.1rem; }
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
   }
 
   .infoContainer {
@@ -191,9 +199,15 @@
   }
 
   .overview {
-    h2 { font-size: 1.8rem; }
-    p { font-size: 1.1rem; }
-    span { font-size: 1.5rem; }
+    h2 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    span {
+      font-size: 1.5rem;
+    }
   }
   .itinerary {
     overflow-x: auto;
