@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Heroimg1 from "../../../assets/SEAGUARDIAN/Clipsg.png";
 import Heroimg2 from "../../../assets/SEAGUARDIAN/Oceancleanup1.png";
 import Heroimg3 from "../../../assets/SEAGUARDIAN/seaturlerescue1.png";
+import backgroundVideo from "../../../assets/SEAGUARDIAN/OceanLife .mp4";
 
 const SEAGUARDIAN = () => {
   const thumbStyle = {
@@ -52,6 +53,9 @@ const SEAGUARDIAN = () => {
     <div>
       {/* SECTION 1: Hero Area */}
       <section className={styles.heroContainer}>
+        <video autoPlay loop muted playsInline className={styles.bgVideo}>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
         <div className={styles.content}>
           <h1 className={styles.title}>SEA GUARDIAN</h1>
           <p className={styles.chineseTitle}>海洋保育號</p>
@@ -102,11 +106,6 @@ const SEAGUARDIAN = () => {
         </div>
 
         {/* Floating Image Composition */}
-        <div className={styles.imageGallery}>
-          <img src={Heroimg1} className={styles.mainShip} alt="Cruise Ship" />
-          <img src={Heroimg2} className={styles.thumbDiver} alt="Diver" />
-          <img src={Heroimg3} className={styles.thumbReef} alt="Coral Reef" />
-        </div>
       </section>
 
       {/* hero end */}
