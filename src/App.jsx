@@ -25,10 +25,6 @@ import Contact from "./pages/Contactus/Contact.jsx";
 import AccommodationDetail from "./pages/AccommodationDetail/AccommodationDetail.jsx";
 
 import Dining from "./pages/Dining/Dining.jsx";
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 function App() {
   const cartItemsFromLocalStorage =
@@ -126,10 +122,6 @@ function App() {
           <Route path="AccommodationDetail" element={<AccommodationDetail />} />
 
           <Route path="Dining" element={<Dining />} />
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         </Route>
       </Routes>
     </BrowserRouter>
