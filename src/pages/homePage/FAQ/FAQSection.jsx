@@ -60,7 +60,7 @@ const FAQSection = () => {
       question:
         "Are there any physical requirements or prerequisites for participating in special activities (e.g., diving, coral planting)?",
       answer:
-        "Clear entry criteria apply.◦ Diving activities: A health certificate is required, and height/weight must meet equipment restrictions(see Travel Tips for details). Beginner courses are available with one-on-one instructor guidance, suitable for zero-experience participants. ◦ Conservation activities: Suitable for all age groups. Children can join simplified planting sessions, while adults can apply for official volunteer certificates. Specific restrictions and reservation methods for all activities are listed on the Special Activities & Itineraries page of each ship.",
+        "Clear entry criteria apply. Diving activities: A health certificate is required, and height/weight must meet equipment restrictions(see Travel Tips for details). Beginner courses are available with one-on-one instructor guidance, suitable for zero-experience participants. Conservation activities: Suitable for all age groups. Children can join simplified planting sessions, while adults can apply for official volunteer certificates. Specific restrictions and reservation methods for all activities are listed on the Special Activities & Itineraries page of each ship.",
     },
     {
       icon: "👤",
@@ -96,7 +96,7 @@ const FAQSection = () => {
       question:
         "What is the cancellation policy if I cannot travel due to unforeseen circumstances?",
       answer:
-        "The cancellation policy is strictly implemented based on the following timeframes:◦ 90+ days before departure: Full deposit refunded after deducting administrative fees.◦ 30–89 days before departure: 50% of the deposit refunded.◦ Within 30 days before departure: Deposit non-refundable and non-transferable.◦ Note: If travel insurance is purchased, claims can be filed in accordance with the insurance terms.",
+        "The cancellation policy is strictly implemented based on the following timeframes: 90+ days before departure: Full deposit refunded after deducting administrative fees. 30–89 days before departure: 50% of the deposit refunded. Within 30 days before departure: Deposit non-refundable and non-transferable. Note: If travel insurance is purchased, claims can be filed in accordance with the insurance terms.",
     },
     {
       icon: "👤",
