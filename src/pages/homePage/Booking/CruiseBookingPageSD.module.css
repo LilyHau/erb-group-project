@@ -1,6 +1,6 @@
 /* --- Global Page Wrapper --- */
 .pageContainer {
-  background-color: #ffe9ab;
+  background-color: #e3f8ff;
   padding: 40px 20px;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -14,10 +14,10 @@
   justify-content: center;
   align-items: center;
   /* background:
-    url("../../../assets/Cruises/SD-Logo.png") no-repeat top left / 200px 200px,
-    url("../../../assets//Cruises/SD-ship.png") no-repeat right / 300px,
-    var(--sd-main); */
-  background: url(../../../assets/SERENITYDREAM/World_000.webp) center;
+    url("../../../assets/Cruises/OE-Logo.png") no-repeat top left / 200px 200px,
+    url("../../../assets//Cruises/OE-ship.png") no-repeat right / 300px,
+    var(--oe-main); */
+  background: url(../../../assets/OCEANEXPLORER/OEherovideo_000.webp) bottom;
 }
 .heroContent {
   display: flex;
@@ -38,7 +38,7 @@
     font-size: 1.5rem;
   }
   a {
-    background-color: #d28d8d;
+    background-color: #50c9ff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     margin-top: 0.5rem;
@@ -63,7 +63,7 @@
 }
 .mainTitle {
   text-align: center;
-  color: #d57878;
+  color: #5bc0de;
   font-family: "Irish Grover", cursive;
   font-size: 2.8rem;
   margin-bottom: 40px;
@@ -176,7 +176,7 @@
 
 /* --- Buttons (Match Proceed to Confirm Payment) --- */
 .confirmBtn {
-  background-color: #b57878;
+  background-color: #5bc0de;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -195,7 +195,7 @@
   display: block; /* Required for auto margins to work */
   margin: 20px auto; /* Centering: 20px top/bottom, auto left/right */
 
-  background-color: #d57878;
+  background-color: #5bc0de;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -210,7 +210,7 @@
   /* Removed align-items: center; as it only applies to flex/grid containers */
 }
 .confirmBtnFull {
-  background-color: #d57878;
+  background-color: #5bc0de;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -227,7 +227,7 @@
 }
 
 .disabledBtn {
-  background-color: #d28d8d;
+  background-color: #cbd5e0;
   color: #fff;
   border: none;
   padding: 15px 30px;
@@ -288,10 +288,10 @@
   display: flex;
   justify-content: space-between;
   font-weight: 800;
-  color: #d57878;
+  color: #5bc0de;
   font-size: 1.4rem;
   padding-top: 15px;
-  border-top: 2px solid #d57878;
+  border-top: 2px solid #5bc0de;
 }
 
 /* --- Passenger Forms --- */
@@ -334,7 +334,7 @@
 .successCircle {
   width: 70px;
   height: 70px;
-  background: #d57878;
+  background: #5bc0de;
   color: white;
   font-size: 35px;
   line-height: 70px;
@@ -355,7 +355,7 @@
 }
 
 .modalOkBtn {
-  background: #d57878;
+  background: #5bc0de;
   color: white;
   border: none;
   width: 100%;
@@ -368,7 +368,7 @@
 }
 
 .modalOkBtn:hover {
-  background: #d57878;
+  background: #46b8da;
   transform: translateY(-2px);
 }
 
@@ -402,20 +402,10 @@
       text-align: center;
     }
   }
-}
-@media (max-width: 768px) {
-  .heroContainer {
-    height: auto;
-    padding: 3rem 1rem;
-  }
 
-  .heroContent {
-    h1 {
-      font-size: 2.2rem;
-    }
-    p {
-      font-size: 1.1rem;
-    }
+  .infoContainer {
+    width: 90%;
+    margin: 2rem auto;
   }
 }
 .infoContainers {
