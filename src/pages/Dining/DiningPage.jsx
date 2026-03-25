@@ -162,7 +162,7 @@ const DiningPage = () => {
           themeColor: "#E8F5E9",
           buttoncolor: "#2E7D32",
           shipIcon: SGTAG,
-          menuImage: ReefnRoot,
+          menuImage: GuardianGrind,
         },
         {
           title: "☕Sunset Sips",

@@ -91,12 +91,12 @@ const SERENITYDREAM = () => {
             </div>
             <div className={styles.iconItem}>
               <Link to="/SEAGUARDIAN">
-                <img src={Imageb} alt="Turtle" />
+                <img src={Imagec} alt="Turtle" />
               </Link>
             </div>
             <div className={styles.iconItem}>
               <Link to="/SERENITYDREAM">
-                <img src={Imagec} alt="Island" />
+                <img src={Imageb} alt="Island" />
               </Link>
             </div>
           </div>
