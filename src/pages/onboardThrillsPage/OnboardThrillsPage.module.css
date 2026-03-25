@@ -133,6 +133,7 @@
   border-top: 1px solid var(--black);
   width: 100%;
   padding: 5rem;
+  max-width: 1500px;
 }
 .conservationContainer {
   width: 90%;
