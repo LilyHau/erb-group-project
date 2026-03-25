@@ -418,7 +418,7 @@ const CruiseBookingPageSD = () => {
                     }}
                     value={insurance}
                   >
-                    <option value="">-- Select Option --</option>
+                    <option value="0">-- Select Option --</option>
                     <option value="0">No Insurance</option>
                     <option value="250">Basic Coverage ($250)</option>
                     <option value="500">Premium Coverage ($500)</option>

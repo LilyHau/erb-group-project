@@ -212,7 +212,7 @@ const SEAGUARDIAN = () => {
             {/* 200% specs */}
             And more...
           </p>
-          <p className={styles.explorelink}>[Explore Diving-Focused Menus]</p>
+          {/* <p className={styles.explorelink}>[Explore Diving-Focused Menus]</p> */}
         </div>
       </div>
       <div>
