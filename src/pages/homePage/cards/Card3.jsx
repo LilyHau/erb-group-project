@@ -1,7 +1,7 @@
 import styles from "./Card3.module.css";
 import Button from "../buttons/Button";
 import { Link } from "react-router-dom";
-import explore001Img from "../../assets/homePage/explore001.jpg";
+import explore001Img from "../../../assets/homePage/explore001.jpg";
 
 const Card3 = () => {
   return (
