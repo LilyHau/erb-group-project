@@ -228,7 +228,7 @@
 }
 
 .disabledBtn {
-  background-color: #4caf50;
+  background-color: #8f928f;
   color: #fff;
   border: none;
   padding: 15px 30px;
@@ -303,7 +303,38 @@
 }
 
 .fullWidth {
+  border: 3px solid rgb(76, 175, 80);
   grid-column: span 2;
+}
+.styledEmailInput {
+  border: 3px solid #4caf50; /* Blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 12px 20px; /* Padding inside the textbox */
+  font-size: 1.2rem; /* Larger font size for better readability */
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6); /* Blue glow effect */
+  outline: none; /* Remove default outline on focus */
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.styledEmailInput:focus {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
+  border-color: #4caf50;
+}
+.styledTextbox {
+  border: 3px solid #4caf50; /* Blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 12px 20px; /* Padding inside the textbox */
+  font-size: 1.2rem; /* Larger font size for better readability */
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6); /* Blue glow effect */
+  outline: none; /* Remove default outline on focus */
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s; /* Smooth transition on focus */
+}
+.styledTextbox:focus {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
+  border-color: #4caf50;
 }
 /* Dark background that covers the whole screen */
 .modalOverlay {

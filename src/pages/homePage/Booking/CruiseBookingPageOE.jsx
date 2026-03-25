@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./CruiseBookingPageOE.module.css";
+import styles from "./CruiseBookingPageOE.module.css"; // Ensure this CSS file includes the styles below
 import { Link, useNavigate } from "react-router-dom";
 import Info from "../../../assets/Cruises/Info.png";
 import CRUISEregular from "../../../assets/Cruises/CRUISEregularsuitewithnoseaview.jpg";
@@ -180,21 +180,17 @@ const CruiseBookingPageOE = () => {
           "#ff36ff",
         ],
       });
-
       setTimeout(() => {
         navigate("/shop");
       }, 2500);
     };
-
     if (!showModal) return null;
-
     return (
       <div className={styles.modalOverlay}>
         <div className={styles.modalWindow}>
           <div className={styles.modalHeader}>
             <div className={styles.successIcon}>✓</div>
           </div>
-
           <div className={styles.modalBody}>
             <h2>Booking Confirmed!</h2>
             <p>
@@ -203,7 +199,6 @@ const CruiseBookingPageOE = () => {
               your primary guest.
             </p>
           </div>
-
           <div className={styles.modalFooter}>
             <button className={styles.modalConfirmBtn} onClick={handleConfirm}>
               OK
@@ -214,7 +209,6 @@ const CruiseBookingPageOE = () => {
     );
   };
 
-  // Main JSX return
   return (
     <>
       {/* Hero Section */}
@@ -233,6 +227,7 @@ const CruiseBookingPageOE = () => {
       <div className={styles.pageContainer}>
         <h1 className={styles.mainTitle}>Your Custom Cruise Booking</h1>
         <div className={styles.mainLayout}>
+          {/* Main Form Area */}
           <div className={styles.formArea}>
             {/* Step 1: Dates */}
             {step >= 1 && (
@@ -270,6 +265,7 @@ const CruiseBookingPageOE = () => {
                     type="number"
                     min="0"
                     placeholder="Adults"
+                    className={styles.styledTextbox}
                     value={party.adults}
                     onChange={(e) => {
                       const val = Math.max(0, parseInt(e.target.value) || 0);
@@ -281,6 +277,7 @@ const CruiseBookingPageOE = () => {
                     type="number"
                     min="0"
                     placeholder="Children"
+                    className={styles.styledTextbox}
                     value={party.children}
                     onChange={(e) =>
                       setParty({
@@ -293,7 +290,7 @@ const CruiseBookingPageOE = () => {
               </section>
             )}
 
-            {/* Step 3: Cabins */}
+            {/* Step 3: Select Cabins */}
             {step >= 3 && (
               <section className={styles.formSection}>
                 <h3 className={styles.sectionTitle}>
@@ -320,6 +317,7 @@ const CruiseBookingPageOE = () => {
                         type="number"
                         min="0"
                         value={selectedCabins[c.id]}
+                        className={styles.styledTextbox}
                         onChange={(e) => handleRoomChange(c.id, e.target.value)}
                       />
                     </div>
@@ -350,6 +348,7 @@ const CruiseBookingPageOE = () => {
                         <input
                           type="checkbox"
                           checked={selectedActivities.includes(act.id)}
+                          className={styles.styledTextbox}
                           onChange={() =>
                             setSelectedActivities((prev) =>
                               prev.includes(act.id)
@@ -458,6 +457,7 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="First Name"
+                        className={styles.styledTextbox}
                         value={p.firstName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
@@ -465,6 +465,7 @@ const CruiseBookingPageOE = () => {
                       />
                       <input
                         placeholder="Middle Name"
+                        className={styles.styledTextbox}
                         value={p.middleName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
@@ -472,6 +473,7 @@ const CruiseBookingPageOE = () => {
                       />
                       <input
                         placeholder="Last Name"
+                        className={styles.styledTextbox}
                         value={p.lastName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
@@ -491,6 +493,7 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         type="date"
+                        className={styles.styledTextbox}
                         max={new Date().toISOString().split("T")[0]}
                         value={p.dob || ""}
                         onChange={(e) =>
@@ -500,6 +503,7 @@ const CruiseBookingPageOE = () => {
 
                       <input
                         placeholder="Country"
+                        className={styles.styledTextbox}
                         value={p.country || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
@@ -507,6 +511,7 @@ const CruiseBookingPageOE = () => {
                       />
                       <input
                         placeholder="City"
+                        className={styles.styledTextbox}
                         value={p.city || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
@@ -514,13 +519,14 @@ const CruiseBookingPageOE = () => {
                       />
                       <input
                         placeholder="Address 1"
-                        className={styles.fullWidth}
+                        className={`${styles.styledTextbox} ${styles.fullWidth}`}
                         value={p.addr1 || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
+                        className={styles.styledTextbox}
                         placeholder="Enter N/A for not applicable."
                         value={p.state || ""}
                         onChange={(e) =>
@@ -529,6 +535,7 @@ const CruiseBookingPageOE = () => {
                       />
 
                       <input
+                        className={styles.styledTextbox}
                         placeholder="Enter 000000 for not applicable."
                         value={p.zip || ""}
                         onChange={(e) => {
@@ -540,6 +547,7 @@ const CruiseBookingPageOE = () => {
                       <input
                         type="tel"
                         placeholder="Phone"
+                        className={styles.styledTextbox}
                         value={p.phone || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
@@ -554,11 +562,7 @@ const CruiseBookingPageOE = () => {
                           placeholder="Gmail/iCloud/Hotmail only"
                           type="email"
                           value={p.email || ""}
-                          className={
-                            p.email && !validateEmail(p.email)
-                              ? styles.inputError
-                              : ""
-                          }
+                          className={`${styles.inputError} ${styles.styledEmailInput}`}
                           onChange={(e) =>
                             handlePaxChange(i, "email", e.target.value)
                           }
@@ -576,7 +580,7 @@ const CruiseBookingPageOE = () => {
             )}
           </div>
 
-          {/* Sidebar with summary and payment */}
+          {/* Sidebar: Summary & Payment */}
           <aside className={styles.sidebar}>
             {/* Cancellation Policy */}
             <div className={styles.policyBox}>
@@ -656,13 +660,13 @@ const CruiseBookingPageOE = () => {
               </div>
             </div>
 
-            {/* Payment section */}
+            {/* Payment Section */}
             <div className={styles.paymentBox}>
               <h4>COMPLETE YOUR BOOKING</h4>
               <div className={styles.payGrid}>
                 <input
                   placeholder="Name on Card"
-                  className={styles.fullWidth}
+                  className={styles.styledTextbox}
                   value={paymentDetails.cardName}
                   onChange={(e) => {
                     const val = e.target.value.replace(/[^a-zA-Z\s]/g, "");
@@ -676,14 +680,15 @@ const CruiseBookingPageOE = () => {
                   type="text"
                   inputMode="numeric"
                   placeholder="Card Number"
-                  className={styles.fullWidth}
+                  className={styles.styledTextbox}
                   value={paymentDetails.cardNumber}
                   onChange={handleCardChange}
-                  maxLength="16" // Extra protection to stop typing at 16
+                  maxLength="16"
                 />
 
                 <input
                   placeholder="MM/YY"
+                  className={styles.styledTextbox}
                   value={paymentDetails.expiry}
                   onChange={(e) => {
                     if (e.target.value.length <= 5) {
@@ -697,6 +702,7 @@ const CruiseBookingPageOE = () => {
 
                 <input
                   placeholder="CVV"
+                  className={styles.styledTextbox}
                   value={paymentDetails.cvv}
                   onChange={(e) => {
                     const val = e.target.value.replace(/\D/g, "");
@@ -706,7 +712,6 @@ const CruiseBookingPageOE = () => {
                   }}
                 />
               </div>
-
               <button
                 className={
                   isPaymentReady ? styles.confirmBtn : styles.disabledBtn

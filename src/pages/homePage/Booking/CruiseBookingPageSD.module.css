@@ -1,6 +1,6 @@
 /* --- Global Page Wrapper --- */
 .pageContainer {
-  background-color: #e3f8ff;
+  background-color: #f7d77e;
   padding: 40px 20px;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -39,7 +39,7 @@
     font-size: 1.5rem;
   }
   a {
-    background-color: #50c9ff;
+    background-color: #d28d8d;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     margin-top: 0.5rem;
@@ -64,7 +64,7 @@
 }
 .mainTitle {
   text-align: center;
-  color: #5bc0de;
+  color: #f7d77e;
   font-family: "Irish Grover", cursive;
   font-size: 2.8rem;
   margin-bottom: 40px;
@@ -177,7 +177,7 @@
 
 /* --- Buttons (Match Proceed to Confirm Payment) --- */
 .confirmBtn {
-  background-color: #5bc0de;
+  background-color: #d28d8d;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -196,7 +196,7 @@
   display: block; /* Required for auto margins to work */
   margin: 20px auto; /* Centering: 20px top/bottom, auto left/right */
 
-  background-color: #5bc0de;
+  background-color: #d28d8d;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -211,7 +211,7 @@
   /* Removed align-items: center; as it only applies to flex/grid containers */
 }
 .confirmBtnFull {
-  background-color: #5bc0de;
+  background-color: #d28d8d;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -289,10 +289,10 @@
   display: flex;
   justify-content: space-between;
   font-weight: 800;
-  color: #5bc0de;
+  color: #d28d8d;
   font-size: 1.4rem;
   padding-top: 15px;
-  border-top: 2px solid #5bc0de;
+  border-top: 2px solid #d28d8d;
 }
 
 /* --- Passenger Forms --- */
@@ -335,7 +335,7 @@
 .successCircle {
   width: 70px;
   height: 70px;
-  background: #5bc0de;
+  background: rgb(249, 217, 132);
   color: white;
   font-size: 35px;
   line-height: 70px;
@@ -356,7 +356,7 @@
 }
 
 .modalOkBtn {
-  background: #5bc0de;
+  background: #d28d8d;
   color: white;
   border: none;
   width: 100%;
@@ -369,7 +369,7 @@
 }
 
 .modalOkBtn:hover {
-  background: #46b8da;
+  background: #d28d8d;
   transform: translateY(-2px);
 }
 
@@ -474,4 +474,19 @@
   border-radius: 8px;
   text-align: center;
   z-index: 1000; /* This is also lower than 10000 */
+}
+.styledTextbox {
+  border: 3px solid #f7d77e; /* Blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 12px 20px; /* Padding inside the textbox */
+  font-size: 1.2rem; /* Larger font size for better readability */
+  box-shadow: 0 0 8px rgba(249, 217, 132, 0.6); /* Blue glow effect */
+  outline: none; /* Remove default outline on focus */
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s; /* Smooth transition on focus */
+}
+.styledTextbox:focus {
+  box-shadow: 0 0 12px rgba(249, 217, 132, 0.8);
+  border-color: #f7d77e;
 }

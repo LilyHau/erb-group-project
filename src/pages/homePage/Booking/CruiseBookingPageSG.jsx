@@ -263,8 +263,9 @@ const CruiseBookingPageSG = () => {
                 <div className={styles.inputGrid}>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     placeholder="Adults"
+                    className={styles.styledTextbox}
                     value={party.adults}
                     onChange={(e) => {
                       const val = Math.max(1, parseInt(e.target.value) || 1);
@@ -276,6 +277,7 @@ const CruiseBookingPageSG = () => {
                     type="number"
                     min="0"
                     placeholder="Children"
+                    className={styles.styledTextbox}
                     value={party.children}
                     onChange={(e) =>
                       setParty({
@@ -315,6 +317,7 @@ const CruiseBookingPageSG = () => {
                         type="number"
                         min="0"
                         value={selectedCabins[c.id]}
+                        className={styles.styledTextbox}
                         onChange={(e) => handleRoomChange(c.id, e.target.value)}
                       />
                     </div>
@@ -345,6 +348,7 @@ const CruiseBookingPageSG = () => {
                         <input
                           type="checkbox"
                           checked={selectedActivities.includes(act.id)}
+                          className={styles.styledTextbox}
                           onChange={() =>
                             setSelectedActivities((prev) =>
                               prev.includes(act.id)
@@ -451,6 +455,7 @@ const CruiseBookingPageSG = () => {
 
                       <input
                         placeholder="First Name"
+                        className={styles.styledTextbox}
                         value={p.firstName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "firstName", e.target.value)
@@ -458,6 +463,7 @@ const CruiseBookingPageSG = () => {
                       />
                       <input
                         placeholder="Middle Name"
+                        className={styles.styledTextbox}
                         value={p.middleName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "middleName", e.target.value)
@@ -465,6 +471,7 @@ const CruiseBookingPageSG = () => {
                       />
                       <input
                         placeholder="Last Name"
+                        className={styles.styledTextbox}
                         value={p.lastName || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "lastName", e.target.value)
@@ -484,6 +491,7 @@ const CruiseBookingPageSG = () => {
 
                       <input
                         type="date"
+                        className={styles.styledTextbox}
                         max={new Date().toISOString().split("T")[0]}
                         value={p.dob || ""}
                         onChange={(e) =>
@@ -493,6 +501,7 @@ const CruiseBookingPageSG = () => {
 
                       <input
                         placeholder="Country"
+                        className={styles.styledTextbox}
                         value={p.country || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "country", e.target.value)
@@ -500,6 +509,7 @@ const CruiseBookingPageSG = () => {
                       />
                       <input
                         placeholder="City"
+                        className={styles.styledTextbox}
                         value={p.city || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "city", e.target.value)
@@ -507,13 +517,14 @@ const CruiseBookingPageSG = () => {
                       />
                       <input
                         placeholder="Address 1"
-                        className={styles.fullWidth}
+                        className={`${styles.styledTextbox} ${styles.fullWidth}`}
                         value={p.addr1 || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "addr1", e.target.value)
                         }
                       />
                       <input
+                        className={styles.styledTextbox}
                         placeholder="Enter N/A for not applicable."
                         value={p.state || ""}
                         onChange={(e) =>
@@ -522,6 +533,7 @@ const CruiseBookingPageSG = () => {
                       />
 
                       <input
+                        className={styles.styledTextbox}
                         placeholder="Enter 000000 for not applicable."
                         value={p.zip || ""}
                         onChange={(e) => {
@@ -533,6 +545,7 @@ const CruiseBookingPageSG = () => {
                       <input
                         type="tel"
                         placeholder="Phone"
+                        className={styles.styledTextbox}
                         value={p.phone || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
@@ -547,11 +560,7 @@ const CruiseBookingPageSG = () => {
                           placeholder="Gmail/iCloud/Hotmail only"
                           type="email"
                           value={p.email || ""}
-                          className={
-                            p.email && !validateEmail(p.email)
-                              ? styles.inputError
-                              : ""
-                          }
+                          className={`${styles.inputError} ${styles.styledEmailInput}`}
                           onChange={(e) =>
                             handlePaxChange(i, "email", e.target.value)
                           }
@@ -654,7 +663,7 @@ const CruiseBookingPageSG = () => {
               <div className={styles.payGrid}>
                 <input
                   placeholder="Name on Card"
-                  className={styles.fullWidth}
+                  className={styles.styledTextbox}
                   value={paymentDetails.cardName}
                   onChange={(e) => {
                     const val = e.target.value.replace(/[^a-zA-Z\s]/g, "");
@@ -668,14 +677,15 @@ const CruiseBookingPageSG = () => {
                   type="text"
                   inputMode="numeric"
                   placeholder="Card Number"
-                  className={styles.fullWidth}
+                  className={styles.styledTextbox}
                   value={paymentDetails.cardNumber}
                   onChange={handleCardChange}
-                  maxLength="16" // Extra protection to stop typing at 16
+                  maxLength="16"
                 />
 
                 <input
                   placeholder="MM/YY"
+                  className={styles.styledTextbox}
                   value={paymentDetails.expiry}
                   onChange={(e) => {
                     if (e.target.value.length <= 5) {
@@ -689,6 +699,7 @@ const CruiseBookingPageSG = () => {
 
                 <input
                   placeholder="CVV"
+                  className={styles.styledTextbox}
                   value={paymentDetails.cvv}
                   onChange={(e) => {
                     const val = e.target.value.replace(/\D/g, "");
