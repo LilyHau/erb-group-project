@@ -262,6 +262,8 @@ const CruiseBookingPageSD = () => {
                   1. Travel Party Details*
                 </h3>
                 <div className={styles.inputGrid}>
+                  <p>Adults</p>
+                  <p>{"\u2265"} 18</p>
                   <input
                     type="number"
                     min="0"
@@ -269,11 +271,13 @@ const CruiseBookingPageSD = () => {
                     className={styles.styledTextbox}
                     value={party.adults}
                     onChange={(e) => {
-                      const val = Math.max(1, parseInt(e.target.value) || 1);
+                      const val = Math.max(0, parseInt(e.target.value) || 0);
                       setParty({ ...party, adults: val });
                       setStep(3);
                     }}
                   />
+                  <p>Children</p>
+                  <p>{"\u2265"} 3</p>
                   <input
                     type="number"
                     min="0"
@@ -526,7 +530,7 @@ const CruiseBookingPageSD = () => {
                       />
                       <input
                         className={styles.styledTextbox}
-                        placeholder="Enter N/A for not applicable."
+                        placeholder="Enter state, N/A for not applicable."
                         value={p.state || ""}
                         onChange={(e) =>
                           handlePaxChange(i, "state", e.target.value)
@@ -535,7 +539,7 @@ const CruiseBookingPageSD = () => {
 
                       <input
                         className={styles.styledTextbox}
-                        placeholder="Enter 000000 for not applicable."
+                        placeholder="Enter zip code, 000000 for not applicable."
                         value={p.zip || ""}
                         onChange={(e) => {
                           const val = e.target.value.replace(/\D/g, "");
