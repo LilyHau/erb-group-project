@@ -221,6 +221,12 @@
     }
   }
 
+  .icon {
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
   /* bottom footer */
   .bottom {
     margin-top: 35px;
