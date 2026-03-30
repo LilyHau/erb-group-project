@@ -198,7 +198,7 @@ const CruiseBookingPageSG = () => {
           <div className={styles.modalBody}>
             <h2>Booking Confirmed!</h2>
             <p>
-              Thank you for choosing <strong>Serenity Dream</strong>.
+              Thank you for choosing <strong>Sea Guardian</strong>.
               <br />A confirmation email with your itinerary has been sent to
               your primary guest.
             </p>
